@@ -10,6 +10,9 @@
 
         <!-- chamando os icones do bootstrap-->
         <link rel="stylesheet" href={{asset('css/bootstrap-icons.css')}}>
+        <!-- chamando arquivo de css para estilizar a página -->
+        <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
+
         
     </head>
 
@@ -17,6 +20,11 @@
 
             @yield('conteudo') <!-- chamando conteudo da view welcome -->
 
+
+            <!-- chamando o js do jquery-->
+            <script src="{{asset('js/jquery.js')}}"></script>
+            <!-- chamando o js do bootstrap-->
+            <script src="{{asset('js/bootstrap.js')}}"></script>
         </body>
 
 </html>
