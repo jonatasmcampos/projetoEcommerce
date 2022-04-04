@@ -27,7 +27,7 @@ class HomeController extends Controller
         if( auth()->user()->perfil === 'administrador' ){
             return view('usuarioAdmin.home');
         }else{
-            return view('welcome');
+            return view('usuario.welcome');
         }
     }
 }
