@@ -14,7 +14,6 @@ use App\Http\Controllers\WelcomeController;
 |
 */
 
-Route::resource('/', WelcomeController::class);
 Auth::routes();
-
+Route::resource('/', WelcomeController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
