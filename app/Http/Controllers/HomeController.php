@@ -23,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         if( auth()->user()->perfil === 'administrador' ){
             return view('usuarioAdmin.home');
         }else{
