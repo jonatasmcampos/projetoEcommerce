@@ -37,7 +37,7 @@
             $i = 1
         @endphp
         @foreach ($produtos as $p)
-            <h1>Produto: {{$i}} | {{$p->produto}} | {{$p->descricao}} | {{$p->preco}} | {{$p->desconto}} | {{$p->id_categoria}}</h1>
+            <h1>Produto: {{$i}} | {{$p->produto}} | {{$p->descricao}} | {{$p->preco}} | {{$p->desconto}} | {{$p->categoria->categoria}}</h1>
 
             <?php $i++?>
         @endforeach

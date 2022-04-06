@@ -12,4 +12,8 @@ class Produto extends ModelPadrao
         'desconto',
         'id_categoria'
     ];
+
+    public function categoria(){
+        return $this->hasOne('App\Models\Categoria', 'id', 'id_categoria');
+    }
 }
