@@ -35,13 +35,9 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $categoria = new Categoria;
+        Categoria::create($request->all());
 
-        $categoria->categoria = $request->categoria;
-
-        $categoria->save();
-
-        return redirect(route('createCategoria'));
+        return redirect(route('categoria.create'));
     }
 
     /**

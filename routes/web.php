@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +22,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Rotas para categoria
 
-Route::get('/home/cadastrar/categoria', [App\Http\Controllers\CategoriaController::class, 'create'])->name('createCategoria');
-Route::post('/home/cadastrar', [App\Http\Controllers\CategoriaController::class, 'store'])->name('saveCategoria');
+// Route::get('/home/cadastrar/categoria', [App\Http\Controllers\CategoriaController::class, 'create'])->name('createCategoria');
+// Route::post('/home/cadastrar', [App\Http\Controllers\CategoriaController::class, 'store'])->name('saveCategoria');
+Route::resource('/home/categoria', CategoriaController::class);
