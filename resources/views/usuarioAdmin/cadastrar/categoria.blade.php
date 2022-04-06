@@ -12,3 +12,13 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<div class="d-flex justify-content-center mx-5">
+  @php
+      $i = 1
+  @endphp
+  @foreach ($categorias as $c)
+      <h1>Categoria: {{$i}} | {{$c->categoria}}</h1>
+      <?php $i++?>
+  @endforeach
+</div>

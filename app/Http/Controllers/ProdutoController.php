@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
-class CategoriaController extends Controller
+class ProdutoController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -24,10 +24,11 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $categorias = Categoria::all();
+    {
 
-        return view('usuarioAdmin.cadastrar.categoria', compact('categorias'));
+        $produtos = Produto::all();
+    
+        return view('usuarioAdmin.cadastrar.produto', compact('produtos'));
     }
 
     /**
@@ -38,9 +39,19 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        Categoria::create($request->all());
+        $categoriaProduto = Categoria::find($request->categoria);
+        $produto = new Produto;
 
-        return redirect(route('categoria.create'));
+        $produto->produto = $request->produto;
+        $produto->descricao = $request->descricao;
+        $produto->preco = $request->preco;
+        $produto->desconto = $request->desconto;
+
+        $produto->id_categoria = $categoriaProduto->id;
+
+        $produto->save();
+
+        return redirect(route('produto.create'));
     }
 
     /**
