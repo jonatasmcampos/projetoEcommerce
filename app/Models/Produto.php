@@ -6,7 +6,7 @@ class Produto extends ModelPadrao
 {
     protected $table = "produtos";
     protected $fillable = [
-        'produto',
+        'nome',
         'descricao',
         'preco',
         'desconto',

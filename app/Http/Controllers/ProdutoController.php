@@ -25,10 +25,9 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-
         $produtos = Produto::all();
-    
-        return view('usuarioAdmin.cadastrar.produto', compact('produtos'));
+        $categorias =  Categoria::all();
+        return view('usuarioAdmin.cadastrar.produto', compact('produtos', 'categorias'));
     }
 
     /**
@@ -39,17 +38,19 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $categoriaProduto = Categoria::find($request->categoria);
-        $produto = new Produto;
+        //já identifica chave estrangeira de categoria
+        $categoriaProduto = Categoria::find($request->categoria)->produtos()->create($request->all());
 
-        $produto->produto = $request->produto;
-        $produto->descricao = $request->descricao;
-        $produto->preco = $request->preco;
-        $produto->desconto = $request->desconto;
+        // $produto = new Produto;
 
-        $produto->id_categoria = $categoriaProduto->id;
+        // $produto->produto = $request->produto;
+        // $produto->descricao = $request->descricao;
+        // $produto->preco = $request->preco;
+        // $produto->desconto = $request->desconto;
 
-        $produto->save();
+        // $produto->id_categoria = $categoriaProduto->id;
+
+        // $produto->save();
 
         return redirect(route('produto.create'));
     }
@@ -62,7 +63,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect(route('produto.destroy', $id));
     }
 
     /**
@@ -73,7 +74,8 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produto = Produto::find($id);
+        return view('usuarioAdmin.editar.produto', compact('produto'));
     }
 
     /**
@@ -85,7 +87,9 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Produto::find($id)->update($request->all());
+        return redirect(route('produto.edit', $id));
+
     }
 
     /**
@@ -96,6 +100,7 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Produto::find($id)->delete();
+        return redirect(route('produto.create'));
     }
 }

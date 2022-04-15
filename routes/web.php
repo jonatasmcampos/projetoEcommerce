@@ -27,3 +27,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::post('/home/cadastrar', [App\Http\Controllers\CategoriaController::class, 'store'])->name('saveCategoria');
 Route::resource('/home/categoria', CategoriaController::class);
 Route::resource('/home/produto', ProdutoController::class);
+Route::resource('/home/Estoque', EstoqueController::class);

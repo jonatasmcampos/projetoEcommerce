@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
 use Illuminate\Http\Request;
 
-class CategoriaController extends Controller
+class EstoqueController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +13,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
+        //
     }
 
     /**
@@ -24,9 +23,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
-
-        return view('usuarioAdmin.cadastrar.categoria', compact('categorias'));
+        //
     }
 
     /**
@@ -37,9 +34,7 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        Categoria::create($request->all());
-
-        return redirect(route('categoria.create'));
+        //
     }
 
     /**
@@ -84,7 +79,6 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        Categoria::find($id)->delete();
-        return redirect(route('categoria.create'));
+        //
     }
 }
