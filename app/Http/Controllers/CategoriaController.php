@@ -26,7 +26,7 @@ class CategoriaController extends Controller
     {
         $categorias = Categoria::all();
 
-        return view('usuarioAdmin.cadastrar.categoria', compact('categorias'));
+        return view('usuarioAdmin.categoria.index', compact('categorias'));
     }
 
     /**

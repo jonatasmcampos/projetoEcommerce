@@ -16,4 +16,9 @@ class Produto extends ModelPadrao
     public function categoria(){
         return $this->hasOne('App\Models\Categoria', 'id', 'id_categoria');
     }
+
+
+    public function estoque(){
+        return $this->hasOne('App\Models\Estoque', 'id_produto', 'id');
+    }
 }

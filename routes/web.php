@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\ProdutoController;
 
 /*
@@ -27,4 +28,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::post('/home/cadastrar', [App\Http\Controllers\CategoriaController::class, 'store'])->name('saveCategoria');
 Route::resource('/home/categoria', CategoriaController::class);
 Route::resource('/home/produto', ProdutoController::class);
-Route::resource('/home/Estoque', EstoqueController::class);
+Route::resource('/home/estoque', EstoqueController::class);

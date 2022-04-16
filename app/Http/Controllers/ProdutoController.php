@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Estoque;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        //
+        $produtos = Produto::all();
+        return view('usuarioAdmin.produto.index', compact('produtos'));
     }
 
     /**
@@ -25,9 +27,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        $produtos = Produto::all();
         $categorias =  Categoria::all();
-        return view('usuarioAdmin.cadastrar.produto', compact('produtos', 'categorias'));
+        return view('usuarioAdmin.produto.create', compact('categorias'));
     }
 
     /**
@@ -38,21 +39,11 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //já identifica chave estrangeira de categoria
-        $categoriaProduto = Categoria::find($request->categoria)->produtos()->create($request->all());
+        //já identifica chave estrangeira de categoria e produto para estoque    
+        $categoriaProduto = Categoria::find($request->categoria)->produtos()->create($request->all())
+        ->estoque()->create(['quantidade' => $request->estoque]);
 
-        // $produto = new Produto;
-
-        // $produto->produto = $request->produto;
-        // $produto->descricao = $request->descricao;
-        // $produto->preco = $request->preco;
-        // $produto->desconto = $request->desconto;
-
-        // $produto->id_categoria = $categoriaProduto->id;
-
-        // $produto->save();
-
-        return redirect(route('produto.create'));
+        return redirect(route('estoque.index'));
     }
 
     /**
@@ -75,7 +66,8 @@ class ProdutoController extends Controller
     public function edit($id)
     {
         $produto = Produto::find($id);
-        return view('usuarioAdmin.editar.produto', compact('produto'));
+        $categorias =  Categoria::all();
+        return view('usuarioAdmin.produto.edit', compact('produto','categorias'));
     }
 
     /**
@@ -88,8 +80,7 @@ class ProdutoController extends Controller
     public function update(Request $request, $id)
     {
         Produto::find($id)->update($request->all());
-        return redirect(route('produto.edit', $id));
-
+        return redirect(route('produto.index'));
     }
 
     /**
@@ -101,6 +92,6 @@ class ProdutoController extends Controller
     public function destroy($id)
     {
         Produto::find($id)->delete();
-        return redirect(route('produto.create'));
+        return redirect(route('produto.index'));
     }
 }

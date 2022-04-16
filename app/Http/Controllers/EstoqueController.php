@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estoque;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class EstoqueController extends Controller
@@ -13,7 +15,10 @@ class EstoqueController extends Controller
      */
     public function index()
     {
-        //
+        $produtos = Produto::with('estoque')->paginate(20);
+            //  dd($produtos[0]);
+        ;
+        return view('usuarioAdmin.estoque.index', compact('produtos'));
     }
 
     /**
@@ -23,7 +28,6 @@ class EstoqueController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -34,7 +38,6 @@ class EstoqueController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -68,7 +71,9 @@ class EstoqueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Estoque::find($id)->update(['quantidade' => $request->quantidade]);
+
+        return redirect(route('estoque.index'));
     }
 
     /**
@@ -79,6 +84,7 @@ class EstoqueController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Estoque::find($id)->update(['quantidade' => 0]);
+       return redirect(route('estoque.index'));
     }
 }

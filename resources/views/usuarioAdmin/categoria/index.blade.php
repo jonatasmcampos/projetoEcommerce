@@ -7,18 +7,15 @@
 
     <form action="{{ route('categoria.store') }}" method="POST" class="container col-6">
         @csrf
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Categoria</label>
-            <input required name="nome" type="text" class="form-control" id="exampleInputEmail1">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        @include('usuarioAdmin.categoria.inc._form')
     </form>
     <div class="d-flex justify-content-center mx-5 col-md-10">
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Nº</th>
-                    <th scope="col">Produto</th>
+                    <th scope="col">Categoria</th>
+                    
                 </tr>
             </thead>
             @php
@@ -37,7 +34,7 @@
                                 <td><button type="submit">Deletar</button></td>
                             </form>
                         @else
-                            <td><button type="button" class="btn btn-primary" data-toggle="modal"
+                            <td><button type="button" data-toggle="modal"
                                     data-target="#modalContemProduto{{ $c->id }}">Deletar</button></td>
                             <!-- Modal -->
 

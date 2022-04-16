@@ -3,15 +3,10 @@
 @section('content')
     <h1>PRODUTOS</h1>
     <a href="{{ route('home') }}" class="btn btn-primary">Home</a>
-    @if (!$categorias->count())
-        <h1>Nenhuma categoria cadastrada</h1>
-    @else
-        <form action="{{ route('produto.store') }}" method="POST" class="col-6">
-            @csrf
-            @include('usuarioAdmin.forms.formProduto', ['produto' => ''])
-        </form>
-        <h1>PRODUTOS</h1>
-
+    @if (!$produtos->count())
+        <h1>Nenhuma produto cadastrado</h1>
+        <a href="{{route('produto.create')}}" type="submit">Cadastrar</a>
+    @else                                                               
         @php
             $i = 1;
         @endphp
@@ -25,6 +20,7 @@
                         <th scope="col">categoria</th>
                         <th scope="col">desconto</th>
                         <th scope="col">preço</th>
+                        <th scope="col">estoque</th>
                     </tr>
                 </thead>
                 @foreach ($produtos as $p)
@@ -36,12 +32,13 @@
                             <td>{{ $p->categoria->nome }} </td>
                             <td>{{ $p->desconto }} </td>
                             <td>{{ $p->preco }}</td>
+                            <td>{{ $p->estoque->quantidade }} </td>
                             <td><a href="{{ route('produto.edit', $p->id) }}">Editar</a></td>
                             <form action="{{ route('produto.destroy', $p->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                            <td><button type="submit">Deletar</button></td>
-                        </form>
+                                <td><button type="submit">Deletar</button></td>
+                            </form>
                         </tr>
                     </tbody>
 
@@ -49,6 +46,7 @@
                 @endforeach
             </table>
         </div>
+        <a href="{{route('produto.create')}}" type="submit">Cadastrar</a>
     @endif
 
 @endsection

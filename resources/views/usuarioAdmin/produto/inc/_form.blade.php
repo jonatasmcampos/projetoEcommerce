@@ -1,4 +1,5 @@
 <div class="mb-3">
+
     <label for="exampleInputEmail1" class="form-label">Produto</label>
     <input required value="{{ $produto ? $produto->nome : '' }}" name="nome" type="text" class="form-control"
         id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -18,6 +19,11 @@
     <input name="desconto" value="{{ $produto && $produto->desconto ? $produto->desconto : '' }}" type="number"
         class="form-control" id="exampleInputPassword1">
 </div>
+<div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Estoque</label>
+    <input name="estoque" value="{{ $produto && $produto->estoque ? $produto->estoque : 0 }}" type="number"
+        class="form-control" id="exampleInputPassword1">
+</div>
 @if ($produto)
     <label for="">Categoria</label>
     <input type="text" value="{{ $produto->categoria->nome }}" disabled="disabled" /><br>
@@ -35,4 +41,3 @@
 @endif
 
 <button type="submit" class="btn btn-primary">{{ $produto ? 'Atualizar' : 'Cadastrar' }}</button>
-
