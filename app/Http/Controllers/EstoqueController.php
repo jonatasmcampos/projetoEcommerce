@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
 use App\Models\Estoque;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
-class ProdutoController extends Controller
+class EstoqueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,10 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::all();
-        return view('usuarioAdmin.produto.index', compact('produtos'));
+        $produtos = Produto::with('estoque')->paginate(20);
+            //  dd($produtos[0]);
+        ;
+        return view('usuarioAdmin.estoque.index', compact('produtos'));
     }
 
     /**
@@ -27,8 +28,6 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        $categorias =  Categoria::all();
-        return view('usuarioAdmin.produto.create', compact('categorias'));
     }
 
     /**
@@ -39,11 +38,6 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //já identifica chave estrangeira de categoria e produto para estoque    
-        $categoriaProduto = Categoria::find($request->categoria)->produtos()->create($request->all())
-        ->estoque()->create(['quantidade' => $request->estoque]);
-
-        return redirect(route('produto.index'));
     }
 
     /**
@@ -54,7 +48,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        return redirect(route('produto.destroy', $id));
+        //
     }
 
     /**
@@ -65,9 +59,7 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        $produto = Produto::find($id);
-        $categorias =  Categoria::all();
-        return view('usuarioAdmin.produto.edit', compact('produto', 'categorias'));
+        //
     }
 
     /**
@@ -79,8 +71,9 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Produto::find($id)->update($request->all());
-        return redirect(route('produto.index'));
+        Estoque::find($id)->update(['quantidade' => $request->quantidade]);
+
+        return redirect(route('estoque.index'));
     }
 
     /**
@@ -91,7 +84,7 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        Produto::find($id)->delete();
-        return redirect(route('produto.index'));
+       Estoque::find($id)->update(['quantidade' => 0]);
+       return redirect(route('estoque.index'));
     }
 }

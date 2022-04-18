@@ -6,7 +6,7 @@ class Produto extends ModelPadrao
 {
     protected $table = "produtos";
     protected $fillable = [
-        'produto',
+        'nome',
         'descricao',
         'preco',
         'desconto',
@@ -15,5 +15,10 @@ class Produto extends ModelPadrao
 
     public function categoria(){
         return $this->hasOne('App\Models\Categoria', 'id', 'id_categoria');
+    }
+
+
+    public function estoque(){
+        return $this->hasOne('App\Models\Estoque', 'id_produto', 'id');
     }
 }

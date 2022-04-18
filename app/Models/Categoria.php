@@ -6,6 +6,12 @@ class Categoria extends ModelPadrao
 {
     protected $table = "categorias";
     protected $fillable = [
-        'categoria'
+        'nome'
     ];
+
+
+    public function produtos()
+    {
+        return $this->hasMany('App\Models\Produto', 'id_categoria', 'id');
+    }
 }

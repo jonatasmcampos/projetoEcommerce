@@ -15,7 +15,6 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -24,10 +23,10 @@ class CategoriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         $categorias = Categoria::all();
 
-        return view('usuarioAdmin.cadastrar.categoria', compact('categorias'));
+        return view('usuarioAdmin.categoria.index', compact('categorias'));
     }
 
     /**
@@ -85,6 +84,7 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Categoria::find($id)->delete();
+        return redirect(route('categoria.create'));
     }
 }
