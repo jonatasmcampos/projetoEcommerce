@@ -43,7 +43,7 @@ class ProdutoController extends Controller
         $categoriaProduto = Categoria::find($request->categoria)->produtos()->create($request->all())
         ->estoque()->create(['quantidade' => $request->estoque]);
 
-        return redirect(route('estoque.index'));
+        return redirect(route('produto.index'));
     }
 
     /**
@@ -67,7 +67,7 @@ class ProdutoController extends Controller
     {
         $produto = Produto::find($id);
         $categorias =  Categoria::all();
-        return view('usuarioAdmin.produto.edit', compact('produto','categorias'));
+        return view('usuarioAdmin.produto.edit', compact('produto', 'categorias'));
     }
 
     /**
