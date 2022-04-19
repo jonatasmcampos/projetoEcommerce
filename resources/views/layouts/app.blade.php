@@ -12,7 +12,8 @@
     <!-- chamando os icones do bootstrap-->
     <link rel="stylesheet" href={{asset('css/bootstrap-icons.css')}}>
     <!-- chamando arquivo de css para estilizar a página -->
-    <link rel="stylesheet" href={{asset('css/sass/login/style-login.css')}}> 
+    <link rel="stylesheet" href={{asset('css/sass/login/style-login.css')}}>
+    <link rel="stylesheet" href={{asset('css/sass/cadastrar/style-cadastrar.css')}}> 
     <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
 
 </head>
@@ -73,7 +74,7 @@
             </div>
         </nav> --}}
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

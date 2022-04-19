@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="box-body">
     <div class="box">
         <div class="login-box">
             {{-- DIV DA IMAGEM, ELA ESTA COMO BACKGROUND --}}
@@ -77,4 +79,5 @@
 
         </div>
     </div>
+</div>
 @endsection
