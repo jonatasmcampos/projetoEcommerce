@@ -1,0 +1,49 @@
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 360px;
+    height: fit-content;
+    border: 1px solid #ccc;
+}
+
+.image-box {
+    background-image: url(./../../../img/arvore-por-do-sol.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 30px;
+}
+
+.inputs-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+    .form-control {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .btn-login {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .esqueceuSenha-LembrarDeMim {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.sem-contaa {
+    width: 100%;
+    text-align: center;
+}

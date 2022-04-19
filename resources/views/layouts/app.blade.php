@@ -12,7 +12,8 @@
     <!-- chamando os icones do bootstrap-->
     <link rel="stylesheet" href={{asset('css/bootstrap-icons.css')}}>
     <!-- chamando arquivo de css para estilizar a página -->
-    <link rel="stylesheet" href={{asset('css/sass/style.css')}}> 
+    <link rel="stylesheet" href={{asset('css/sass/login/style-login.css')}}> 
+    <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
 
 </head>
 <body>
@@ -49,6 +50,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
+                            
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
@@ -75,8 +77,6 @@
             @yield('content')
         </main>
     </div>
-
-
 
     <!-- chamando o js do jquery-->
     <script src="{{asset('js/jquery.js')}}"></script>

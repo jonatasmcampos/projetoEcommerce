@@ -4,7 +4,7 @@
     <div class="box">
         <div class="login-box">
             {{-- DIV DA IMAGEM, ELA ESTA COMO BACKGROUND --}}
-            <div class="image-box">asdfasdf</div>
+            <div class="image-box"></div>
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
