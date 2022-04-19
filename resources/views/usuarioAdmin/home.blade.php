@@ -1,14 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-        {{ __('Logout') }}
-    </a>
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-        @csrf
-    </form>
+    @include('navbar.navbar')
     
     <div class="mx-5">
         <a href="{{ route('produto.index') }}">produtos</a>
