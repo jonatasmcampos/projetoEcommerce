@@ -1,0 +1,42 @@
+.container-navbar{
+    display: flex;
+    padding: 7px 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 2px 1px 2px black;
+}
+
+.box-perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid black;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 27px;
+
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+}
+
+.img-perfil{
+    background-image: url(./../../../img/arvore-por-do-sol.png);
+    background-position: center;
+    border-radius: 27px;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+}
+
+.box-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a{
+        margin-right: 7px;
+    }
+}

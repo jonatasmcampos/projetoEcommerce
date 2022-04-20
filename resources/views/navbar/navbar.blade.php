@@ -1,42 +1,49 @@
-<nav>
+<nav class="container-navbar">
 
-    <a href="#">Empresa</a>
+    <div class="box-link">
+        <a href="#">Dashboard</a>
+    </div>
 
-
-    <img src="{{ asset('img/perfil.png') }}" alt="Foto de perfil do usuario">
-
-    {{-- VERIFICA SE O USUARIO ESTA LOGADO PARA MOSTRAR LOGIN
-         OU SE JA ESTA LOGADO MOSTRAR O NOME DELE --}}
-    @guest
-        @if (Route::has('login'))
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-        @endif
-    
-        @if (Route::has('register'))
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-        @endif
-    @else
-        <div class="dropdown">
-            {{-- BOTAO COM NOME DO USUARIO --}}
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                {{ Auth::user()->name }}
-            </button>
-            {{-- BOTAO DE LOGOUT --}}
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-    
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </li>
-            </ul>
+    <div class="box-perfil">
+        {{-- IMAGEM DE PERFIL DO USUARIO --}}
+        <div class="img-perfil">
+            {{-- <img src="{{ asset('img/campo.png') }}" alt="Foto de perfil do usuario"> --}}
         </div>
-    @endguest
+
+        {{-- VERIFICA SE O USUARIO ESTA LOGADO PARA MOSTRAR LOGIN
+             OU SE JA ESTA LOGADO MOSTRAR O NOME DELE --}}
+        @guest
+            @if (Route::has('login'))
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            @endif
+
+            @if (Route::has('register'))
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            @endif
+        @else
+            <div class="dropdown">
+                {{-- BOTAO COM NOME DO USUARIO --}}
+                <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ Auth::user()->name }}
+                </a>
+                {{-- BOTAO DE LOGOUT --}}
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        @endguest
+    </div>
 </nav>
 
 

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href={{asset('css/sass/login/style-login.css')}}>
     <link rel="stylesheet" href={{asset('css/sass/cadastrar/style-cadastrar.css')}}> 
     <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
+    <link rel="stylesheet" href={{asset('css/sass/navbar/style-navbar.css')}}>
 
 </head>
 <body>

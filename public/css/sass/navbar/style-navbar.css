@@ -1,0 +1,61 @@
+.container-navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 7px 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  -webkit-box-shadow: 2px 1px 2px black;
+          box-shadow: 2px 1px 2px black;
+}
+
+.box-perfil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 27px;
+}
+
+.box-perfil a {
+  text-decoration: none;
+  color: #000;
+}
+
+.img-perfil {
+  background-image: url(./../../../img/arvore-por-do-sol.png);
+  background-position: center;
+  border-radius: 27px;
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.box-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box-link a {
+  margin-right: 7px;
+}
+/*# sourceMappingURL=style-navbar.css.map */
