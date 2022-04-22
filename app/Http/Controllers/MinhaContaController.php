@@ -39,21 +39,30 @@ class MinhaContaController extends Controller
      */
     public function store(Request $request)
     {
+        //baixa para storage
+        $pathPerfil =  $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfil.jpg');
+        $pathPerfilEdit = $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfilEdit.jpg');
+        $pathPerfil = explode('public/', $pathPerfil);
+        $pathPerfilEdit = explode('public/', $pathPerfilEdit);
 
-        // dd(explode("public/imageAdmin/", str_replace(" ", "", $request->file('foto')->store('public/imageAdmin'))));
-        //dd($imagem);
-        //dd($img);
-        $name = str_replace(" ", "", $request->file('foto')->getClientOriginalName());
-       // dd($name);
-       $path =  $request->file('foto')->storeAs('public/imageAdmin', $name);
-       $path_bd = explode('public/', $path);
-      //  dd($path_bd);
-       // dd($imagem);
-       $img = Image::make("storage/" . $path_bd[1])->resize(500, 500)->save();
-    
-        User::find(auth()->user()->id)->update(['foto' => "storage/" . $path_bd[1]]);
+        $this->redimensionarImagePerfiAdmin($pathPerfil, $pathPerfil);
+        // $img = Image::make("storage/" . $path_bd[1])->resize(600, 600)->save();
+        // Redimensiona a largura da imagem mantendo a proporção (altura automática)
+        // $img = Image::make("storage/" . $pathPerfil[1]);
+        // $img->resize(null, 320, function ($constraint) {
+        //     $constraint->aspectRatio();
+        // });
+        User::find(auth()->user()->id)->update(['foto' => "storage/imagemPerfilAdminPerfil.jpg"]);
 
         return redirect(route('mihaConta.index'));
+    }
+    public function redimensionarImagePerfiAdmin($pathPerfil, $pathPerfilEdit)
+    {
+        $img = Image::make("storage/" . $pathPerfil[1]);
+        $img->resize(null, 30, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save();
+        //dd($img);
     }
 
 
