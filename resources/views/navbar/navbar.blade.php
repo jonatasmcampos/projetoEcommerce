@@ -7,7 +7,7 @@
     <div class="box-perfil">
         {{-- IMAGEM DE PERFIL DO USUARIO --}}
         <div class="img-perfil">
-            {{-- <img src="{{ asset('img/campo.png') }}" alt="Foto de perfil do usuario"> --}}
+             <img src="{{ asset('storage/imageAdmin/imagemPerfilAdminPerfil.jpg') }}" alt="Foto de perfil do usuario"> 
         </div>
 
         {{-- VERIFICA SE O USUARIO ESTA LOGADO PARA MOSTRAR LOGIN
