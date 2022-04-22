@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
@@ -39,30 +40,31 @@ class MinhaContaController extends Controller
      */
     public function store(Request $request)
     {
-        //baixa para storage
-        $pathPerfil =  $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfil.jpg');
-        $pathPerfilEdit = $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfilEdit.jpg');
-        $pathPerfil = explode('public/', $pathPerfil);
-        $pathPerfilEdit = explode('public/', $pathPerfilEdit);
 
-        $this->redimensionarImagePerfiAdmin($pathPerfil, $pathPerfil);
-        // $img = Image::make("storage/" . $path_bd[1])->resize(600, 600)->save();
-        // Redimensiona a largura da imagem mantendo a proporção (altura automática)
-        // $img = Image::make("storage/" . $pathPerfil[1]);
-        // $img->resize(null, 320, function ($constraint) {
-        //     $constraint->aspectRatio();
-        // });
+        //baixa a imagem se caso atualizada o nome permanecera o mesmo
+        $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfil.jpg');
+        $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfilEdit.jpg');
+
+        $this->redimensionarImagePerfiAdmin('imagemPerfilAdminPerfil.jpg', 'imagemPerfilAdminPerfilEdit.jpg');
+
         User::find(auth()->user()->id)->update(['foto' => "storage/imagemPerfilAdminPerfil.jpg"]);
 
         return redirect(route('mihaConta.index'));
     }
+
     public function redimensionarImagePerfiAdmin($pathPerfil, $pathPerfilEdit)
     {
-        $img = Image::make("storage/" . $pathPerfil[1]);
-        $img->resize(null, 30, function ($constraint) {
+        $img = Image::make('storage/imageAdmin/' . $pathPerfil);
+        $img->resize(50, 50, function ($constraint) {
             $constraint->aspectRatio();
         })->save();
-        //dd($img);
+
+        $img = Image::make('storage/imageAdmin/' . $pathPerfilEdit);
+        $img->resize(300, 300, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save();
+        //Storage::move('app/imageAdmin/' . $pathPerfil, 'public/img');
+        return;
     }
 
 
