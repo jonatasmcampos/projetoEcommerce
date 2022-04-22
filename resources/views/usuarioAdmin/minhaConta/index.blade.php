@@ -23,6 +23,19 @@
             <div class="box-opcoes">
                 <a href="#">Dashboarda</a>
             </div>
+            <div class="box-opcoes">
+                <a href="#">Nome</a>
+            </div>
+            <div class="box-opcoes">
+                <a href="#">Foto</a>
+            </div>
+            <div class="box-opcoes">
+                <a href="#">E-mail</a>
+            </div>
+            <div class="box-opcoes">
+                <a href="#">Senha</a>
+            </div>
+        
         </div>
 
         {{-- PARTE DO CONTEUDO --}}
@@ -32,7 +45,7 @@
             <form action="{{ route('mihaConta.store') }}" method="POST" enctype="multipart/form-data">
                 {{-- @method('PUT') --}}
                 @csrf
-                @include('usuarioAdmin.minhaConta.inc._form', ['user', $user->foto])
+                @include('usuarioAdmin.minhaConta.inc._formImagePerfil', ['user', $user->foto])
             </form>
         </div>
     </div>
