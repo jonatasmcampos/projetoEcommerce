@@ -16,6 +16,7 @@
     <link rel="stylesheet" href={{asset('css/sass/cadastrar/style-cadastrar.css')}}> 
     <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
     <link rel="stylesheet" href={{asset('css/sass/navbar/style-navbar.css')}}>
+    <link rel="stylesheet" href={{asset('css/sass/siedbar/style-siedbar.css')}}>
 
 </head>
 <body>
@@ -24,6 +25,8 @@
 
     <!-- chamando o js do jquery-->
     <script src="{{asset('js/jquery.js')}}"></script>
+    <!-- chamando o js do siedbar-->
+    <script src="{{asset('js/siedbar.js')}}"></script>
     <!-- chamando o js do bootstrap-->
     <script src="{{asset('js/bootstrap.js')}}"></script>
 </body>
