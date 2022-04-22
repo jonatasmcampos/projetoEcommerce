@@ -22,7 +22,7 @@
             </div>
             {{-- AS OPCOES DO ADMIN --}}
             <div class="box-opcoes">
-                <a href="#">Dashboard</a>
+                <a href="#">Dashboarda</a>
             </div>
         </div>
     

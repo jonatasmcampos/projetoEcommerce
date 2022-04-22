@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+
 
 class MinhaContaController extends Controller
 {
@@ -13,7 +16,9 @@ class MinhaContaController extends Controller
      */
     public function index()
     {
-        return view('usuarioAdmin.minhaConta.index');
+        $user = User::find(auth()->user()->id);
+        // dd($user);
+        return view('usuarioAdmin.minhaConta.index', compact('user'));
     }
 
     /**
@@ -34,8 +39,23 @@ class MinhaContaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // dd(explode("public/imageAdmin/", str_replace(" ", "", $request->file('foto')->store('public/imageAdmin'))));
+        //dd($imagem);
+        //dd($img);
+        $name = str_replace(" ", "", $request->file('foto')->getClientOriginalName());
+       // dd($name);
+       $path =  $request->file('foto')->storeAs('public/imageAdmin', $name);
+       $path_bd = explode('public/', $path);
+      //  dd($path_bd);
+       // dd($imagem);
+       $img = Image::make("storage/" . $path_bd[1])->resize(500, 500)->save();
+    
+        User::find(auth()->user()->id)->update(['foto' => "storage/" . $path_bd[1]]);
+
+        return redirect(route('mihaConta.index'));
     }
+
 
     /**
      * Display the specified resource.
