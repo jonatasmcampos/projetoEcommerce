@@ -13,6 +13,10 @@
   padding: 10px 7px;
 }
 
+.box-individual {
+  margin: 14px 0;
+}
+
 .box-menu {
   padding: 17px;
   width: 100%;
@@ -34,8 +38,8 @@
       -ms-flex-align: center;
           align-items: center;
   border-radius: 27px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: #444;
 }
 
@@ -51,10 +55,18 @@
   width: 300px;
   height: 100vh;
   background-color: #232334;
-  padding: 17px 0;
+  padding: 27px 0;
   -webkit-box-shadow: 2px 1px 2px black;
           box-shadow: 2px 1px 2px black;
   display: none;
+}
+
+.container-siedbar a {
+  color: #fff;
+}
+
+.container-siedbar a:hover {
+  color: orangered;
 }
 
 .container-siedbar-icons {

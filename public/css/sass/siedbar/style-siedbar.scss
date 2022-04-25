@@ -11,6 +11,9 @@ $background-siedbar: #232334;
 .box-opcoes{
     padding: 10px 7px;
 }
+.box-individual{
+    margin: 14px 0;
+}
 .box-menu{
     padding: 17px;
     width: 100%;
@@ -24,8 +27,8 @@ $background-siedbar: #232334;
     justify-content: center;
     align-items: center;
     border-radius: 27px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-color: #444;
 
     &:hover{
@@ -41,9 +44,17 @@ $background-siedbar: #232334;
     width: 300px;
     height: 100vh;
     background-color: $background-siedbar;
-    padding: 17px 0;
+    padding: 27px 0;
     box-shadow: 2px 1px 2px black;
     display: none;
+
+    a{
+        color: #fff;
+
+        &:hover{
+            color: orangered;
+        }
+    }
 }
 
 .container-siedbar-icons{
