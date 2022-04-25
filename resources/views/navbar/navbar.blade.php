@@ -1,8 +1,12 @@
 <nav class="container-navbar">
 
     <div class="box-link">
-        <i class="bi bi-house-fill"></i> &nbsp;
-        <a href="{{route('home')}}">Dashboard</a>
+        <div>
+            <i class="bi bi-house-fill"></i>
+            <a href="{{route('home')}}">Dashboard</a>
+        </div>
+        
+        <a href="#"> View atual </a>
     </div>
 
     <div class="box-perfil">

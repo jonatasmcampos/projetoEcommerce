@@ -11502,6 +11502,10 @@ fieldset:disabled .btn {
   width: 100%;
 }
 
+.btn-excluir:hover {
+  color: orangered;
+}
+
 a {
   text-decoration: none;
   color: #000;
