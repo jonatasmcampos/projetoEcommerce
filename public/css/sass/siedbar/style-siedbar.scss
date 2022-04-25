@@ -10,6 +10,8 @@ $background-siedbar: #232334;
 }
 .box-opcoes{
     padding: 10px 7px;
+    display: flex;
+    flex-direction: column;
 }
 .box-individual{
     margin: 14px 0;

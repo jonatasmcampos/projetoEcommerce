@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
 
@@ -18,41 +19,41 @@ class MinhaContaController extends Controller
     public function index()
     {
         $user = User::find(auth()->user()->id);
-        // dd($user);
+        //  dd($user);
         return view('usuarioAdmin.minhaConta.index', compact('user'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function edit_configuracao()
     {
-        //
+        $user = User::find(auth()->user()->id);
+        //dd($user);
+        return view('usuarioAdmin.minhaConta.editConfiguracao', compact('user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function update_configuracao(Request $request)
     {
+        //dd($request->all());
+        User::find(auth()->user()->id)->update([
+            'foto' => "storage/imagemPerfilAdminPerfil.jpg",
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
 
-        //baixa a imagem se caso atualizada o nome permanecera o mesmo
-        $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfil.jpg');
-        $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfilEdit.jpg');
+        if ($request->foto) {
+            $this->validate($request, [
+                'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+            $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfil.jpg');
+            $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfilEdit.jpg');
 
-        $this->redimensionarImagePerfiAdmin('imagemPerfilAdminPerfil.jpg', 'imagemPerfilAdminPerfilEdit.jpg');
+            $this->redimensionarImagePerfilAdmin('imagemPerfilAdminPerfil.jpg', 'imagemPerfilAdminPerfilEdit.jpg');
+        }
 
-        User::find(auth()->user()->id)->update(['foto' => "storage/imagemPerfilAdminPerfil.jpg"]);
 
-        return redirect(route('mihaConta.index'));
+        return redirect(route('edit_configuracao'));
     }
 
-    public function redimensionarImagePerfiAdmin($pathPerfil, $pathPerfilEdit)
+    public function redimensionarImagePerfilAdmin($pathPerfil, $pathPerfilEdit)
     {
         $img = Image::make('storage/imageAdmin/' . $pathPerfil);
         $img->resize(50, 50, function ($constraint) {
@@ -67,6 +68,39 @@ class MinhaContaController extends Controller
         return;
     }
 
+    public function edit_senha(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+
+        return view('usuarioAdmin.minhaConta.editSenha', compact('user'));
+    }
+
+    public function update_senha(Request $request)
+    {
+      //$senha = $_POST['senha_atual'];
+        //echo json_encode($senha);
+        // if (!strcasecmp($_SERVER['REQUEST_METHOD'], 'PUT')) {
+        //     parse_str(file_get_contents('php://input'), $_PUT);
+        $user = User::find(auth()->user()->id);
+        //     //descryptografa senha
+
+        if (Hash::check($_POST['senha_atual'], $user->password)) {
+
+            if ($_POST['senha_nova'] === $_POST['senha_confirma_senha']) {
+                //cryptografa senha
+                $user->update(['password' => Hash::make($_POST['senha_nova'])]);
+                echo json_encode(true);
+                return;
+            } else {
+                echo json_encode('senhaConfirmFalse');
+                return;
+            }
+        } else {
+            echo json_encode('atualIvalida');
+            return;
+        }
+        // }
+    }
 
     /**
      * Display the specified resource.
