@@ -5,7 +5,7 @@
     <div class="container-externo">
 
         @include('siedbar.siedbar')
-    
+      
         {{-- PARTE DO CONTEUDO --}}
         <div class="container-conteudo">
 

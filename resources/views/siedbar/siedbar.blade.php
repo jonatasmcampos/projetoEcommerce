@@ -19,5 +19,10 @@
     {{-- AS OPCOES DO ADMIN --}}
     <div class="box-opcoes">
         <a href="#">Dashboarda</a>
+
+        <a href="#">Minha Conta</a>
+
+       
     </div>
+
 </div>
