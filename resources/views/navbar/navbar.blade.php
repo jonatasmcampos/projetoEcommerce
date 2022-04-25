@@ -2,7 +2,7 @@
 
     <div class="box-link">
         <i class="bi bi-house-fill"></i> &nbsp;
-        <a href="#">Dashboard</a>
+        <a href="{{route('home')}}">Dashboard</a>
     </div>
 
     <div class="box-perfil">
