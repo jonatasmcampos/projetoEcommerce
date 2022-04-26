@@ -3,3 +3,24 @@
 .container-conteudo{
     width: 100%;
 }
+
+.btn-excluir{
+    &:hover{
+        color: orangered;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+
+    &:hover{
+        color: orangered;
+    }
+}
+
+.dropdown-item{
+    a{
+        color: #000 !important;
+    }
+}

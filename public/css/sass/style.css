@@ -11501,4 +11501,21 @@ fieldset:disabled .btn {
 .container-conteudo {
   width: 100%;
 }
+
+.btn-excluir:hover {
+  color: orangered;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: orangered;
+}
+
+.dropdown-item a {
+  color: #000 !important;
+}
 /*# sourceMappingURL=style.css.map */

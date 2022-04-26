@@ -1,7 +1,12 @@
 <nav class="container-navbar">
 
     <div class="box-link">
-        <a href="#">Dashboard</a>
+        <div>
+            <i class="bi bi-house-fill"></i>
+            <a href="{{route('home')}}">Dashboard</a>
+        </div>
+        
+        <a href="#"> View atual </a>
     </div>
 
     <div class="box-perfil">
@@ -29,6 +34,12 @@
                 </a>
                 {{-- BOTAO DE LOGOUT --}}
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    
+                    <li class="mx-3">
+                        @if (auth()->user())
+                            <a href="{{route('mihaConta.index')}}">Minha Conta</a>
+                        @endif
+                    </li>
                     <li>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
@@ -40,11 +51,6 @@
                             @csrf
                         </form>
 
-                    </li>
-                    <li class="mx-3">
-                        @if (auth()->user())
-                            <a href="{{route('mihaConta.index')}}">Minha Conta</a>
-                        @endif
                     </li>
                 </ul>
             </div>
