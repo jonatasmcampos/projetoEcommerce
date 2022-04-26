@@ -17,7 +17,8 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all();
-        return view('usuarioAdmin.produto.index', compact('produtos'));
+        $categorias =  Categoria::all();
+        return view('usuarioAdmin.produto.index', compact('produtos', 'categorias'));
     }
 
     /**
