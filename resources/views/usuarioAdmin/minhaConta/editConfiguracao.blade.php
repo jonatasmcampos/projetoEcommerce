@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="container-externo">
-
+        @if (Session::has('config_user_true'))
+            {{ dd('a') }}
+        @endif
         {{-- PARTE DO CONTEUDO --}}
         <div class="container-conteudo">
 
