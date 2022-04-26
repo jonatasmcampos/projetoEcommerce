@@ -6,7 +6,7 @@
     {{-- PARTE DO CONTEUDO --}}
     <div class="container-conteudo">
         
-        @include('navbar.navbar')
+        @include('navbar.navbar', ['titulo' => 'Editar Senha'])
         
         @include('usuarioAdmin.minhaConta.inc._menus')
      

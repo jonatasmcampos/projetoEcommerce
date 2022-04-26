@@ -3,7 +3,7 @@
 @section('content')
 
 
-    @include('navbar.navbar')
+    @include('navbar.navbar', ['titulo' => 'Produtos'])
 
 
     {{-- TÍTULOS DOS TABS --}}

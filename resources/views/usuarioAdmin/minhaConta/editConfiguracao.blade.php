@@ -8,7 +8,7 @@
         {{-- PARTE DO CONTEUDO --}}
         <div class="container-conteudo">
 
-            @include('navbar.navbar')
+            @include('navbar.navbar', ['titulo' => 'Editar Dados'])
 
             @include('usuarioAdmin.minhaConta.inc._menus')
             <div class="mx-5">
