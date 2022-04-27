@@ -2,11 +2,13 @@
 
 @section('content')
     <div class="container-externo">
-
+        @if (Session::has('config_user_true'))
+            {{ dd('a') }}
+        @endif
         {{-- PARTE DO CONTEUDO --}}
         <div class="container-conteudo">
 
-            @include('navbar.navbar')
+            @include('navbar.navbar', ['titulo' => 'Editar Dados'])
 
             @include('usuarioAdmin.minhaConta.inc._menus')
             <div class="mx-5">

@@ -9,7 +9,7 @@
         {{-- PARTE DO CONTEUDO --}}
         <div class="container-conteudo">
 
-            @include('navbar.navbar')
+            @include('navbar.navbar', ['titulo' => 'Home'])
             
             <h1>Conteúdo</h1>
 

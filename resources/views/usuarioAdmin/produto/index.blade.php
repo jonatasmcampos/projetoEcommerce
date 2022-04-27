@@ -3,7 +3,7 @@
 @section('content')
 
 
-    @include('navbar.navbar')
+    @include('navbar.navbar', ['titulo' => 'Produtos'])
 
 
     {{-- TÍTULOS DOS TABS --}}
@@ -27,7 +27,9 @@
             {{-- LISTA DE PRODUTOS --}}
             @if (!$produtos->count())
                 <h1>Nenhuma produto cadastrado!</h1>
-                <a href="{{ route('produto.create') }}" type="submit">Cadastrar</a>
+
+                {{-- colocar um evento de click para ir para cadastro --}}
+                <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()" >Cadastrar</a>
             @else
                 @php
                     $i = 1;
@@ -76,14 +78,19 @@
                         @endforeach
                     </table>
                 </div>
-                <a href="{{ route('produto.create') }}" type="submit">Cadastrar</a>
             @endif
         </div>
 
         {{-- CADASTRO DE PRODUTOS --}}
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            CADASTRO DE PRODUTOS AQUI
+            <form action="{{ route('produto.store') }}" method="POST" class="col-6">
+                @csrf
+                @include('usuarioAdmin.produto.inc._form', [
+                    'produto' => '',
+                ])
+            </form>
         </div>
     </div>
 
 @endsection
+<script type="text/javascript" src="{{ asset('js/userAdmin/produto/index.js') }}" defer></script>

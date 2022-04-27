@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Session;
+
 
 
 class MinhaContaController extends Controller
@@ -49,17 +50,19 @@ class MinhaContaController extends Controller
             $this->redimensionarImagePerfilAdmin('imagemPerfilAdminPerfil.jpg', 'imagemPerfilAdminPerfilEdit.jpg');
         }
 
-
+        Session::flash('config_user_true');
         return redirect(route('edit_configuracao'));
     }
 
     public function redimensionarImagePerfilAdmin($pathPerfil, $pathPerfilEdit)
     {
+        //imagem icone
         $img = Image::make('storage/imageAdmin/' . $pathPerfil);
         $img->resize(50, 50, function ($constraint) {
             $constraint->aspectRatio();
         })->save();
 
+        //imagem editar
         $img = Image::make('storage/imageAdmin/' . $pathPerfilEdit);
         $img->resize(300, 300, function ($constraint) {
             $constraint->aspectRatio();

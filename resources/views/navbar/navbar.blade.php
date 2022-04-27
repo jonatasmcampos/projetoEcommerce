@@ -5,8 +5,8 @@
             <i class="bi bi-house-fill"></i>
             <a href="{{route('home')}}">Dashboard</a>
         </div>
+        <p>{{$titulo}}</p>
         
-        <a href="#"> View atual </a>
     </div>
 
     <div class="box-perfil">
