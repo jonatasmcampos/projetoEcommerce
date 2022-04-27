@@ -136,8 +136,8 @@ class MinhaContaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
-        dd($id);
+        // dd($request->all());
+        // dd($id);
     }
 
     /**

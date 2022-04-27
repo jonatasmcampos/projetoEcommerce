@@ -3,7 +3,15 @@
 @section('content')
     <div class="container-externo">
         @if (Session::has('config_user_true'))
-            {{ dd('a') }}
+            {{-- {{ dd('a') }} --}}
+            <script>
+                 Swal.fire({
+                    icon: 'success',
+                    title: 'Foto alterada com sucesso',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            </script>
         @endif
         {{-- PARTE DO CONTEUDO --}}
         <div class="container-conteudo">
