@@ -11502,6 +11502,12 @@ fieldset:disabled .btn {
   width: 100%;
 }
 
+.container-externo {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
 .btn-excluir:hover {
   color: orangered;
 }

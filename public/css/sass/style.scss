@@ -3,6 +3,9 @@
 .container-conteudo{
     width: 100%;
 }
+.container-externo{
+    display: flex !important;
+}
 
 .btn-excluir{
     &:hover{
