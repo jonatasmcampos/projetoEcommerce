@@ -19,6 +19,7 @@
     <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
     <link rel="stylesheet" href={{asset('css/sass/navbar/style-navbar.css')}}>
     <link rel="stylesheet" href={{asset('css/sass/siedbar/style-siedbar.css')}}>
+    <link rel="stylesheet" href={{asset('css/sass/categoria/categoria.css')}}>
 
 
      {{-- Materialize --}}

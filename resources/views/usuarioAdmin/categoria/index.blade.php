@@ -1,21 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>CATEGORIA</h1>
-    <a href="{{ route('home') }}">HOME</a>
-
 
     <form action="{{ route('categoria.store') }}" method="POST" class="container col-6">
         @csrf
         @include('usuarioAdmin.categoria.inc._form')
     </form>
-    <div class="d-flex justify-content-center mx-5 col-md-10">
-        <table class="table">
+
+    <div class="noCentro my-5">
+        <table class="table" style="width: 50%">
             <thead>
                 <tr>
                     <th scope="col">Nº</th>
                     <th scope="col">Categoria</th>
-
                 </tr>
             </thead>
             @php
@@ -23,19 +20,27 @@
             @endphp
             @foreach ($categorias as $c)
                 <tbody>
-                    <tr>
-                        <th scope="row">{{ $i }}</th>
+                    <tr style="border: 1px solid black;">
+                        <td class="col-1">{{ $i }}</td>
                         <td>{{ $c->nome }} </td>
 
                         @if (!$c->produtos->count())
                             <form action="{{ route('categoria.destroy', $c->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <td><button class="btn btn-primary" type="submit">Deletar</button></td>
+                                <td>
+                                    <button class="btn" type="submit">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                </td>
                             </form>
                         @else
-                            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#modalContemProduto{{ $c->id }}">Deletar</button></td>
+                            <td style="width: 10% !important">
+                                <button type="button" class="btn" data-bs-toggle="modal"
+                                    data-bs-target="#modalContemProduto{{ $c->id }}">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </td>
                             <!-- Modal -->
                             <div class="modal fade" id="modalContemProduto{{ $c->id }}" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
@@ -73,7 +78,5 @@
             @endforeach
 
         </table>
-
-
     </div>
 @endsection
