@@ -22,7 +22,7 @@ class UsuarioAdmin extends Seeder
             'perfil' => 'administrador',
             'cpf' => '00000000000',
             'telefone' => '912345678',
-            'foto' => 'foto',
+            
         ]);
     }
 }

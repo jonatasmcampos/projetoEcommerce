@@ -3,8 +3,6 @@
 @section('content')
     <div class="container-externo">
 
-        @include('usuarioAdmin.minhaConta.inc._menus')
-
         <div class="mx-5">
             <form id="update_senha" method="POST">
                 @csrf
@@ -13,4 +11,4 @@
         </div>
     </div>
 @endsection
-<script type="text/javascript" src="{{ asset('js/userAdmin/formSenha.js') }}" defer></script>
+<script type="text/javascript" src="{{ asset('js/userAdmin/minhaConta/formSenha.js') }}" defer></script>

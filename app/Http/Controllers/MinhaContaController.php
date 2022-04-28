@@ -35,40 +35,12 @@ class MinhaContaController extends Controller
     {
         //dd($request->all());
         User::find(auth()->user()->id)->update([
-            'foto' => "storage/imagemPerfilAdminPerfil.jpg",
             'name' => $request->name,
             'email' => $request->email,
         ]);
 
-        if ($request->foto) {
-            $this->validate($request, [
-                'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            ]);
-            $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfil.jpg');
-            $request->file('foto')->storeAs('public/imageAdmin', 'imagemPerfilAdminPerfilEdit.jpg');
-
-            $this->redimensionarImagePerfilAdmin('imagemPerfilAdminPerfil.jpg', 'imagemPerfilAdminPerfilEdit.jpg');
-        }
-
         Session::flash('config_user_true');
         return redirect(route('edit_configuracao'));
-    }
-
-    public function redimensionarImagePerfilAdmin($pathPerfil, $pathPerfilEdit)
-    {
-        //imagem icone
-        $img = Image::make('storage/imageAdmin/' . $pathPerfil);
-        $img->resize(50, 50, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save();
-
-        //imagem editar
-        $img = Image::make('storage/imageAdmin/' . $pathPerfilEdit);
-        $img->resize(300, 300, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save();
-        //Storage::move('app/imageAdmin/' . $pathPerfil, 'public/img');
-        return;
     }
 
     public function edit_senha(Request $request)
@@ -80,13 +52,9 @@ class MinhaContaController extends Controller
 
     public function update_senha(Request $request)
     {
-      //$senha = $_POST['senha_atual'];
-        //echo json_encode($senha);
-        // if (!strcasecmp($_SERVER['REQUEST_METHOD'], 'PUT')) {
-        //     parse_str(file_get_contents('php://input'), $_PUT);
         $user = User::find(auth()->user()->id);
-        //     //descryptografa senha
 
+        //descryptografa senha e verifica se é compatível com a atual
         if (Hash::check($_POST['senha_atual'], $user->password)) {
 
             if ($_POST['senha_nova'] === $_POST['senha_confirma_senha']) {
@@ -102,7 +70,6 @@ class MinhaContaController extends Controller
             echo json_encode('atualIvalida');
             return;
         }
-        // }
     }
 
     /**

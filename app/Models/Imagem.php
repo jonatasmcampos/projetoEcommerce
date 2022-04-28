@@ -6,7 +6,7 @@ class Imagem extends ModelPadrao
 {
     protected $table = "imagems";
     protected $fillable = [
-        'imagem',
+        'nome',
         'id_produto'
     ];
 }

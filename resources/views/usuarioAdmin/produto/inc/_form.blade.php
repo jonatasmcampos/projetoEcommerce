@@ -2,8 +2,13 @@
     <h1>Nenhuma Categoria cadastrada</h1>
     <a href="{{ route('categoria.create') }}" class="btn btn-primary">Cadastrar categoria</a>
 @else
-    <div class="mb-3">
 
+    <div class="mb-3">
+        <label for="formFileSm" class="form-label">iamgens</label>
+        <input id="imagesProdutoName" type='file' name='image[]' multiple id='file-input' onchange="newInput(this)" class='file-input'/>
+    </div>
+
+    <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Produto</label>
         <input required value="{{ $produto ? $produto->nome : '' }}" name="nome" type="text" class="form-control"
             id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -46,3 +51,4 @@
     <button type="submit" class="btn btn-primary">{{ $produto ? 'Atualizar' : 'Cadastrar' }}</button>
 
 @endif
+
