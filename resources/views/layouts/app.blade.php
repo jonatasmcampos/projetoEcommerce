@@ -39,8 +39,7 @@
 
             @include('navbar.navbar')
 
-            <div style="padding: 20px;">
-
+            <div class="box-conteudo">
                 @yield('content')
             </div>
         </div>

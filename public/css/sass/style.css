@@ -11502,6 +11502,10 @@ fieldset:disabled .btn {
   width: 100%;
 }
 
+.box-conteudo {
+  padding: 20px;
+}
+
 .container-externo {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -11547,5 +11551,14 @@ i {
 
 i:hover {
   color: orangered;
+}
+
+.box-EditConfigSenha {
+  width: 100%;
+  height: 80vh;
+}
+
+.box-EditConfigSenha div {
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=style.css.map */

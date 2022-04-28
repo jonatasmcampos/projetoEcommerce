@@ -16,4 +16,4 @@
         id="exampleInputPassword1">
     <span id="senhaConfirmFalse"></span>
 </div>
-<button type="submit" class="btn btn-primary">Atualizar</button>
+<button type="submit" class="btn btn-primary" style="float: right">Atualizar</button>

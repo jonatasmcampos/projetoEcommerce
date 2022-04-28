@@ -3,6 +3,9 @@
 .container-conteudo{
     width: 100%;
 }
+.box-conteudo{
+    padding: 20px;
+}
 .container-externo{
     display: flex !important;
 }
@@ -44,4 +47,14 @@ i{
 
 i:hover{
     color: orangered;
+}
+
+.box-EditConfigSenha{
+
+    width: 100%;
+    height: 80vh;
+
+    div{
+        margin-bottom: 10px;
+    }
 }
