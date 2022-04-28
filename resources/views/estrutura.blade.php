@@ -13,13 +13,14 @@
         <!-- chamando arquivo de css para estilizar a página -->
         <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
 
+        {{-- Materialize --}}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
     </head>
 
         <body>
 
             @yield('conteudo') <!-- chamando conteudo da view welcome -->
-
 
             <!-- chamando o js do jquery-->
             <script src="{{asset('js/jquery.js')}}"></script>

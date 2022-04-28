@@ -19,6 +19,7 @@
   left: 100%;
   margin-left: 25px;
   margin-top: -8px;
+  z-index: 1000;
 }
 
 .DicaTexto:after {
@@ -45,6 +46,10 @@
   height: 70px;
 }
 
+.box-home i:hover {
+  color: orangered;
+}
+
 .box-icones {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -53,6 +58,6 @@
 }
 
 .box-icones div {
-  margin-bottom: 17px;
+  margin-bottom: 5px;
 }
 /*# sourceMappingURL=style-siedbar.css.map */

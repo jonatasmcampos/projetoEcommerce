@@ -1,11 +1,9 @@
 <nav class="container-navbar">
 
     <div class="box-link noCentro">
-        
-        <p>Empresa</p>
-        
-        <p>{{$titulo}}</p>
-        
+
+        <p class="empresa">Empresa</p>
+
     </div>
 
     <div class="box-perfil noCentro">
@@ -29,17 +27,11 @@
                 </a>
                 {{-- BOTAO DE LOGOUT --}}
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    
-                    <li class="mx-3">
-                        @if (auth()->user())
-                            <a href="{{route('mihaConta.index')}}">Minha Conta</a>
-                        @endif
-                    </li>
+
                     <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                                                                 document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Sair
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

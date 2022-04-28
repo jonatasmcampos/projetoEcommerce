@@ -2,10 +2,6 @@
 
 @section('content')
 
-
-    @include('navbar.navbar', ['titulo' => 'Produtos'])
-
-
     {{-- TÍTULOS DOS TABS --}}
     <nav class="mx-4 my-4">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">

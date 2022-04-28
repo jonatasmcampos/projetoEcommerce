@@ -11536,4 +11536,12 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
 }
+
+.mIconBranco {
+  color: #fff;
+}
+
+i {
+  font-size: 24px !important;
+}
 /*# sourceMappingURL=style.css.map */

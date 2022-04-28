@@ -25,11 +25,15 @@
   color: #000;
 }
 
-.box-link {
-  border: 1px solid black;
+.box-link .empresa {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-right: 30px;
 }
 
 .box-link p {
-  margin-right: 5px;
+  margin-right: 7px;
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=style-navbar.css.map */

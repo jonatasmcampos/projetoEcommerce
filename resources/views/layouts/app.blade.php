@@ -20,10 +20,25 @@
     <link rel="stylesheet" href={{asset('css/sass/navbar/style-navbar.css')}}>
     <link rel="stylesheet" href={{asset('css/sass/siedbar/style-siedbar.css')}}>
 
+
+     {{-- Materialize --}}
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-    
-    @yield('content')     
+<body>    
+
+    <div class="container-externo">
+
+        @include('siedbar.siedbar')
+      
+        {{-- PARTE DO CONTEUDO --}}
+        <div class="container-conteudo">
+
+            @include('navbar.navbar')
+            
+            @yield('content') 
+
+        </div>
+    </div>        
 
     <!-- chamando o js do jquery-->
     <script src="{{asset('js/jquery.js')}}"></script>

@@ -20,10 +20,16 @@
 
 .box-link{
     
-    border: 1px solid black;
+    .empresa{
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        font-weight: bold;
+        margin-right: 30px;
+    }
     
     p{
-        margin-right: 5px;
+        margin-right: 7px;
+        margin-bottom: 0;
     }
 
 }

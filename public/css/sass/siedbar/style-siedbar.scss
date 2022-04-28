@@ -20,6 +20,7 @@
     left: 100%;
     margin-left: 25px;
     margin-top: -8px;
+    z-index: 1000;
 }
 
 .DicaTexto:after {
@@ -45,12 +46,16 @@
 .box-home {
     border-bottom: 1px solid #ccc;
     height: 70px;
+
+    i:hover{
+        color: orangered;
+    }
 }
 
 .box-icones {
     flex-direction: column;
 
     div{
-        margin-bottom: 17px;
+        margin-bottom: 5px;
     }
 }
