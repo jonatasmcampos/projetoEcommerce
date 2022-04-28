@@ -11544,4 +11544,8 @@ a:hover {
 i {
   font-size: 24px !important;
 }
+
+i:hover {
+  color: orangered;
+}
 /*# sourceMappingURL=style.css.map */

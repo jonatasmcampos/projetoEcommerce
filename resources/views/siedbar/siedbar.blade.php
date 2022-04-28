@@ -19,7 +19,7 @@
         <div class="dropend">
             <button type="button" class="btn dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="Dica">
-                    <i class="bi bi-clipboard2-plus"></i>
+                    <i class="bi bi-clipboard2-plus" style="padding-top: 3px !important; padding-bottom: 3px !important;"></i>
                     <div class="DicaTexto">Cadastro</div>
                 </div>
             </button>

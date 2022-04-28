@@ -46,16 +46,23 @@
 .box-home {
     border-bottom: 1px solid #ccc;
     height: 70px;
-
-    i:hover{
-        color: orangered;
-    }
 }
 
 .box-icones {
     flex-direction: column;
 
-    div{
-        margin-bottom: 5px;
+    div {
+        margin-bottom: 7px;
+
+        i {
+            border: 2px dashed #eef;
+            padding: 7px;
+            border-radius: 27px;
+        }
+
+        i:hover {
+            border: 2px dashed orangered;
+            
+        }
     }
 }
