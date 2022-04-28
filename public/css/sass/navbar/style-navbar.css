@@ -2,7 +2,8 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 12px 24px;
+  height: 70px;
+  padding: 0 20px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -12,21 +13,11 @@
 }
 
 .box-perfil {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 1px solid black;
+  border-left: 1px solid #ccc;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 5px 10px;
-  border-radius: 27px;
 }
 
 .box-perfil a {
@@ -34,29 +25,11 @@
   color: #000;
 }
 
-.img-perfil {
-  background-image: url(./../../../img/arvore-por-do-sol.png);
-  background-position: center;
-  border-radius: 27px;
-  width: 35px;
-  height: 35px;
-  margin-right: 5px;
-}
-
 .box-link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  border: 1px solid black;
 }
 
-.box-link a {
-  margin-right: 20px;
-  letter-spacing: 1px;
+.box-link p {
+  margin-right: 5px;
 }
 /*# sourceMappingURL=style-navbar.css.map */

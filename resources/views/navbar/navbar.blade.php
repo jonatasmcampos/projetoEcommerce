@@ -1,18 +1,14 @@
 <nav class="container-navbar">
 
-    <div class="box-link">
+    <div class="box-link noCentro">
         
-        <h3 style="letter-spacing: 5px">Empresa</h3>
+        <p>Empresa</p>
         
         <p>{{$titulo}}</p>
         
     </div>
 
-    <div class="box-perfil">
-        {{-- IMAGEM DE PERFIL DO USUARIO --}}
-        <div class="img-perfil">
-             <img src="{{ asset('storage/imageAdmin/imagemPerfilAdminPerfil.jpg') }}" alt="Foto de perfil do usuario"> 
-        </div>
+    <div class="box-perfil noCentro">
 
         {{-- VERIFICA SE O USUARIO ESTA LOGADO PARA MOSTRAR LOGIN
              OU SE JA ESTA LOGADO MOSTRAR O NOME DELE --}}
