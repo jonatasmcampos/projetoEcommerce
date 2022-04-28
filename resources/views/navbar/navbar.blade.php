@@ -1,10 +1,9 @@
 <nav class="container-navbar">
 
     <div class="box-link">
-        <div>
-            <i class="bi bi-house-fill"></i>
-            <a href="{{route('home')}}">Dashboard</a>
-        </div>
+        
+        <h3 style="letter-spacing: 5px">Empresa</h3>
+        
         <p>{{$titulo}}</p>
         
     </div>
