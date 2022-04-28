@@ -46,10 +46,6 @@
   height: 70px;
 }
 
-.box-home i:hover {
-  color: orangered;
-}
-
 .box-icones {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -58,6 +54,16 @@
 }
 
 .box-icones div {
-  margin-bottom: 5px;
+  margin-bottom: 7px;
+}
+
+.box-icones div i {
+  border: 2px dashed #eef;
+  padding: 7px;
+  border-radius: 27px;
+}
+
+.box-icones div i:hover {
+  border: 2px dashed orangered;
 }
 /*# sourceMappingURL=style-siedbar.css.map */
