@@ -1,18 +1,4 @@
 
-<div class="row-cols-md-4  mx-5">
-    <div class="col">
-      <div class="card h-50">
-        <img src="{{ asset('storage/imageAdmin/imagemPerfilAdminPerfilEdit.jpg') }}" class="card-img-top" alt="...">
-        <input name="foto" type="file" class="form-control">
-        <div class="card-footer">
-            <div class="input-group mb-3">
-               
-              </div>
-        </div>
-        </div>
-      </div>
-    </div>
-
 <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1">Nome</span>
     <input name="name" value="{{auth()->user()->name}}" type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">

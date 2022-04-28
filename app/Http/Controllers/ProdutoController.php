@@ -6,6 +6,9 @@ use App\Models\Categoria;
 use App\Models\Estoque;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Session;
 
 class ProdutoController extends Controller
 {
@@ -40,11 +43,49 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->file('image')[0]->extension());
+        
+        for ($i = 0; $i < count($request->file('image')); $i++) {
+           
+            if ($request->hasFile('image') && $this->validaExtecaoImage($request->file('image')[$i]->extension())) {
+               // dd($this->validaExtecaoImage($request->file('image')[2]->extension()));
+                // if (!Storage::disk('local')->allDirectories('public/imageProduto/' . 1)) {
+                //     Storage::disk('local')->makeDirectory('public/imageProduto/' . 1);
+                // }
+                //dd('a');
+            }else {
+                dd($request->file('image')[$i]->getClientOriginalName());
+                Session::flash('config_user_true');
+                return redirect(route(''));
+            }
+        }
+
+
         //já identifica chave estrangeira de categoria e produto para estoque    
-        $categoriaProduto = Categoria::find($request->categoria)->produtos()->create($request->all())
-        ->estoque()->create(['quantidade' => $request->estoque]);
+        // $categoriaProduto = Categoria::find($request->categoria)->produtos()->create($request->all())
+        //     ->estoque()->create(['quantidade' => $request->estoque]);
 
         return redirect(route('produto.index'));
+    }
+
+    public function validaExtecaoImage($extencao)
+    {
+        if ($extencao == 'png' or $extencao == 'jpeg' or $extencao == 'jpg' or $extencao == 'svg') {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function redimensionarImagePerfilAdmin($pathPerfil, $pathPerfilEdit)
+    {
+        //imagem editar
+        $img = Image::make('storage/imageAdmin/' . $pathPerfilEdit);
+        $img->resize(300, 300, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save();
+        //Storage::move('app/imageAdmin/' . $pathPerfil, 'public/img');
+        return;
     }
 
     /**

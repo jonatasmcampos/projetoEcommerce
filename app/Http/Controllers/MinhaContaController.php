@@ -43,23 +43,6 @@ class MinhaContaController extends Controller
         return redirect(route('edit_configuracao'));
     }
 
-    // public function redimensionarImagePerfilAdmin($pathPerfil, $pathPerfilEdit)
-    // {
-    //     //imagem icone
-    //     $img = Image::make('storage/imageAdmin/' . $pathPerfil);
-    //     $img->resize(50, 50, function ($constraint) {
-    //         $constraint->aspectRatio();
-    //     })->save();
-
-    //     //imagem editar
-    //     $img = Image::make('storage/imageAdmin/' . $pathPerfilEdit);
-    //     $img->resize(300, 300, function ($constraint) {
-    //         $constraint->aspectRatio();
-    //     })->save();
-    //     //Storage::move('app/imageAdmin/' . $pathPerfil, 'public/img');
-    //     return;
-    // }
-
     public function edit_senha(Request $request)
     {
         $user = User::find(auth()->user()->id);
