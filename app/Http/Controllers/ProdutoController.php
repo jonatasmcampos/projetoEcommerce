@@ -81,6 +81,7 @@ class ProdutoController extends Controller
         $produto = Produto::find($id);
         $categorias =  Categoria::all();
         return view('usuarioAdmin.produto.edit', compact('produto', 'categorias'));
+        
     }
 
     /**
