@@ -74,7 +74,8 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">{{ $produto ? 'Atualizar' : 'Cadastrar' }}</button>
+        <br>
+        <button type="submit" class="btn btn-primary">{{ $produto ? 'Atualizar' : 'Cadastrar produto' }}</button>
     </div>
 
 @endif
