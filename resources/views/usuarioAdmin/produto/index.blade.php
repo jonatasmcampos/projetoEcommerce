@@ -84,12 +84,14 @@
         {{-- CADASTRO DE PRODUTOS --}}
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
             <div class="row">
-                @include('usuarioAdmin.produto.inc._formImagem', [
-                    'produto' => '',
-                ])
+               
                 <form enctype="multipart/form-data" id="formCadastroProduto" action="{{ route('produto.store') }}"
                     method="POST" class="col-6">
                     @csrf
+                    
+                    @include('usuarioAdmin.produto.inc._formImagem', [
+                        'produto' => '',
+                    ])
                     @include('usuarioAdmin.produto.inc._form', [
                         'produto' => '',
                     ])
