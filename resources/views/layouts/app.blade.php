@@ -15,13 +15,11 @@
     <!-- chamando os icones do bootstrap-->
     <link rel="stylesheet" href={{ asset('css/bootstrap-icons.css') }}>
     <!-- chamando arquivo de css para estilizar a página -->
-
-    <link rel="stylesheet" href={{asset('css/sass/login/style-login.css')}}>
-    <link rel="stylesheet" href={{asset('css/sass/cadastrar/style-cadastrar.css')}}> 
-    <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
-    <link rel="stylesheet" href={{asset('css/sass/navbar/style-navbar.css')}}>
-    <link rel="stylesheet" href={{asset('css/sass/siedbar/style-siedbar.css')}}>
-
+    <link rel="stylesheet" href={{ asset('css/sass/login/style-login.css') }}>
+    <link rel="stylesheet" href={{ asset('css/sass/cadastrar/style-cadastrar.css') }}>
+    <link rel="stylesheet" href={{ asset('css/sass/style.css') }}>
+    <link rel="stylesheet" href={{ asset('css/sass/navbar/style-navbar.css') }}>
+    <link rel="stylesheet" href={{ asset('css/sass/siedbar/style-siedbar.css') }}>
 
 
     {{-- Materialize --}}

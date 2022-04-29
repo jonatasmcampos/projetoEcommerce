@@ -33,6 +33,12 @@ Route::get('/mihaConta/edit-configuracao', [App\Http\Controllers\MinhaContaContr
 Route::put('/mihaConta/update-configuracao', [App\Http\Controllers\MinhaContaController::class, 'update_configuracao'])->name('update_configuracao');
 Route::get('/mihaConta/edit-senha', [App\Http\Controllers\MinhaContaController::class, 'edit_senha'])->name('edit_senha');
 Route::post('/mihaConta/update_senha', [App\Http\Controllers\MinhaContaController::class, 'update_senha'])->name('update_senha');
+
+//categoiras
 Route::resource('/home/categoria', CategoriaController::class);
+
+//produtos
 Route::resource('/home/produto', ProdutoController::class);
+
+//estoques
 Route::resource('/home/estoque', EstoqueController::class);
