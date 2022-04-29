@@ -94,6 +94,12 @@
                         'produto' => '',
                    
                     ])
+                        @include('usuarioAdmin.produto.inc._formImagem', [
+                            'produto' => '',
+                        ])
+                        <div>
+                            <ul id="dp-files"></ul>
+                        </div>
                 </form>
 
             </div>

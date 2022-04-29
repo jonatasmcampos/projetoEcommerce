@@ -3,7 +3,9 @@
     <a href="{{ route('categoria.create') }}" class="btn btn-primary">Cadastrar categoria</a>
 @else
     <div class="box-formCadastrarProdutos">
+        <button style="float: right;" type="submit" class="btn btn-primary">{{ $produto ? 'Atualizar' : 'Cadastrar produto' }}</button><br><br>
         <div class="nome-preco-desconto">
+            
             {{-- NOME DO PRODUTO --}}
             <div class="nome">
                 <label for="exampleInputEmail1" class="form-label">Produto</label>
@@ -66,16 +68,16 @@
             @endif
 
             <div class="imagem">
-                @include('usuarioAdmin.produto.inc._formImagem', [
+                {{-- @include('usuarioAdmin.produto.inc._formImagem', [
                     'produto' => '',
                 ])
                 <div>
                     <ul id="dp-files"></ul>
-                </div>
+                </div> --}}
             </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">{{ $produto ? 'Atualizar' : 'Cadastrar produto' }}</button>
+       
     </div>
 
 @endif
