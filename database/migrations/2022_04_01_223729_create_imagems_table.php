@@ -17,6 +17,7 @@ class CreateImagemsTable extends Migration
             $table->increments("id");
 
             $table->string("nome")->nullable();
+            $table->integer("prioridade")->nullable();
             $table->integer("id_produto")->unsigned();
 
             $table->timestamps();

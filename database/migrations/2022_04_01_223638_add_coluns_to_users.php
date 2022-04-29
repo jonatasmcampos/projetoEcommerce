@@ -28,8 +28,9 @@ class AddColunsToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_loja_id_foreign');
-            $table->dropColumn('loja_id');
+            $table->dropColumn("perfil");
+            $table->dropColumn("cpf");
+            $table->dropColumn("telefone");
         });
     }
 }
