@@ -11544,6 +11544,10 @@ a:hover {
   color: #000 !important;
 }
 
+.dropdown-item:active {
+  background-color: orangered;
+}
+
 .noCentro {
   display: -webkit-box;
   display: -ms-flexbox;

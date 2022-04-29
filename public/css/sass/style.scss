@@ -38,6 +38,10 @@ a{
     a{
         color: #000 !important;
     }
+
+    &:active{
+        background-color: orangered;
+    }
 }
 
 .noCentro {
