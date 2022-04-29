@@ -3,7 +3,7 @@
 @section('content')
     @if (Session::has('true'))
 
-        <body onload="msgSuccess('<?php echo Session::get('true') ?>', 'success')">
+        <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
     <h1>Editar Produto</h1>

@@ -30,6 +30,21 @@
             </ul>
         </div>
 
+        {{--usuarios--}}
+
+        <div class="dropend">
+            <button type="button" class="btn dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="Dica">
+                    <i class="material-icons mIconBranco">people_outline</i>
+                    <div class="DicaTexto">Clientes</div>
+                </div>
+            </button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item"><a href="{{ route('edit_configuracao') }}">Cadastros</a></li>            
+             
+            </ul>
+        </div>
+
         {{-- CONFIGURAÇÕES --}}
         <div class="dropend">
             <button type="button" class="btn dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,6 +58,8 @@
                 <li class="dropdown-item"><a href="{{ route('edit_senha') }}">Alterar senha</a></li>
             </ul>
         </div>
+
+     
         
     </div>
 
