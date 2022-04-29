@@ -9,4 +9,8 @@ class Estoque extends ModelPadrao
         'quantidade',
         'id_produto'
     ];
+
+    public function produto(){
+        return $this->hasOne('App\Models\Produto', 'id', 'id_produto');
+    }
 }

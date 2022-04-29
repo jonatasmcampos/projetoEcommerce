@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
+use PhpParser\Node\Expr\Cast\String_;
 
 class ProdutoController extends Controller
 {
@@ -43,49 +44,19 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->file('image')[0]->extension());
-        
-        for ($i = 0; $i < count($request->file('image')); $i++) {
-           
-            if ($request->hasFile('image') && $this->validaExtecaoImage($request->file('image')[$i]->extension())) {
-               // dd($this->validaExtecaoImage($request->file('image')[2]->extension()));
-                // if (!Storage::disk('local')->allDirectories('public/imageProduto/' . 1)) {
-                //     Storage::disk('local')->makeDirectory('public/imageProduto/' . 1);
-                // }
-                //dd('a');
-            }else {
-                dd($request->file('image')[$i]->getClientOriginalName());
-                Session::flash('config_user_true');
-                return redirect(route(''));
-            }
+        // já identifica chave estrangeira de categoria e produto para estoque  e retorna o estoque
+        $estoque = Categoria::find($request->categoria)->produtos()->create($request->all())
+            ->estoque()->create(['quantidade' => $request->estoque]);
+
+        $produto = $estoque->produto;
+
+        if ($request->hasFile('image')) {
+
+            $this->upload_redimensiona_salva_image_produto($request, $produto);
         }
 
-
-        //já identifica chave estrangeira de categoria e produto para estoque    
-        // $categoriaProduto = Categoria::find($request->categoria)->produtos()->create($request->all())
-        //     ->estoque()->create(['quantidade' => $request->estoque]);
-
+        Session::flash('cria_image_true');
         return redirect(route('produto.index'));
-    }
-
-    public function validaExtecaoImage($extencao)
-    {
-        if ($extencao == 'png' or $extencao == 'jpeg' or $extencao == 'jpg' or $extencao == 'svg') {
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    public function redimensionarImagePerfilAdmin($pathPerfil, $pathPerfilEdit)
-    {
-        //imagem editar
-        $img = Image::make('storage/imageAdmin/' . $pathPerfilEdit);
-        $img->resize(300, 300, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save();
-        //Storage::move('app/imageAdmin/' . $pathPerfil, 'public/img');
-        return;
     }
 
     /**
@@ -119,11 +90,23 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Produto $produto)
     {
-        Produto::find($id)->update($request->all());
-        return redirect(route('produto.index'));
+        //metodo já identifica pelo parametro qual produto pegar no banco de acordo com id que passa pela rota 
+        //atraves do baind no model de produto produto com o @param  int  $id
+  
+        $produto->update($request->all());
+
+        if ($request->hasFile('image')) {
+
+            $this->upload_redimensiona_salva_image_produto($request, $produto);
+        }
+
+        Session::flash('update_image_true');
+        return redirect(route('produto.edit', $produto->id));
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -135,5 +118,28 @@ class ProdutoController extends Controller
     {
         Produto::find($id)->delete();
         return redirect(route('produto.index'));
+    }
+
+    public function upload_redimensiona_salva_image_produto($request, $produto)
+    {
+        for ($i = 0; $i < count($request->file('image')); $i++) {
+
+            //retira os espaços do nome da imagem
+            $nameImage = str_replace(' ', '', $request->file('image')[$i]->getClientOriginalName());
+
+            //baixa para storage/public/imageProduto e cria diretorio e faz o upload de acordo com id do produto
+            $dir = $request->file('image')[$i]->storeAs('public/imageProduto/' . $produto->id,  $nameImage);
+
+            //cria caminho da imagem no banco de acordo com id de produto
+            $produto->imagens()->create(['nome' => str_replace('public', 'storage', $dir)]);
+
+            //recupera imagem para redimencionar
+            $img = Image::make('storage/imageProduto/' . $produto->id . '/' . $nameImage);
+            $img->resize(300, 300, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save();
+        }
+
+        return;
     }
 }

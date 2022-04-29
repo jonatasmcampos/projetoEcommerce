@@ -2,20 +2,20 @@ function cadastraProdutoClick() {
   document.getElementById('nav-profile-tab').click();
 }
 
-//pega os 
+//pega os arquivos do input file
 var inputFiles = [];
 
 function newInput(input) {
   var listaNomeImagens = "";
   var ul = document.getElementById('dp-files');
   inputFiles = input.files;
-   console.log(inputFiles.value);
+
   for (i = 0; i < inputFiles.length; i++) {
     var ext = inputFiles[i].name.split('.').pop();
 
     if (validaExtencaoImage(ext, inputFiles[i].name)) {
       listaNomeImagens += '<li>' + inputFiles[i].name + '</li>'
-    }else{
+    } else {
       input.value = "";
       listaNomeImagens = "";
     }
@@ -24,7 +24,7 @@ function newInput(input) {
 }
 
 function validaExtencaoImage(ext, nameImage) {
-  console.log(ext);
+  // console.log(ext);
   if (ext == 'png' || ext == 'jpeg' || ext == 'jpg' || ext == 'svg') {
     return true;
   } else {
@@ -69,5 +69,14 @@ $(function () {
 
   });
 });
+
+function msgSuccess(msg, typ) {
+  Swal.fire({
+    icon: typ,
+    title: msg,
+    showConfirmButton: false,
+    timer: 1500
+  })
+}
    // console.log(document.getElementById('cadastrarProdutoClick'));
  // console.log(document.getElementById('nav-profile-tab'));

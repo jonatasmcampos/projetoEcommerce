@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    @if (Session::has('cria_image_true'))
+
+        <body onload="msgSuccess('Produto Criado Com Sucesso', 'success')">
+    @endif
 
     {{-- TÍTULOS DOS TABS --}}
     <nav class="mx-4 my-4">
@@ -25,7 +29,7 @@
                 <h1>Nenhuma produto cadastrado!</h1>
 
                 {{-- colocar um evento de click para ir para cadastro --}}
-                <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()" >Cadastrar</a>
+                <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()">Cadastrar</a>
             @else
                 @php
                     $i = 1;
@@ -79,18 +83,20 @@
 
         {{-- CADASTRO DE PRODUTOS --}}
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-         <div class="row" >
-            <form enctype="multipart/form-data" id="formCadastroProduto" action="{{ route('produto.store') }}" method="POST" class="col-6" >
-                @csrf
-                @include('usuarioAdmin.produto.inc._form', [
-                    'produto' => '',
-                ])
-            </form>
-            <div class="col-6">
-                <ul id="dp-files"></ul>
+            <div class="row">
+
+                <form enctype="multipart/form-data" id="formCadastroProduto" action="{{ route('produto.store') }}"
+                    method="POST" class="col-6">
+                    @csrf
+                    @include('usuarioAdmin.produto.inc._form', [
+                        'produto' => '',
+                    ])
+                </form>
+                <div class="col-6">
+                    <ul id="dp-files"></ul>
+                </div>
             </div>
-        </div>
-     
+
         </div>
     </div>
 
