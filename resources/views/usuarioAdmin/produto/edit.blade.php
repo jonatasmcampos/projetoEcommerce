@@ -11,7 +11,9 @@
     @if (!$categorias->count())
         <h1>Nenhuma Produto cadastrado</h1>
     @else
-
+    @include('usuarioAdmin.produto.inc._formImagem', [
+        'produto' => $produto,
+    ])
         <form enctype="multipart/form-data" action="{{ route('produto.update', $produto->id) }}" method="POST">
             @method('PUT')
             @csrf

@@ -67,7 +67,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        return redirect(route('produto.destroy', $id));
+       // return redirect(route('produto.destroy', $id));
     }
 
     /**
@@ -117,8 +117,14 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
+        dd($id);
         Produto::find($id)->delete();
         return redirect(route('produto.index'));
+    }
+
+    public function deleta_image($id_imagem)
+    {
+    dd($id_imagem);
     }
 
     public function upload_redimensiona_salva_image_produto($request, $produto)

@@ -38,7 +38,7 @@ Route::post('/mihaConta/update_senha', [App\Http\Controllers\MinhaContaControlle
 Route::resource('/home/categoria', CategoriaController::class);
 
 //produtos
+Route::delete('deleta-imagem/{id_imagem}', [App\Http\Controllers\ProdutoController::class, 'deleta_image'])->name('deleta_image');
 Route::resource('/home/produto', ProdutoController::class);
-
 //estoques
 Route::resource('/home/estoque', EstoqueController::class);
