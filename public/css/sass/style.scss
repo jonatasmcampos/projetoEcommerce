@@ -1,13 +1,22 @@
 @import './../../../node_modules/bootstrap/scss/bootstrap.scss';
 
+*{
+    box-sizing: border-box;
+}
+
 .container-conteudo{
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 .box-conteudo{
+    margin-left: 70px; //por causa da siedbar que esta fixa
+    margin-top: 70px;  // por causa da navbar que esta fixa
     padding: 20px;
 }
 .container-externo{
     display: flex !important;
+    width: 100%;
 }
 
 .btn-excluir{

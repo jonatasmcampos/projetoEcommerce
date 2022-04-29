@@ -39,6 +39,8 @@
   width: 70px;
   height: 100vh;
   background-color: #232334;
+  position: fixed;
+  left: 0;
 }
 
 .box-home {
