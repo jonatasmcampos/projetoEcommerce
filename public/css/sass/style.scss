@@ -34,6 +34,7 @@ a{
     }
 }
 
+// INICIO EDITANDO BOOTSTRAP  -----------------------------------
 .dropdown-item{
     a{
         color: #000 !important;
@@ -47,6 +48,17 @@ a{
         background-color: orangered;
     }
 }
+.btn-primary{
+    background-color: orangered;
+    border: 1px solid #ccc;
+    padding: 5px 25px;
+    border-radius: 7px;
+    &:hover{
+        background-color: rgba(255, 69, 0, 0.7);
+        border: 1px solid #ccc;
+    }
+}
+// FINAL EDITANDO BOOTSTRAP  -----------------------------------
 
 .noCentro {
     display: flex;
@@ -75,6 +87,8 @@ i:hover{
         margin-bottom: 10px;
     }
 }
+
+//INICIO CADASTRAR PRODUTOS ----------------------------------------
 
 .box-CadastrarProdutos{
     display: flex;
@@ -141,3 +155,5 @@ i:hover{
         width: 100%;
     }
 }
+
+//FINAL CADASTRAR PRODUTOS ----------------------------------------

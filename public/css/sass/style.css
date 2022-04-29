@@ -11552,6 +11552,18 @@ a:hover {
   background-color: orangered;
 }
 
+.btn-primary {
+  background-color: orangered;
+  border: 1px solid #ccc;
+  padding: 5px 25px;
+  border-radius: 7px;
+}
+
+.btn-primary:hover {
+  background-color: rgba(255, 69, 0, 0.7);
+  border: 1px solid #ccc;
+}
+
 .noCentro {
   display: -webkit-box;
   display: -ms-flexbox;
