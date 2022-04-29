@@ -28,20 +28,25 @@
 
 <body>
 
-    <div class="container-externo">
+    @if (auth()->user())
+        <div class="container-externo">
 
-        @include('siedbar.siedbar')
+            @include('siedbar.siedbar')
 
-        {{-- PARTE DO CONTEUDO --}}
-        <div class="container-conteudo">
+            {{-- PARTE DO CONTEUDO --}}
+            <div class="container-conteudo">
 
-            @include('navbar.navbar')
+                @include('navbar.navbar')
 
-            <div class="box-conteudo">
-                @yield('content')
+                <div class="box-conteudo">
+                    @yield('content')
+                </div>
             </div>
         </div>
-    </div>
+    @else
+        @yield('content-login-register')
+    @endif
+
 
     <!-- chamando o js do jquery-->
     <script src="{{ asset('js/jquery.js') }}"></script>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('content-login-register')
 
 <div class="box-body">
     <div class="box">
