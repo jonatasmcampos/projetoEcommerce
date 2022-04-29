@@ -2,7 +2,6 @@
 
 @section('content')
     @if (Session::has('cria_image_true'))
-
         <body onload="msgSuccess('Produto Criado Com Sucesso', 'success')">
     @endif
 
@@ -82,24 +81,17 @@
         </div>
 
         {{-- CADASTRO DE PRODUTOS --}}
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="row">
-               
-                <form enctype="multipart/form-data" id="formCadastroProduto" action="{{ route('produto.store') }}"
-                    method="POST" class="col-6">
-                    @csrf
-                    
-                    @include('usuarioAdmin.produto.inc._formImagem', [
-                        'produto' => '',
-                    ])
-                    @include('usuarioAdmin.produto.inc._form', [
-                        'produto' => '',
-                    ])
-                </form>
-                <div class="col-6">
-                    <ul id="dp-files"></ul>
-                </div>
-            </div>
+        <div 
+            class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+            <form class="box-CadastrarProdutos" enctype="multipart/form-data" id="formCadastroProduto"
+                action="{{ route('produto.store') }}" method="POST" class="col-6">
+                @csrf
+
+                @include('usuarioAdmin.produto.inc._form', [
+                    'produto' => '',
+                ])
+            </form>
 
         </div>
     </div>

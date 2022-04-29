@@ -11544,6 +11544,10 @@ a:hover {
   color: #000 !important;
 }
 
+.dropdown-item a:active {
+  color: #fff !important;
+}
+
 .dropdown-item:active {
   background-color: orangered;
 }
@@ -11579,5 +11583,119 @@ i:hover {
 
 .box-EditConfigSenha div {
   margin-bottom: 10px;
+}
+
+.box-CadastrarProdutos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.box-formCadastrarProdutos {
+  width: 90%;
+}
+
+.box-formCadastrarProdutos input {
+  margin: 7px 0;
+}
+
+.box-formCadastrarProdutos span {
+  background-color: orangered;
+  color: #fff;
+}
+
+.box-formCadastrarProdutos .nome {
+  width: 75%;
+}
+
+.box-formCadastrarProdutos .preco {
+  width: 10%;
+}
+
+.box-formCadastrarProdutos .preco div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box-formCadastrarProdutos .desconto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 10%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.box-formCadastrarProdutos .desconto span {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.box-formCadastrarProdutos .desconto div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box-formCadastrarProdutos .estoque {
+  width: 10%;
+  margin-right: 70px;
+}
+
+.box-formCadastrarProdutos .categoria {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.box-formCadastrarProdutos .nome-preco-desconto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.box-formCadastrarProdutos .estoque-categoria-imagem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
