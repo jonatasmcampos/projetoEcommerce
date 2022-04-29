@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (Session::has('update_image_true'))
+    @if (Session::has('true'))
 
-        <body onload="msgSuccess('Produto Editado Com Sucesso', 'success')">
+        <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
+
     <h1>Editar Produto</h1>
     <a href="{{ route('home') }}" class="btn btn-primary">Home</a>
     @if (!$categorias->count())

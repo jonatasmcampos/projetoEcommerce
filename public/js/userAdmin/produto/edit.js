@@ -31,8 +31,8 @@ function validaExtencaoImage(ext, nameImage) {
     })
     return false;
   }
-
 }
+
 function msgSuccess(msg, typ) {
   Swal.fire({
     icon: typ,

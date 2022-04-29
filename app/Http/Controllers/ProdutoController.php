@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use App\Models\Estoque;
+use App\Models\Imagem;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -67,7 +68,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-       // return redirect(route('produto.destroy', $id));
+        // return redirect(route('produto.destroy', $id));
     }
 
     /**
@@ -81,7 +82,6 @@ class ProdutoController extends Controller
         $produto = Produto::find($id);
         $categorias =  Categoria::all();
         return view('usuarioAdmin.produto.edit', compact('produto', 'categorias'));
-        
     }
 
     /**
@@ -95,19 +95,34 @@ class ProdutoController extends Controller
     {
         //metodo já identifica pelo parametro qual produto pegar no banco de acordo com id que passa pela rota 
         //atraves do baind no model de produto produto com o @param  int  $id
-  
-        $produto->update($request->all());
 
         if ($request->hasFile('image')) {
 
             $this->upload_redimensiona_salva_image_produto($request, $produto);
         }
 
-        Session::flash('update_image_true');
+        $produto->update($request->all());
+
+        Session::flash('true', 'Produto atualizado com sucesso');
         return redirect(route('produto.edit', $produto->id));
     }
 
+    public function torna_imagem_padrao(Imagem $imagem)
+    {
+        $imagem_null = Imagem::where('id_produto', $imagem->id_produto)->where('prioridade', 1)->first();
 
+        if ($imagem_null) {
+
+            $imagem_null->update(['prioridade' => null]);
+
+            $imagem->update(['prioridade' => 1]);
+        } else {
+
+            $imagem->update(['prioridade' => 1]);
+        }
+        Session::flash('true', 'Imagem padrao editada com sucesso');
+        return redirect(route('produto.edit', $imagem->id_produto));
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -117,14 +132,28 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
         Produto::find($id)->delete();
+        Session::flash('delete_produto_true');
         return redirect(route('produto.index'));
     }
 
-    public function deleta_image($id_imagem)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleta_image(Imagem $imagem)
     {
-    dd($id_imagem);
+        //deleta arquivo 
+        Storage::delete(str_replace('storage', 'public', $imagem->nome));
+
+        //deleta caminho no banco
+        $imagem->delete();
+
+        Session::flash('true', 'Imagem deletada com sucesso');
+        return redirect(route('produto.edit', $imagem->id_produto));
     }
 
     public function upload_redimensiona_salva_image_produto($request, $produto)
