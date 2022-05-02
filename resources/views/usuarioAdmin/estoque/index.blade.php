@@ -12,9 +12,9 @@
         @php
             $i = 1;
         @endphp
-        <div class="noCentro my-5">
-            <table class="table" style="width: 60%">
-                <thead>
+        <div class="noCentro my-5 box-elevado">
+            <table class="table my-3 mx-3" style="width: 100%">
+                <thead> 
                     <tr>
                         <th scope="col">Nº</th>
                         <th scope="col">Produto</th>
@@ -24,11 +24,11 @@
                 <tbody>
                     @foreach ($produtos as $p)
                         <tr>
-                            <th scope="row">{{ $i }}</th>
+                            <th style="width: 70px !important" scope="row">{{ $i }}</th>
                             <td>{{ $p->nome }} </td>
-                            <td> {{ $p->estoque->quantidade }} </td>
+                            <td style="width: 70px !important;"> {{ $p->estoque->quantidade }} </td>
 
-                            <td style="width: 10% !important">
+                            <td style="width: 70px !important;">
                                 {{-- BOTAO DE EDITAR ESTOQUE --}}
                                 <button type="button" class="btn" data-bs-toggle="modal"
                                     data-bs-target="#modalEditaEstoque{{ $p->estoque->id }}">
@@ -41,7 +41,8 @@
                             <form action="{{ route('estoque.destroy', $p->estoque->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <td style="width: 10% !important">
+                                {{-- BOTAO ZERAR ESTOQUE --}}
+                                <td style="width: 70px !important">
                                     <button style="padding:0" type="submit" class="btn">
                                         <div class="Dica">
                                             <i class="bi bi-file-excel"

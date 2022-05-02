@@ -23,4 +23,5 @@
       <input value="{{auth()->user()->telefone}}" type="text" class="form-control" placeholder="Username" aria-label="Username">
   
     </div> --}}
+    <br>
     <button type="submit" class="btn btn-primary" style="float: right">Atualizar</button>
