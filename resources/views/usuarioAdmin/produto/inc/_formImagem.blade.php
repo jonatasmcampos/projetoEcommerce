@@ -32,8 +32,8 @@
                             <img class="card-img-top" src="{{ asset($imagem->nome) }}" alt="Card image cap">
                             <div class="card-footer mt-3">
                                 @if ($imagem->prioridade)
-                                    <a style="cursor: pointer; color: blue">
-                                        <i class="bi bi-star"></i>
+                                    <a style="cursor: pointer;">
+                                        <i  class="bi bi-star-fill"></i>
                                     </a>
                                 @else
                                     <form action="{{ route('img_padrao', $imagem->id) }}" method="POST">
@@ -45,15 +45,12 @@
                                     </form>
                                 @endif
 
-
-                                <form action="{{ route('produto.update', $produto->id) }}" method="POST">
-                                    @method('PUT')
-                                    @csrf
+                       
                                     <a type="submit" class="btn btn-excluir" data-bs-toggle="modal"
                                         data-bs-target="#img{{ $imagem->id }}" style="padding:0;">
                                         <i class="bi bi-trash-fill"></i>
                                     </a>
-                                    </a>
+                              
                             </div>
                         </div>
 
