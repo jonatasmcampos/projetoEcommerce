@@ -56,7 +56,7 @@ class ProdutoController extends Controller
             $this->upload_redimensiona_salva_image_produto($request, $produto);
         }
 
-        Session::flash('cria_image_true');
+        Session::flash('true', 'Produto criado com sucesso');
         return redirect(route('produto.index'));
     }
 
@@ -132,8 +132,15 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
+        $imagens = Imagem::where('id_produto', $id)->get();
+
+        if (count($imagens)) {
+            Storage::deleteDirectory('public/imageProduto/' . $id);
+        }
+
         Produto::find($id)->delete();
-        Session::flash('delete_produto_true');
+
+        Session::flash('true', 'Produto deletado com Sucesso');
         return redirect(route('produto.index'));
     }
 
@@ -149,6 +156,12 @@ class ProdutoController extends Controller
         //deleta arquivo 
         Storage::delete(str_replace('storage', 'public', $imagem->nome));
 
+        if ($imagem->prioridade) {
+            $imagem_star = Imagem::where('id_produto', $imagem->id_produto)->where('prioridade', null)->first();
+
+            $imagem_star->update(['prioridade' => 1]);
+            // dd($imagem);
+        }
         //deleta caminho no banco
         $imagem->delete();
 

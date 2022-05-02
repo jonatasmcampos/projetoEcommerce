@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (Session::has('cria_image_true'))
+    @if (Session::has('true'))
 
-        <body onload="msgSuccess('Produto Criado Com Sucesso', 'success')">
+    <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
     {{-- CAIXA TABS --}}
@@ -65,17 +65,46 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('produto.destroy', $p->id) }}" method="POST">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" class="btn btn-excluir" style="padding:0;">
-                                                    <i class="bi bi-trash-fill"></i>
-                                                </button>
-                                            </form>
+
+                                            <button data-bs-toggle="modal" data-bs-target="#prod{{ $p->id }}"
+                                                class="btn" style="padding:0;">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </button>
+
                                         </td>
                                     </tr>
                                 </tbody>
 
+                                {{-- modal confirma delete produto --}}
+                                <div class="modal fade" id="prod{{ $p->id }}" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Excluir produto</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Deseja Realmente excluir o produto {{ $p->nome }}?
+                                            </div>
+                                            <form action="{{ route('produto.destroy', $p->id) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Não</button>
+
+                                                    <button type="submit" class="btn btn-primary"
+                                                        data-bs-dismiss="modal">Sim</button>
+
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                                 <?php $i++; ?>
                             @endforeach
                         </table>
@@ -92,14 +121,13 @@
 
                     @include('usuarioAdmin.produto.inc._form', [
                         'produto' => '',
-                   
                     ])
-                        @include('usuarioAdmin.produto.inc._formImagem', [
-                            'produto' => '',
-                        ])
-                        <div>
-                            <ul id="dp-files"></ul>
-                        </div>
+                    @include('usuarioAdmin.produto.inc._formImagem', [
+                        'produto' => '',
+                    ])
+                    <div>
+                        <ul id="dp-files"></ul>
+                    </div>
                 </form>
 
             </div>
