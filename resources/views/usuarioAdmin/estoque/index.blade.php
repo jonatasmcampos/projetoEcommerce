@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
     <h6>Estoque</h6>
     <br>
 
@@ -62,28 +62,23 @@
                                         <h5 class="modal-title" id="exampleModalLongTitle">Editar estoque de
                                             <b>{{ $p->nome }}</b>
                                         </h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <form action="{{ route('estoque.update', $p->estoque->id) }}" method="POST">
+                                    <form action="{{ route('estoque.update', $p->estoque->id) }}" method="POST">
+                                        <div class="modal-body">
                                             @method('PUT')
                                             @csrf
                                             <div class="form-group mx-sm-3 mb-2">
-
                                                 <input name="quantidade" type="number" class="form-control"
                                                     id="inputPassword2" value="{{ $p->estoque->quantidade }}">
                                             </div>
-                                            <button type="submit" class="btn btn-primary mb-2">Editar</button>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Editar</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Fechar
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
