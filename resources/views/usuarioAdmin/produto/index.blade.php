@@ -7,7 +7,11 @@
     @endif
 
     {{-- CAIXA TABS --}}
+    <h6>Produtos</h6>
+    <br>
+
     <div class="box-elevado">
+
         {{-- TÍTULOS DOS TABS --}}
         <nav class="mx-4 my-4">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">

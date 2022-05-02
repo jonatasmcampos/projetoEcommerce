@@ -2,6 +2,9 @@
 
 @section('content')
 
+    <h6>Configurações</h6>
+    <br>
+
         @if (Session::has('config_user_true'))
             {{-- {{ dd('a') }} --}}
             <script>

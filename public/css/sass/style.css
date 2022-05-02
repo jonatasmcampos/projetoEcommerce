@@ -11621,7 +11621,20 @@ i:hover {
 }
 
 .box-formCadastrarProdutos {
-  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.box-formCadastrarProdutos div {
+  margin: 5px;
 }
 
 .box-formCadastrarProdutos input {
@@ -11638,7 +11651,7 @@ i:hover {
 }
 
 .box-formCadastrarProdutos .preco {
-  width: 10%;
+  width: 120px;
 }
 
 .box-formCadastrarProdutos .preco div {
@@ -11658,7 +11671,7 @@ i:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 10%;
+  width: 130px;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
@@ -11676,8 +11689,12 @@ i:hover {
   display: flex;
 }
 
+.box-formCadastrarProdutos .descricao {
+  width: 100%;
+}
+
 .box-formCadastrarProdutos .estoque {
-  width: 10%;
+  width: 120px;
   margin-right: 70px;
 }
 
@@ -11695,25 +11712,5 @@ i:hover {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-
-.box-formCadastrarProdutos .nome-preco-desconto {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-
-.box-formCadastrarProdutos .estoque-categoria {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

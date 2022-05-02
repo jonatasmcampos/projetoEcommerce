@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <h6>Alterar senha</h6>
+    <br>
     <div class="box-EditConfigSenha noCentro">
         <form id="update_senha" method="POST">
             @csrf

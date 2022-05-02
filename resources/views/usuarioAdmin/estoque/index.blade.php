@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    
+    <h6>Estoque</h6>
+    <br>
 
     @if (!$produtos->count())
         <h1>Nenhuma produto cadastrado</h1>

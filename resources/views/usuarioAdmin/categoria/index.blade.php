@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    
+    <h6>Categorias</h6>
+    <br>
 
     <form action="{{ route('categoria.store') }}" method="POST" class="container col-6">
         @csrf

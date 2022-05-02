@@ -2,10 +2,17 @@
     <h1>Nenhuma Categoria cadastrada</h1>
     <a href="{{ route('categoria.create') }}" class="btn btn-primary">Cadastrar categoria</a>
 @else
-    <div class="box-formCadastrarProdutos">
-        <button style="float: right;" type="submit" class="btn btn-primary">{{ $produto ? 'Atualizar' : 'Cadastrar produto' }}</button><br><br>
-        <div class="nome-preco-desconto">
-            
+    <div>
+
+        {{-- BOTAO DE CADASTRAR O PRODUTO --}}
+        <button style="float: right !important; margin: 0 20px 20px 0; height: max-content;" type="submit"
+            class="btn btn-primary">
+            {{ $produto ? 'Atualizar' : 'Cadastrar produto' }}
+        </button>
+
+        {{-- CAMPOS PARA CADASTRAR OS PRODUTOS --}}
+        <div class="box-formCadastrarProdutos">
+
             {{-- NOME DO PRODUTO --}}
             <div class="nome">
                 <label for="exampleInputEmail1" class="form-label">Produto</label>
@@ -32,15 +39,14 @@
                         aria-describedby="basic-addon1">
                 </div>
             </div>
-        </div>
 
-        <div class="descricao">
-            <label for="exampleInputPassword1" class="form-label">Descrição</label>
-            <input required name="descricao" value="{{ $produto ? $produto->descricao : '' }}" type="text"
-                class="form-control" id="exampleInputPassword1">
-        </div>
 
-        <div class="estoque-categoria">
+            <div class="descricao">
+                <label for="exampleInputPassword1" class="form-label">Descrição</label>
+                <input required name="descricao" value="{{ $produto ? $produto->descricao : '' }}" type="text"
+                    class="form-control" id="exampleInputPassword1">
+            </div>
+
 
             {{-- ESTOQUE DO PRODUTO --}}
             <div class="estoque">
@@ -52,8 +58,12 @@
 
             {{-- CATEGORIA DO PRODUTO --}}
             @if ($produto)
-                <label for="">Categoria</label>
-                <input type="text" value="{{ $produto->categoria->nome }}" disabled="disabled" /><br>
+                <div>
+                    <label for="inputCategoria">Categoria</label>
+                    <br>
+                    <input id="inputCategoria" style="height: max-content" type="text" value="{{ $produto->categoria->nome }}"
+                        disabled="disabled" /><br>
+                </div>
             @else
                 <div class="categoria my-1">
                     <label for="">Selecione a categoria do produto</label>
@@ -67,8 +77,6 @@
                 </div>
             @endif
         </div>
-        <br>
-       
     </div>
 
 @endif
