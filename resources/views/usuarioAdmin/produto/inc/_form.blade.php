@@ -40,7 +40,7 @@
                 class="form-control" id="exampleInputPassword1">
         </div>
 
-        <div class="estoque-categoria-imagem">
+        <div class="estoque-categoria">
 
             {{-- ESTOQUE DO PRODUTO --}}
             <div class="estoque">
@@ -66,15 +66,6 @@
                     </select>
                 </div>
             @endif
-
-            <div class="imagem">
-                {{-- @include('usuarioAdmin.produto.inc._formImagem', [
-                    'produto' => '',
-                ])
-                <div>
-                    <ul id="dp-files"></ul>
-                </div> --}}
-            </div>
         </div>
         <br>
        

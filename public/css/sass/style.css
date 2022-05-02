@@ -11707,7 +11707,7 @@ i:hover {
   width: 100%;
 }
 
-.box-formCadastrarProdutos .estoque-categoria-imagem {
+.box-formCadastrarProdutos .estoque-categoria {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

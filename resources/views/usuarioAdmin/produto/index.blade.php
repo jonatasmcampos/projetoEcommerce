@@ -3,7 +3,7 @@
 @section('content')
     @if (Session::has('true'))
 
-    <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
+        <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
     {{-- CAIXA TABS --}}
@@ -28,10 +28,16 @@
 
                 {{-- LISTA DE PRODUTOS --}}
                 @if (!$produtos->count())
-                    <h1>Nenhuma produto cadastrado!</h1>
-
-                    {{-- colocar um evento de click para ir para cadastro --}}
-                    <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()">Cadastrar</a>
+                    <div class="alert alert-warning noCentro" style="flex-direction: column" role="alert">
+                        <h4 class="alert-heading"><i class="material-icons">feedback</i></h4>
+                        <h3>
+                            Nenhum produto cadastrado!
+                        </h3>
+                        <hr>
+                        <p class="mb-0">
+                            <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()">Cadastrar</a>
+                        </p>
+                    </div>
                 @else
                     @php
                         $i = 1;
