@@ -24,7 +24,8 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-    
+                            
+
                         {{-- INPUT EMAIL --}}
                         <input placeholder="Email" id="email" name="email" type="email" class="form-control campo-email @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email">

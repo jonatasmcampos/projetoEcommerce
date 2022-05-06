@@ -12,15 +12,20 @@
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- chamando os icones do bootstrap-->
     <link rel="stylesheet" href={{ asset('css/bootstrap-icons.css') }}>
     <!-- chamando arquivo de css para estilizar a página -->
     <link rel="stylesheet" href={{ asset('css/sass/login/style-login.css') }}>
-    <link rel="stylesheet" href={{ asset('css/sass/cadastrar/style-cadastrar.css') }}>
-    <link rel="stylesheet" href={{ asset('css/sass/style.css') }}>
+    <link rel="stylesheet" href={{ asset('css/sass/cadastrar-usuario/style-cadastrar.css') }}>
     <link rel="stylesheet" href={{ asset('css/sass/navbar/style-navbar.css') }}>
-    <link rel="stylesheet" href={{ asset('css/sass/siedbar/style-siedbar.css') }}>
 
+    <link rel="stylesheet" href={{ asset('css/sass/style.css') }}>
+    
+    <!-- CSS DO SIDEBAR -->
+    <link rel="stylesheet" href="{{ asset('css/sidebar-css/style.css') }}">
 
     {{-- Materialize --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -28,25 +33,13 @@
 
 <body>
 
-    @if (auth()->user())
-        <div class="container-externo">
-
-            @include('siedbar.siedbar')
-
-            {{-- PARTE DO CONTEUDO --}}
-            <div class="container-conteudo">
-
-                @include('navbar.navbar')
-
-                <div class="box-conteudo">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    @else
+    @if (!auth()->user())        
         @yield('content-login-register')
+    @else
+        @include('sidebar.sidebar')        
     @endif
 
+       
 
     <!-- chamando o js do jquery-->
     <script src="{{ asset('js/jquery.js') }}"></script>
@@ -54,6 +47,14 @@
     <script src="{{ asset('js/siedbar.js') }}"></script>
     <!-- chamando o js do bootstrap-->
     <script src="{{ asset('js/bootstrap.js') }}"></script>
+
+
+    <!-- JS DA SIDEBAR -->
+    <script src="{{ asset('js/sidebar/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/sidebar/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/sidebar/main.js') }}"></script>
+    <script src="{{ asset('js/sidebar/popper.js') }}"></script>
+
 </body>
 
 </html>
