@@ -11503,6 +11503,10 @@ fieldset:disabled .btn {
           box-sizing: border-box;
 }
 
+body {
+  background: #ccc !important;
+}
+
 a {
   text-decoration: none;
 }

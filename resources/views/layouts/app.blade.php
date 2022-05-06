@@ -15,6 +15,10 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- importante para tabs-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
+
     <!-- chamando os icones do bootstrap-->
     <link rel="stylesheet" href={{ asset('css/bootstrap-icons.css') }}>
     <!-- chamando arquivo de css para estilizar a página -->
@@ -27,6 +31,9 @@
     <!-- CSS DO SIDEBAR -->
     <link rel="stylesheet" href="{{ asset('css/sidebar-css/style.css') }}">
 
+    <!-- CSS DO TABS -->
+    <link rel="stylesheet" href="{{ asset('css/tabs/style-tabs.css') }}">
+    
     {{-- Materialize --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
