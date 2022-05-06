@@ -6,12 +6,14 @@
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
+    <h1>Produtos</h1>
+    <br>
+
     <div class="page">
 
-        <h1>Produtos</h1>
-        <br>
         <!-- tabs -->
         <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+
             <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
             <label for="tab1"><i class="icon-bolt"></i>Produtos</label>
 
@@ -19,12 +21,12 @@
             <label for="tab2"><i class="icon-picture"></i>Cadastrar produto</label>
 
             <!--
-                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                        <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+                                            <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                            <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 
-                        <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                        <label for="tab5"><i class="icon-globe"></i>Newton</label>
-                    -->
+                                            <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+                                            <label for="tab5"><i class="icon-globe"></i>Newton</label>
+                                        -->
 
             <ul>
                 <li class="tab-content tab-content-first typography">
@@ -44,7 +46,79 @@
                         @php
                             $i = 1;
                         @endphp
-                        <div class="col-md-10 mx-auto">
+
+
+                        <section class="ftco-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div style="padding:0;" class="col-12">
+                                        <div class="table-wrap">
+                                            <table class="table">
+                                                <thead class="thead-primary">
+                                                    <tr>
+                                                        <th>Nº</th>
+                                                        <th>Imagem</th>
+                                                        <th>Produto</th>
+                                                        <th>Categoria</th>
+                                                        <th>Tam</th>
+                                                        <th>Cor</th>
+                                                        <th>Preço</th>
+                                                        <th>Desconto</th>
+                                                        <th>Estoque</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($produtos as $p)
+                                                        <tr class="alert" role="alert">
+                                                            <td>
+                                                                <span>{{ $i }}</span>
+                                                            </td>
+                                                            <td>
+                                                                {{-- <div class="img"
+                                                                style="background-image: url(../../../../public/img/campo.png);"></div> --}}
+                                                                <img style="width: 100px; height: 50px"
+                                                                    src="{{ asset('img/campo.png') }}"
+                                                                    alt="Foto do produto">
+                                                            </td>
+                                                            <td>
+                                                                <div class="email">
+                                                                    <span>{{ $p->nome }}</span>
+                                                                    <span></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <span>{{ $p->categoria->nome }}</span>
+                                                            </td>
+                                                            <td>M</td>
+                                                            <td class="quantity">
+                                                                <span>Branco com cinza</span>
+                                                            </td>
+                                                            <td>R$ {{ $p->preco }}</td>
+                                                            <td>
+                                                                {{ $p->desconto }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $p->estoque->quantidade }}
+                                                            </td>
+                                                        </tr>
+                                                        <?php $i++; ?>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+
+
+
+
+
+
+
+                        {{-- <div class="col-md-10 mx-auto">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -116,8 +190,9 @@
                                     <?php $i++; ?>
                                 @endforeach
                             </table>
-                        </div>
+                        </div> --}}
                     @endif
+
                 </li>
 
                 <li class="tab-content tab-content-2 typography">

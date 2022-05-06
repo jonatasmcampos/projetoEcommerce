@@ -30,6 +30,9 @@
     
     <!-- CSS DO SIDEBAR -->
     <link rel="stylesheet" href="{{ asset('css/sidebar-css/style.css') }}">
+    
+    <!-- CSS DO TABLE -->
+    <link rel="stylesheet" href="{{ asset('css/table-css/style.css') }}">
 
     <!-- CSS DO TABS -->
     <link rel="stylesheet" href="{{ asset('css/tabs/style-tabs.css') }}">
