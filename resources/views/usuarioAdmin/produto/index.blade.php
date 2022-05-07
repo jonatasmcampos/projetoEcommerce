@@ -6,8 +6,7 @@
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
-    <h1>Produtos</h1>
-    <br>
+    <h1 style="margin-left: 25px">Produtos</h1>
 
     <div class="page">
 
@@ -52,7 +51,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div style="padding:0;" class="col-12">
-                                        <div class="table-wrap">
+                                        <div class="table-wrap" style="height: 57vh">
                                             <table class="table">
                                                 <thead class="thead-primary">
                                                     <tr>

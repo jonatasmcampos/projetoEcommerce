@@ -59,7 +59,7 @@
     </nav>
 
     <!-- CONTEUDO DO ECOMMERCE AQUI -->
-    <div id="content" class="p-4 p-md-5 pt-5 mt-3">
+    <div id="content" class="mt-5 pt-2">
 
         @yield('content')
 
