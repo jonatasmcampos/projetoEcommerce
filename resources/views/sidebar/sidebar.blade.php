@@ -19,7 +19,7 @@
             <li>
                 <a href="#" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCadastro"
                     aria-expanded="false" aria-controls="collapseExample">
-                    <span class="fa fa-gift mr-3"></span>
+                    <span class="fa fa-book mr-3"></span>
                     Cadastros
                 </a>
 
