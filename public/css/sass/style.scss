@@ -1,5 +1,6 @@
 @import './../../../node_modules/bootstrap/scss/bootstrap.scss';
 
+// -----------------------   ↓↓↓↓↓↓ PADRÃO ↓↓↓↓↓↓ -----------------------
 *{
     box-sizing: border-box;
 }
@@ -8,6 +9,305 @@ body{
     background: #ccc !important;
 }
 
-a{
-    text-decoration: none;
+// -----------------------   ↑↑↑↑↑↑↑ PADRÃO ↑↑↑↑↑↑↑ -----------------------
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// -----------------------   ↓↓↓↓↓↓ LOGIN ↓↓↓↓↓↓ -----------------------
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    background-color: #fff;
 }
+
+.login-box {
+    width: 360px;
+    height: fit-content;
+    border: 1px solid #ccc;
+}
+
+.image-box {
+    background-image: url(./../../../img/arvore-por-do-sol.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 30px;
+}
+
+.inputs-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+    .form-control {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .btn-login {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .esqueceuSenha-LembrarDeMim {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.sem-contaa {
+    width: 100%;
+    text-align: center;
+}
+
+// -----------------------   ↑↑↑↑↑↑↑ LOGIN ↑↑↑↑↑↑↑ -----------------------
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// -----------------------   ↓↓↓↓↓↓ REGISTER ↓↓↓↓↓↓ -----------------------
+
+.box-body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #abbaab;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffffff, #abbaab);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffff, #abbaab);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.box-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 7px;
+}
+
+.register-box {
+    width: 700px;
+    height: fit-content;
+    border: 1px solid #ccc;
+}
+
+.image-box-register {
+    background-image: url(./../../../img/campo.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 50px;
+}
+
+.inputs-box-register {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 40px;
+
+    .form-control {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .btn-register {
+        width: 50%;
+        margin: 10px 0;
+    }
+
+    .campo-nome {
+        width: 35%;
+    }
+
+    .campo-email {
+        width: 63%;
+    }
+
+    .campo-senha {
+        width: 49%;
+    }
+
+    .campo-confirmar-senha {
+        width: 49%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .register-box {
+        width: 360px;
+    }
+
+    .inputs-box-register {
+
+        justify-content: center;
+
+        .campo-nome {
+            width: 90%;
+        }
+
+        .campo-email {
+            width: 90%;
+        }
+
+        .campo-senha {
+            width: 90%;
+        }
+
+        .campo-confirmar-senha {
+            width: 90%;
+        }
+    }
+}
+
+.tem-conta {
+    width: 100%;
+    text-align: center;
+}
+
+// -----------------------   ↑↑↑↑↑↑↑ REGISTER ↑↑↑↑↑↑↑ -----------------------
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// -----------------------   ↓↓↓↓↓↓ PRODUTOS ↓↓↓↓↓↓ -----------------------
+
+.box-formCadastrarProdutos{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    div{
+        margin-right: 7px;    
+    }
+}
+
+.nome{
+    width: 70%;
+}
+@media (max-width: 900px){
+    .nome{
+        width: 100%;}
+}
+
+.preco{
+    span{
+        width: 45px;
+        background-color: orangered;
+        color: #fff;
+    }
+    div{
+        display: flex;
+    }
+    input{
+        width: 100px;
+    }
+}
+
+.desconto{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    span{
+        background-color: orangered;
+        color: #fff;
+        width: 37px;
+    }
+    div{
+        display: flex;
+    }
+    input{
+        width: 70px;
+    }
+}
+
+.estoque{
+
+    input{
+        width: 100px;
+    }
+}
+
+.categoria{  
+    height: fit-content; 
+}
+
+.btn-add-imagem {
+    position: relative;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.input-upload-imagem {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+
+// -----------------------   ↑↑↑↑↑↑↑ PRODUTOS ↑↑↑↑↑↑↑ -----------------------
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// -----------------------   ↓↓↓↓↓↓ TABLE LISTA DE PRODUTOS ↓↓↓↓↓↓ -----------------------
+
+.ftco-section {
+    padding: 7px 0; 
+}
+.table-wrap {
+    overflow-x: scroll; 
+}
+.table {
+    min-width: 1000px !important;
+    width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+    box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29); }
+    .table thead.thead-primary {
+      background: orangered; }
+    .table thead th {
+      border: none;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: white; }
+    .table tbody tr {
+      margin-bottom: 10px; }
+    .table tbody th, .table tbody td {
+      border: none;
+      padding: 40px auto;
+      font-size: 14px;
+      width: fit-content;
+      background: #fff;
+      border-bottom: 4px solid #ddd;
+      vertical-align: middle; }
+    .table tbody td.quantity {
+      width: 10%; }
+    .table tbody td .img {
+      width: 100px;
+      height: 80px; }
+      .table tbody td .email span {
+        display: block; }
+        .table tbody td .email span:last-child {
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.3); }
+    .table tbody td .close span {
+      font-size: 12px;
+      color: #dc3545; }
+
+// -----------------------   ↑↑↑↑↑↑↑ TABLE LISTA DE PRODUTOS ↑↑↑↑↑↑↑ -----------------------
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

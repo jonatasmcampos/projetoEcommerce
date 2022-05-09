@@ -11507,7 +11507,356 @@ body {
   background: #ccc !important;
 }
 
-a {
-  text-decoration: none;
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 7px;
+  background-color: #fff;
+}
+
+.login-box {
+  width: 360px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 1px solid #ccc;
+}
+
+.image-box {
+  background-image: url(./../../../img/arvore-por-do-sol.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 180px;
+  margin-bottom: 30px;
+}
+
+.inputs-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 0;
+}
+
+.inputs-box .form-control {
+  width: 80%;
+  margin: 10px 0;
+}
+
+.inputs-box .btn-login {
+  width: 80%;
+  margin: 10px 0;
+}
+
+.inputs-box .esqueceuSenha-LembrarDeMim {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sem-contaa {
+  width: 100%;
+  text-align: center;
+}
+
+.box-body {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #abbaab;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#abbaab));
+  background: linear-gradient(to right, #ffffff, #abbaab);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.box-register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  padding: 7px;
+}
+
+.register-box {
+  width: 700px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 1px solid #ccc;
+}
+
+.image-box-register {
+  background-image: url(./../../../img/campo.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 180px;
+  margin-bottom: 50px;
+}
+
+.inputs-box-register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 40px;
+}
+
+.inputs-box-register .form-control {
+  width: 80%;
+  margin: 10px 0;
+}
+
+.inputs-box-register .btn-register {
+  width: 50%;
+  margin: 10px 0;
+}
+
+.inputs-box-register .campo-nome {
+  width: 35%;
+}
+
+.inputs-box-register .campo-email {
+  width: 63%;
+}
+
+.inputs-box-register .campo-senha {
+  width: 49%;
+}
+
+.inputs-box-register .campo-confirmar-senha {
+  width: 49%;
+}
+
+@media (max-width: 600px) {
+  .register-box {
+    width: 360px;
+  }
+  .inputs-box-register {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .inputs-box-register .campo-nome {
+    width: 90%;
+  }
+  .inputs-box-register .campo-email {
+    width: 90%;
+  }
+  .inputs-box-register .campo-senha {
+    width: 90%;
+  }
+  .inputs-box-register .campo-confirmar-senha {
+    width: 90%;
+  }
+}
+
+.tem-conta {
+  width: 100%;
+  text-align: center;
+}
+
+.box-formCadastrarProdutos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px;
+}
+
+.box-formCadastrarProdutos div {
+  margin-right: 7px;
+}
+
+.nome {
+  width: 70%;
+}
+
+@media (max-width: 900px) {
+  .nome {
+    width: 100%;
+  }
+}
+
+.preco span {
+  width: 45px;
+  background-color: orangered;
+  color: #fff;
+}
+
+.preco div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.preco input {
+  width: 100px;
+}
+
+.desconto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.desconto span {
+  background-color: orangered;
+  color: #fff;
+  width: 37px;
+}
+
+.desconto div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.desconto input {
+  width: 70px;
+}
+
+.estoque input {
+  width: 100px;
+}
+
+.categoria {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.btn-add-imagem {
+  position: relative;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.input-upload-imagem {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+
+.ftco-section {
+  padding: 7px 0;
+}
+
+.table-wrap {
+  overflow-x: scroll;
+}
+
+.table {
+  min-width: 1000px !important;
+  width: 100%;
+  background: #fff;
+  -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+  box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+}
+
+.table thead.thead-primary {
+  background: orangered;
+}
+
+.table thead th {
+  border: none;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+}
+
+.table tbody tr {
+  margin-bottom: 10px;
+}
+
+.table tbody th, .table tbody td {
+  border: none;
+  padding: 40px auto;
+  font-size: 14px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: #fff;
+  border-bottom: 4px solid #ddd;
+  vertical-align: middle;
+}
+
+.table tbody td.quantity {
+  width: 10%;
+}
+
+.table tbody td .img {
+  width: 100px;
+  height: 80px;
+}
+
+.table tbody td .email span {
+  display: block;
+}
+
+.table tbody td .email span:last-child {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.table tbody td .close span {
+  font-size: 12px;
+  color: #dc3545;
 }
 /*# sourceMappingURL=style.css.map */

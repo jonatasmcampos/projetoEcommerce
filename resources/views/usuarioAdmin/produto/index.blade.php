@@ -2,7 +2,6 @@
 
 @section('content')
     @if (Session::has('true'))
-
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
@@ -20,12 +19,12 @@
             <label for="tab2"><i class="icon-picture"></i>Cadastrar produto</label>
 
             <!--
-                                                <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                                                <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+                                                    <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                                    <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 
-                                                <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                                                <label for="tab5"><i class="icon-globe"></i>Newton</label>
-                                            -->
+                                                    <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+                                                    <label for="tab5"><i class="icon-globe"></i>Newton</label>
+                                                -->
 
             <ul>
                 <li class="tab-content tab-content-first typography">
@@ -64,6 +63,8 @@
                                                         <th>Preço</th>
                                                         <th>Desconto</th>
                                                         <th>Estoque</th>
+                                                        <th>&nbsp;</th>
+                                                        <th>&nbsp;</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -98,6 +99,16 @@
                                                             </td>
                                                             <td>
                                                                 {{ $p->estoque->quantidade }}
+                                                            </td>
+                                                            <td>
+                                                                <a href="{{route('produto.edit', $p->id)}}">
+                                                                    <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a href="">
+                                                                    <i class="bi bi-trash" aria-hidden="true"></i>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                         <?php $i++; ?>

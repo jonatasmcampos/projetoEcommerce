@@ -21,18 +21,12 @@
 
     <!-- chamando os icones do bootstrap-->
     <link rel="stylesheet" href={{ asset('css/bootstrap-icons.css') }}>
-    <!-- chamando arquivo de css para estilizar a página -->
-    <link rel="stylesheet" href={{ asset('css/sass/login/style-login.css') }}>
-    <link rel="stylesheet" href={{ asset('css/sass/cadastrar-usuario/style-cadastrar.css') }}>
-    <link rel="stylesheet" href={{ asset('css/sass/navbar/style-navbar.css') }}>
 
+    <!-- CSS padrao -->
     <link rel="stylesheet" href={{ asset('css/sass/style.css') }}>
     
     <!-- CSS DO SIDEBAR -->
     <link rel="stylesheet" href="{{ asset('css/sidebar-css/style.css') }}">
-    
-    <!-- CSS DO TABLE -->
-    <link rel="stylesheet" href="{{ asset('css/table-css/style.css') }}">
 
     <!-- CSS DO TABS -->
     <link rel="stylesheet" href="{{ asset('css/tabs/style-tabs.css') }}">

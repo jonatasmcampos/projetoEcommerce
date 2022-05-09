@@ -1,9 +1,10 @@
+<link rel="stylesheet" href={{ asset('css/sass/cadastrar-produto/style.css') }}>
+
 @if (!$categorias->count())
     {{-- somente para não aparecer a opcao de inserir imagem caso esteja sem categoria --}}
 @else
     @if ($produto && count($produto->imagens))
         <p class="mt-3">
-
             <a class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                 aria-expanded="false" aria-controls="collapseExample">
                 Imagens
@@ -16,10 +17,17 @@
                 @method('PUT')
                 @csrf
 
-                <input required id="imagesProdutoName" type='file' name='image[]' accept="image/*" multiple
+                {{-- <input required id="imagesProdutoName" type='file' name='image[]' accept="image/*" multiple
                     id='file-input' onchange="newInput(this)" class='file-input' />
 
-                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Adicionar</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Adicionar</button> --}}
+
+
+                <div class="file btn btn-primary btn-add-imagem">
+                    <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Adicionar imagens
+                    <input class="input-upload-imagem" id="imagesProdutoName" type='file' name='image[]' accept="image/*" multiple id='file-input'
+                        onchange="newInput(this)" />
+                </div>
 
             </form>
 
@@ -33,7 +41,7 @@
                             <div class="card-footer mt-3">
                                 @if ($imagem->prioridade)
                                     <a style="cursor: pointer;">
-                                        <i  class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
                                     </a>
                                 @else
                                     <form action="{{ route('img_padrao', $imagem->id) }}" method="POST">
@@ -45,12 +53,12 @@
                                     </form>
                                 @endif
 
-                       
-                                    <a type="submit" class="btn btn-excluir" data-bs-toggle="modal"
-                                        data-bs-target="#img{{ $imagem->id }}" style="padding:0;">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </a>
-                              
+
+                                <a type="submit" class="btn btn-excluir" data-bs-toggle="modal"
+                                    data-bs-target="#img{{ $imagem->id }}" style="padding:0;">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
+
                             </div>
                         </div>
 
@@ -67,7 +75,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Deseja Realmente excluir esta imagem do produto {{ $produto->nome }}?
+                                        Deseja realmente excluir esta imagem do produto {{ $produto->nome }}?
                                     </div>
                                     <form action="{{ route('deleta_image', $imagem->id) }}" method="POST">
                                         @method('DELETE')
@@ -92,11 +100,18 @@
         </div>
     @else
         <div class="mb-3">
-            <label for="formFileSm" class="form-label">iamgens</label>
+            {{-- <label for="formFileSm" class="form-label">Imagens</label>
             <input id="imagesProdutoName" type='file' name='image[]' accept="image/*" multiple id='file-input'
-                onchange="newInput(this)" class='file-input' />
+                onchange="newInput(this)" class='file-input' /> --}}
 
-            <ul id="dp-files"></ul>
+
+            <div class="file btn btn-primary btn-add-imagem">
+                <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Adicionar imagens
+                <input class="input-upload-imagem" id="imagesProdutoName" type='file' name='image[]' accept="image/*" multiple id='file-input'
+                    onchange="newInput(this)" />
+            </div>
+
+            <ul style="margin-left: 20px" id="dp-files"></ul>
         </div>
 
     @endif
