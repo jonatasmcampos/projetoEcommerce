@@ -84,7 +84,9 @@ class EstoqueController extends Controller
      */
     public function destroy($id)
     {
+        
        Estoque::find($id)->update(['quantidade' => 0]);
-       return redirect(route('estoque.index'));
+       echo json_encode(true);
+       return ;
     }
 }
