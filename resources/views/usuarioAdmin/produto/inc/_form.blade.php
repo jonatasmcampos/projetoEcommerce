@@ -1,14 +1,10 @@
+<link rel="stylesheet" href={{ asset('css/sass/cadastrar-produto/style.css') }}>
+
 @if (!$categorias->count())
     <h1>Nenhuma Categoria cadastrada</h1>
     <a href="{{ route('categoria.create') }}" class="btn btn-primary">Cadastrar categoria</a>
 @else
     <div>
-
-        {{-- BOTAO DE CADASTRAR O PRODUTO --}}
-        <button style="float: right !important; margin: 0 20px 20px 0; height: max-content;" type="submit"
-            class="btn btn-primary">
-            {{ $produto ? 'Atualizar' : 'Cadastrar produto' }}
-        </button>
 
         {{-- CAMPOS PARA CADASTRAR OS PRODUTOS --}}
         <div class="box-formCadastrarProdutos">
@@ -61,13 +57,13 @@
                 <div>
                     <label for="inputCategoria">Categoria</label>
                     <br>
-                    <input id="inputCategoria" style="height: max-content" type="text" value="{{ $produto->categoria->nome }}"
-                        disabled="disabled" /><br>
+                    <input id="inputCategoria" style="height: max-content" type="text"
+                        value="{{ $produto->categoria->nome }}" disabled="disabled" /><br>
                 </div>
             @else
-                <div class="categoria my-1">
+                <div class="categoria">
                     <label for="">Selecione a categoria do produto</label>
-                    <select required name="categoria" class="form-select mt-2" aria-label="Default select example">
+                    <select required name="categoria" class="form-select" aria-label="Default select example">
 
                         @foreach ($categorias as $c)
                             <option value="{{ $c->id }}">{{ $c->nome }}</option>
@@ -77,6 +73,14 @@
                 </div>
             @endif
         </div>
+
+
+        {{-- BOTAO DE CADASTRAR O PRODUTO --}}
+        <button style="float: right !important; margin: 0 20px 20px 0; height: max-content;" type="submit"
+            class="btn btn-primary">
+            {{ $produto ? 'Atualizar' : 'Cadastrar produto' }}
+        </button>
+
     </div>
 
 @endif
