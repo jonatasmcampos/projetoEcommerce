@@ -57,11 +57,14 @@
     <script src="{{ asset('js/siedbar.js') }}"></script>
     <!-- chamando o js do bootstrap-->
     <script src="{{ asset('js/bootstrap.js') }}"></script>
-
+   
 
     <!-- JS DA SIDEBAR -->
     <script src="{{ asset('js/sidebar/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/sidebar/jquery.min.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
     <script src="{{ asset('js/sidebar/main.js') }}"></script>
     <script src="{{ asset('js/sidebar/popper.js') }}"></script>
 

@@ -27,24 +27,25 @@
                             <tr>
                                 <th style="width: 70px !important" scope="row">{{ $i }}</th>
                                 <td>{{ $p->nome }} </td>
-                                <td style="width: 70px !important;"> {{ $p->estoque->quantidade }} </td>
+                                <td style="width: 70px !important;" id="idcampoEstoqueQuantidade<?php echo $p->estoque->id ?>"> {{ $p->estoque->quantidade }} </td>
 
                                 <td style="width: 70px !important;">
                                     {{-- BOTAO DE EDITAR ESTOQUE --}}
-                                    <button style="padding: 0" type="button" class="btn" data-bs-toggle="modal"
+                                    <button  style="padding: 0" type="button" class="btn" data-bs-toggle="modal"
                                         data-bs-target="#modalEditaEstoque{{ $p->estoque->id }}">
                                         <i class="bi bi-pencil-square"
                                             style="padding-top: 3px !important; padding-bottom: 3px !important;"></i>
                                     </button>
                                 </td>
-                                <form action="{{ route('estoque.destroy', $p->estoque->id) }}" method="POST">
+                                <form id="formZerarDesconto" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     {{-- BOTAO ZERAR ESTOQUE --}}
                                     <td style="width: 70px !important">
                                         <button style="padding:0" type="submit" class="btn">
-                                            <div class="Dica">
+                                            <div class="Dica js-zerar" onclick="pega_id_estoque(<?php echo $p->estoque->id ?>)">
                                                 <i class="bi bi-file-excel"></i>
+                                                <input id="EstoqueIdValor" type="hidden">
                                                 <div class="DicaTexto">Zerar estoque</div>
                                             </div>
                                         </button>
@@ -91,3 +92,4 @@
     </div>
 
 @endsection
+<script type="text/javascript" src="{{ asset('js/userAdmin/estoque/index.js') }}" defer></script>
