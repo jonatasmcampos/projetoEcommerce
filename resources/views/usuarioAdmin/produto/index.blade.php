@@ -2,6 +2,7 @@
 
 @section('content')
     @if (Session::has('true'))
+
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
@@ -19,12 +20,12 @@
             <label for="tab2"><i class="icon-picture"></i>Cadastrar produto</label>
 
             <!--
-                                                    <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                                                    <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+                                                            <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                                            <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 
-                                                    <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                                                    <label for="tab5"><i class="icon-globe"></i>Newton</label>
-                                                -->
+                                                            <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+                                                            <label for="tab5"><i class="icon-globe"></i>Newton</label>
+                                                        -->
 
             <ul>
                 <li class="tab-content tab-content-first typography">
@@ -45,7 +46,15 @@
                             $i = 1;
                         @endphp
 
+                        <!-- PESQUISA DE PRODUTOS NA LISTA DE PRODUTOS -->
+                        <div class="input-group">
+                            <input placeholder="Buscar produto" type="search" id="form1" class="input-buscar" />
+                            <button type="button" class="btn btn-primary btn-buscar">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
 
+                        <!-- LISTA DE PRODUTOS -->
                         <section class="ftco-section">
                             <div class="container">
                                 <div class="row">
@@ -95,13 +104,13 @@
                                                             </td>
                                                             <td>R$ {{ $p->preco }}</td>
                                                             <td>
-                                                                {{ $p->desconto }}
+                                                                {{ $p->desconto }} %
                                                             </td>
                                                             <td>
                                                                 {{ $p->estoque->quantidade }}
                                                             </td>
                                                             <td>
-                                                                <a href="{{route('produto.edit', $p->id)}}">
+                                                                <a href="{{ route('produto.edit', $p->id) }}">
                                                                     <i class="bi bi-pencil-square" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
