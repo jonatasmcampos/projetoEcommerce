@@ -1,12 +1,32 @@
 @import './../../../node_modules/bootstrap/scss/bootstrap.scss';
 
 // -----------------------   ↓↓↓↓↓↓ PADRÃO ↓↓↓↓↓↓ -----------------------
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     background: #ccc !important;
+}
+
+i{
+    font-size: 16px !important;
+}
+
+.btn-primary{
+    background-color: orangered !important;
+    border: 1px solid #707070 !important; 
+    &:hover{
+        background-color:rgba(255, 69, 0, 0.7) !important;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: #000 !important;
+    &:hover{
+        color: orangered !important;
+    }
 }
 
 // -----------------------   ↑↑↑↑↑↑↑ PADRÃO ↑↑↑↑↑↑↑ -----------------------
@@ -182,65 +202,303 @@ body{
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// -----------------------   ↓↓↓↓↓↓ PRODUTOS ↓↓↓↓↓↓ -----------------------
+// -----------------------   ↓↓↓↓↓↓ SIDEBAR ↓↓↓↓↓↓ -----------------------
 
-.box-formCadastrarProdutos{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    div{
-        margin-right: 7px;    
+.wrapper {
+    width: 100%;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    max-width: 200vh;   
+    background: #32373d;
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+}
+
+#sidebar .h6 {
+    color: #fff;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar.active .custom-menu {
+    margin-right: -50px;
+}
+
+#sidebar.active .btn.btn-primary:before {
+    content: "\f053";
+    font-family: "FontAwesome";
+    right: 2px !important;
+}
+
+#sidebar.active .btn.btn-primary:after {
+    display: none;
+}
+
+#sidebar h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#sidebar h1 .logo {
+    color: #fff;
+    display: block;
+    padding: 10px 30px;
+    background: #2f89fc;
+}
+
+#sidebar ul.components {
+    padding: 0;
+}
+
+#sidebar ul li {
+    font-size: 16px;
+}
+
+#sidebar ul li>ul {
+    margin-left: 10px;
+}
+
+#sidebar ul li>ul li {
+    font-size: 14px;
+}
+
+#sidebar ul li a {
+    padding: 15px 30px;
+    display: block;
+    color: rgba(255, 255, 255, 0.6) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#sidebar ul li a span.notif {
+    position: relative;
+}
+
+#sidebar ul li a span.notif small {
+    position: absolute;
+    top: -3px;
+    bottom: 0;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    content: '';
+    background: red;
+    border-radius: 50%;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 8px;
+}
+
+#sidebar ul li a:hover {
+    color: #fff !important;
+    background: orangered !important;
+    border-bottom: 1px solid #fff;
+}
+
+#sidebar ul li.active>a {
+    background: transparent;
+    color: #fff !important;
+}
+
+#sidebar ul li.active>a:hover {
+    background: #2f89fc;
+    border-bottom: 1px solid #2f89fc;
+}
+
+@media (max-width: 991.98px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #sidebar .custom-menu {
+        margin-right: -60px !important;
+        top: 10px !important;
     }
 }
 
-.nome{
-    width: 70%;
-}
-@media (max-width: 900px){
-    .nome{
-        width: 100%;}
+#sidebar .custom-menu {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    margin-right: -35px;
+    transition: 0.3s;
 }
 
-.preco{
-    span{
+@media (prefers-reduced-motion: reduce) {
+    #sidebar .custom-menu {
+        transition: none;
+    }
+}
+
+#sidebar .custom-menu .btn.btn-primary {
+    background: #2f89fc;
+    border-color: transparent;
+    position: relative;
+    color: #000;
+    width: 30px;
+    height: 30px;
+}
+
+#sidebar .custom-menu .btn.btn-primary:after,
+#sidebar .custom-menu .btn.btn-primary:before {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-family: "FontAwesome";
+    color: #fff;
+}
+
+#sidebar .custom-menu .btn.btn-primary:after {
+    content: "\f054";
+    left: 2px;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+.img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; }
+
+.bg-wrap {
+    width: 100%;
+    position: relative;
+    z-index: 0; }
+    .bg-wrap:after {
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      background: #000;
+      opacity: .3; }
+    .bg-wrap .user-logo .img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto;
+      margin-bottom: 10px; }
+    .bg-wrap .user-logo h3 {
+      color: #fff;
+      font-size: 18px; }
+
+.card-link:hover {
+    text-decoration: none;
+    background-color: orangered !important;
+}
+.card-link + .card-link {
+    margin-left: 0 !important; }
+.card{
+    background-color: #707070 !important;
+}
+
+#content {
+    width: 100%;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+
+// -----------------------   ↑↑↑↑↑↑↑ SIDEBAR ↑↑↑↑↑↑↑ -----------------------
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// -----------------------   ↓↓↓↓↓↓ PRODUTOS ↓↓↓↓↓↓ -----------------------
+
+.box-formCadastrarProdutos {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+
+    div {
+        margin-right: 7px;
+        margin-bottom: 7px;
+    }
+}
+
+.nome {
+    width: 70%;
+}
+
+@media (max-width: 900px) {
+    .nome {
+        width: 100%;
+    }
+}
+
+.preco {
+    span {
         width: 45px;
         background-color: orangered;
         color: #fff;
     }
-    div{
+
+    div {
         display: flex;
     }
-    input{
+
+    input {
         width: 100px;
     }
 }
 
-.desconto{
+.desconto {
     display: flex;
     flex-direction: column;
     width: fit-content;
-    span{
+
+    span {
         background-color: orangered;
         color: #fff;
         width: 37px;
     }
-    div{
+
+    div {
         display: flex;
     }
-    input{
+
+    input {
         width: 70px;
     }
 }
 
-.estoque{
+.estoque {
 
-    input{
+    input {
         width: 100px;
     }
 }
 
-.categoria{  
-    height: fit-content; 
+.categoria {
+    height: fit-content;
+
+    label{
+        margin-bottom: 8px; 
+    }
 }
 
 .btn-add-imagem {
@@ -264,49 +522,69 @@ body{
 // -----------------------   ↓↓↓↓↓↓ TABLE LISTA DE PRODUTOS ↓↓↓↓↓↓ -----------------------
 
 .ftco-section {
-    padding: 7px 0; 
+    padding: 7px 0;
 }
+
 .table-wrap {
-    overflow-x: scroll; 
+    overflow-x: scroll;
 }
+
 .table {
     min-width: 1000px !important;
     width: 100%;
     background: #fff;
-    -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
-    -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
-    box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29); }
-    .table thead.thead-primary {
-      background: orangered; }
-    .table thead th {
-      border: none;
-      padding: 10px;
-      font-size: 13px;
-      font-weight: 500;
-      color: white; }
-    .table tbody tr {
-      margin-bottom: 10px; }
-    .table tbody th, .table tbody td {
-      border: none;
-      padding: 40px auto;
-      font-size: 14px;
-      width: fit-content;
-      background: #fff;
-      border-bottom: 4px solid #ddd;
-      vertical-align: middle; }
-    .table tbody td.quantity {
-      width: 10%; }
-    .table tbody td .img {
-      width: 100px;
-      height: 80px; }
-      .table tbody td .email span {
-        display: block; }
-        .table tbody td .email span:last-child {
-          font-size: 12px;
-          color: rgba(0, 0, 0, 0.3); }
-    .table tbody td .close span {
-      font-size: 12px;
-      color: #dc3545; }
+    box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+}
+
+.table thead.thead-primary {
+    background: orangered;
+}
+
+.table thead th {
+    border: none;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+}
+
+.table tbody tr {
+    margin-bottom: 10px;
+}
+
+.table tbody th,
+.table tbody td {
+    border: none;
+    padding: 40px auto;
+    font-size: 14px;
+    width: fit-content;
+    background: #fff;
+    border-bottom: 4px solid #ddd;
+    vertical-align: middle;
+}
+
+.table tbody td.quantity {
+    width: 10%;
+}
+
+.table tbody td .img {
+    width: 100px;
+    height: 80px;
+}
+
+.table tbody td .email span {
+    display: block;
+}
+
+.table tbody td .email span:last-child {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.table tbody td .close span {
+    font-size: 12px;
+    color: #dc3545;
+}
 
 // -----------------------   ↑↑↑↑↑↑↑ TABLE LISTA DE PRODUTOS ↑↑↑↑↑↑↑ -----------------------
 

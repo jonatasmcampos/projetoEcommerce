@@ -1,5 +1,3 @@
-<link rel="stylesheet" href={{ asset('css/sass/cadastrar-produto/style.css') }}>
-
 @if (!$categorias->count())
     {{-- somente para não aparecer a opcao de inserir imagem caso esteja sem categoria --}}
 @else

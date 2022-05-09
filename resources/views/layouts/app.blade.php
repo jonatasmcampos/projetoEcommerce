@@ -22,14 +22,12 @@
     <!-- chamando os icones do bootstrap-->
     <link rel="stylesheet" href={{ asset('css/bootstrap-icons.css') }}>
 
-    <!-- CSS padrao -->
-    <link rel="stylesheet" href={{ asset('css/sass/style.css') }}>
-    
-    <!-- CSS DO SIDEBAR -->
-    <link rel="stylesheet" href="{{ asset('css/sidebar-css/style.css') }}">
-
     <!-- CSS DO TABS -->
     <link rel="stylesheet" href="{{ asset('css/tabs/style-tabs.css') }}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href={{ asset('css/sass/style.css') }}>
+
     
     {{-- Materialize --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -43,24 +41,19 @@
         @include('sidebar.sidebar')        
     @endif
 
-       
-
     <!-- chamando o js do jquery-->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <!-- chamando o js do siedbar-->
     <script src="{{ asset('js/siedbar.js') }}"></script>
     <!-- chamando o js do bootstrap-->
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-   
-
-    <!-- JS DA SIDEBAR -->
-    <script src="{{ asset('js/sidebar/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/sidebar/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>   
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
-    <script src="{{ asset('js/sidebar/main.js') }}"></script>
-    <script src="{{ asset('js/sidebar/popper.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/popper.js') }}"></script>
 
 </body>
 

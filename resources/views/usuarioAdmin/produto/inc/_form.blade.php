@@ -1,5 +1,3 @@
-<link rel="stylesheet" href={{ asset('css/sass/cadastrar-produto/style.css') }}>
-
 @if (!$categorias->count())
     <h1>Nenhuma Categoria cadastrada</h1>
     <a href="{{ route('categoria.create') }}" class="btn btn-primary">Cadastrar categoria</a>
