@@ -6,7 +6,15 @@
 }
 
 body {
-    background: #ccc !important;
+    background: #ddd !important;
+}
+
+.sombra{
+    box-shadow: 0px 0px 5px black !important;
+}
+.titulo{
+    margin-left: 40%;
+    letter-spacing: 3px;
 }
 
 i{
@@ -488,11 +496,14 @@ svg {
     display: flex;
     flex-direction: column;
     width: fit-content;
+    margin: 0;
+    padding: 0;
 
     span {
         background-color: orangered;
         color: #fff;
         width: 37px;
+        margin: 0;
     }
 
     div {
@@ -501,6 +512,7 @@ svg {
 
     input {
         width: 80px;
+        margin: 0;
     }
 }
 
@@ -541,17 +553,18 @@ svg {
 
 .ftco-section {
     padding: 7px 0;
+    margin: 0 10px;
 }
 
 .table-wrap {
     overflow-x: scroll;
+    min-height: 63vh;
 }
 
 .table {
     min-width: 1000px !important;
     width: 100%;
     background: #fff;
-    box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
 }
 
 .table thead.thead-primary {
@@ -607,3 +620,12 @@ svg {
 // -----------------------   ↑↑↑↑↑↑↑ TABLE LISTA DE PRODUTOS ↑↑↑↑↑↑↑ -----------------------
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//
+
+.bg-table{
+    background-color: #fff; 
+    border-radius: 7px;
+    padding: 20px 0;
+    width:92%;
+}

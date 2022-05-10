@@ -2,13 +2,13 @@
 
 @section('content')
     @if (Session::has('true'))
-
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
-    <h1 style="margin-left: 25px">Produtos</h1>
+    <br>
+    <h1 class="titulo">Produtos</h1>
 
-    <div class="page">
+    <div class="page mx-auto">
 
         <!-- tabs -->
         <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
@@ -27,7 +27,7 @@
                                                             <label for="tab5"><i class="icon-globe"></i>Newton</label>
                                                         -->
 
-            <ul>
+            <ul style="min-height: 75vh;">
                 <li class="tab-content tab-content-first typography">
 
                     @if (!$produtos->count())
@@ -62,7 +62,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div style="padding:0;" class="col-12">
-                                        <div class="table-wrap" style="height: 57vh">
+                                        <div class="table-wrap" style="height: 45vh">
                                             <table class="table">
                                                 <thead class="thead-primary">
                                                     <tr>
