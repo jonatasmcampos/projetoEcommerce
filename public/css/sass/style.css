@@ -2555,6 +2555,7 @@ textarea.form-control-lg {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  color-adjust: exact;
 }
 
 .form-check-input[type="checkbox"] {
@@ -11503,7 +11504,17 @@ fieldset:disabled .btn {
 }
 
 body {
-  background: #ccc !important;
+  background: #ddd !important;
+}
+
+.sombra {
+  -webkit-box-shadow: 0px 0px 5px black !important;
+          box-shadow: 0px 0px 5px black !important;
+}
+
+.titulo {
+  margin-left: 40%;
+  letter-spacing: 3px;
 }
 
 i {
@@ -12027,12 +12038,15 @@ svg {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  margin: 0;
+  padding: 0;
 }
 
 .desconto span {
   background-color: orangered;
   color: #fff;
   width: 37px;
+  margin: 0;
 }
 
 .desconto div {
@@ -12043,6 +12057,7 @@ svg {
 
 .desconto input {
   width: 80px;
+  margin: 0;
 }
 
 .estoque input {
@@ -12075,18 +12090,18 @@ svg {
 
 .ftco-section {
   padding: 7px 0;
+  margin: 0 10px;
 }
 
 .table-wrap {
   overflow-x: scroll;
+  min-height: 63vh;
 }
 
 .table {
   min-width: 1000px !important;
   width: 100%;
   background: #fff;
-  -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
-          box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
 }
 
 .table thead.thead-primary {
@@ -12139,5 +12154,12 @@ svg {
 .table tbody td .close span {
   font-size: 12px;
   color: #dc3545;
+}
+
+.bg-table {
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 20px 0;
+  width: 92%;
 }
 /*# sourceMappingURL=style.css.map */

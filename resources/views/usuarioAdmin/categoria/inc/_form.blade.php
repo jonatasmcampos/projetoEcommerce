@@ -1,39 +1,46 @@
 <style>
-    .incluir-categoria {
-        visibility: hidden;
-    }
 
-    .novaCategoria{
+    .btn-categoria{
         display: flex;
-        align-items:center;
-        cursor: pointer;
-
-        border: 1px dashed #ccc;
-        padding: 5px 20px;
+        align-items: center;
+        border: 2px dashed #fff;
         border-radius: 7px;
+        width: fit-content; 
+        padding: 5px 15px;
+        margin-left: 45px;
     }
 
-    .novaCategoria:hover{
+    .btn-categoria:hover{
         border: 2px dashed orangered;
+        cursor: pointer;
     }
 
-    .novaCategoria:hover i{
-        color: orangered;
-        font-weight: bold;
+    .campo-incluir{
+        visibility: hidden;
+        display: flex;
+        width: 50%;
+        margin-left: 45px;
+        margin-bottom: 5px
+    }
+
+    @media (max-width: 900px){
+        .campo-incluir{
+            width: 100%;
+        }
     }
 
 </style>
 
-<div class="noCentro" style="flex-direction: column;">
+<div>
 
-    <h4 onclick="exibir()" class="my-3 novaCategoria">
+    <h5 onclick="exibir()" class="my-2 btn-categoria">
         <i class="material-icons">add</i>
         <p style="margin: 0 0 0 5px">
             Nova categoria
         </p>
-    </h4>
+    </h5>
 
-    <div id="campoInserir" class="incluir-categoria noCentro">
+    <div id="campoInserir" class="campo-incluir">
         <div>
             <input placeholder="Categoria" required name="nome" type="text" class="form-control"
                 id="exampleInputEmail1">
