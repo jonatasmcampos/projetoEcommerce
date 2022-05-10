@@ -3,6 +3,12 @@ function cadastraProdutoClick() {
   document.getElementById('tab2').click();
 }
 
+
+//calculo de lucro
+
+
+
+
 //pega os arquivos do input file
 var inputFiles = [];
 

@@ -15,15 +15,23 @@
             </div>
             {{-- PREÇO DO PRODUTO --}}
             <div class="preco">
-                <label for="exampleInputPassword1" class="form-label">Preço C.</label>
+                <label for="exampleInputPassword1" class="form-label">Custo</label>
                 <div>
                     <span class="input-group-text" id="basic-addon1">R$</span>
-                    <input required name="custo" value="{{ $produto ? $produto->preco : '0' }}" type="text"
+                    <input required name="custo" value="{{ $produto ? $produto->custo : '0' }}" type="text"
                         class="form-control" id="exampleInputPassword1">
                 </div>
             </div>
             <div class="preco">
-                <label for="exampleInputPassword1" class="form-label">Preço V.</label>
+                <label for="exampleInputPassword1" class="form-label">Lucro</label>
+                <div>
+                    <span class="input-group-text" id="basic-addon1">%</span>
+                    <input required name="lucro" value="{{ $produto ? $produto->lucro : '0' }}" type="text"
+                        class="form-control" id="exampleInputPassword1">
+                </div>
+            </div>
+            <div class="preco">
+                <label for="exampleInputPassword1" class="form-label">Preço</label>
                 <div>
                     <span class="input-group-text" id="basic-addon1">R$</span>
                     <input required name="preco" value="{{ $produto ? $produto->preco : '0' }}" type="text"
@@ -33,29 +41,20 @@
            
             {{-- DESCONTO DO PRODUTO --}}
             <div class="input-group desconto">
-                <label for="desconto" class="form-label">Desconto</label>
+                <label for="cor" class="form-label">Cor</label>
                 <div>
-                    <span class="input-group-text" id="basic-addon1">%</span>
-                    <input id="desconto" name="desconto"
-                        value="{{ $produto && $produto->desconto ? $produto->desconto : '0' }}" type="number"
-                        class="form-control" placeholder="Username" aria-label="Username"
+                    <input id="desconto" name="cor"
+                        value="{{ $produto && $produto->cor ? $produto->cor : '' }}" type="text"
+                        class="form-control" placeholder="cor" aria-label="Cor"
                         aria-describedby="basic-addon1">
                 </div>
             </div>
-
-
-            <div class="descricao">
-                <label for="exampleInputPassword1" class="form-label">Descrição</label>
-                <input required name="descricao" value="{{ $produto ? $produto->descricao : '' }}" type="text"
-                    class="form-control" id="exampleInputPassword1">
-            </div>
-
 
             {{-- ESTOQUE DO PRODUTO --}}
             <div class="estoque">
                 <label for="exampleInputPassword1" class="form-label">Estoque</label>
                 <input name="estoque"
-                    value="{{ $produto && $produto->estoque ? $produto->estoque->quantidade : '0' }}" type="number"
+                    value="{{ $produto ? $produto->estoque : '0' }}" type="number"
                     class="form-control" id="exampleInputPassword1">
             </div>
 
@@ -78,7 +77,28 @@
 
                     </select>
                 </div>
+
+                <div class="categoria">
+                    <label for="">Tamanhos</label>
+                    {{-- <select required name="tamanhos[]" multiple="multiple" class="form-select" aria-label="Default select example">
+                       
+                            <option value="pp">PP</option>
+                            <option value="pp">M</option>
+                            <option value="gg">GG</option>
+                            <option value="pp">G3</option>
+                     
+    
+                    </select> --}}
+                    <select name="ary[]" multiple="multiple">
+                        <option value="Option 1"> Option 1 </option>
+                        <option value="Option 2"> Option 2 </option>
+                        <option value="Option 3"> Option 3 </option>
+                        <option value="Option 4"> Option 4 </option>
+                        <option value="Option 5"> Option 5 </option>
+                      </select>
+                </div>
             @endif
+       
         </div>
 
 

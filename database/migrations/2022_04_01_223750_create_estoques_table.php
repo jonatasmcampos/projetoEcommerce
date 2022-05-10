@@ -17,7 +17,7 @@ class CreateEstoquesTable extends Migration
             $table->increments("id");
 
             $table->integer("quantidade")->default(0);
-            $table->integer("id_produto")->unsigned();
+            $table->unsignedBigInteger("id_produto");
 
             $table->timestamps();
 

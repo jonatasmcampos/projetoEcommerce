@@ -106,15 +106,15 @@
                                                             <td>M</td>
                                                             
                                                             <td class="quantity">
-                                                                <span>Branco com cinza</span>
+                                                                <span> {{ $p->cor }}</span>
                                                             </td>
                                                             <td>R$ {{ $p->custo }}</td>
                                                             <td>R$ {{ $p->preco }}</td>
                                                             <td>
-                                                                {{ $p->desconto }} %
+                                                                {{ $p->desconto ? $p->desconto : '0' }} %
                                                             </td>
                                                             <td>
-                                                                {{ $p->estoque->quantidade }}
+                                                                {{ $p->estoque }}
                                                             </td>
                                                             <td>
                                                                 <a href="{{ route('produto.edit', $p->id) }}">
