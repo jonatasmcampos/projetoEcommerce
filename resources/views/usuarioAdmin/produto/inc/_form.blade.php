@@ -15,13 +15,22 @@
             </div>
             {{-- PREÇO DO PRODUTO --}}
             <div class="preco">
-                <label for="exampleInputPassword1" class="form-label">Preço</label>
+                <label for="exampleInputPassword1" class="form-label">Preço C.</label>
+                <div>
+                    <span class="input-group-text" id="basic-addon1">R$</span>
+                    <input required name="custo" value="{{ $produto ? $produto->preco : '0' }}" type="text"
+                        class="form-control" id="exampleInputPassword1">
+                </div>
+            </div>
+            <div class="preco">
+                <label for="exampleInputPassword1" class="form-label">Preço V.</label>
                 <div>
                     <span class="input-group-text" id="basic-addon1">R$</span>
                     <input required name="preco" value="{{ $produto ? $produto->preco : '0' }}" type="text"
                         class="form-control" id="exampleInputPassword1">
                 </div>
             </div>
+           
             {{-- DESCONTO DO PRODUTO --}}
             <div class="input-group desconto">
                 <label for="desconto" class="form-label">Desconto</label>

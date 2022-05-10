@@ -47,12 +47,15 @@
                         @endphp
 
                         <!-- PESQUISA DE PRODUTOS NA LISTA DE PRODUTOS -->
-                        <div class="input-group">
-                            <input placeholder="Buscar produto" type="search" id="form1" class="input-buscar" />
-                            <button type="button" class="btn btn-primary btn-buscar">
+                        {{-- <div class="input-group"> --}}
+                            <form class="input-group" action="{{route('produto.index')}}" method="GET">
+                                @csrf
+                            <input name="nome" placeholder="Buscar produto" type="search" id="form1" class="input-buscar" />
+                            <button type="submit" class="btn btn-primary btn-buscar">
                                 <i class="bi bi-search"></i>
                             </button>
-                        </div>
+                        </form>
+                        {{-- </div> --}}
 
                         <!-- LISTA DE PRODUTOS -->
                         <section class="ftco-section">
@@ -69,6 +72,7 @@
                                                         <th>Categoria</th>
                                                         <th>Tam</th>
                                                         <th>Cor</th>
+                                                        <th>Custo</th>
                                                         <th>Preço</th>
                                                         <th>Desconto</th>
                                                         <th>Estoque</th>
@@ -98,10 +102,13 @@
                                                             <td>
                                                                 <span>{{ $p->categoria->nome }}</span>
                                                             </td>
+
                                                             <td>M</td>
+                                                            
                                                             <td class="quantity">
                                                                 <span>Branco com cinza</span>
                                                             </td>
+                                                            <td>R$ {{ $p->custo }}</td>
                                                             <td>R$ {{ $p->preco }}</td>
                                                             <td>
                                                                 {{ $p->desconto }} %
@@ -115,9 +122,17 @@
                                                                 </a>
                                                             </td>
                                                             <td>
-                                                                <a href="">
-                                                                    <i class="bi bi-trash" aria-hidden="true"></i>
-                                                                </a>
+
+                                                             
+                                                                    <form action="{{ route('produto.destroy', $p->id) }}" method="POST">
+                                                                        @method('DELETE')
+                                                                        @csrf
+                                                                        <button type="submit" class="btn btn-excluir" style="padding:0;">
+                                                                            <i class="bi bi-trash-fill"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                   
+                                                            
                                                             </td>
                                                         </tr>
                                                         <?php $i++; ?>

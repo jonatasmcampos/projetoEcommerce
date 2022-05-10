@@ -9,6 +9,7 @@ class Produto extends ModelPadrao
         'nome',
         'descricao',
         'preco',
+        'custo',
         'desconto',
         'id_categoria'
     ];
