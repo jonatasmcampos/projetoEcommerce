@@ -7,11 +7,11 @@ class Produto extends ModelPadrao
     protected $table = "produtos";
     protected $fillable = [
         'nome',
-        'descricao',
-        'preco',
+        'cor',
         'custo',
-        'desconto',
-        'id_categoria'
+        'lucro',
+        'preco',
+        'estoque',
     ];
 
     public function categoria(){
@@ -19,9 +19,9 @@ class Produto extends ModelPadrao
     }
 
 
-    public function estoque(){
-        return $this->hasOne('App\Models\Estoque', 'id_produto', 'id');
-    }
+    // public function estoque(){
+    //     return $this->hasOne('App\Models\Estoque', 'id_produto', 'id');
+    // }
 
     public function imagens(){
         return $this->hasMany('App\Models\Imagem', 'id_produto', 'id');

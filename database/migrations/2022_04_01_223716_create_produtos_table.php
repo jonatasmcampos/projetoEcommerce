@@ -14,19 +14,27 @@ class CreateProdutosTable extends Migration
     public function up()
     {
         Schema::create('produtos', function (Blueprint $table) {
-            $table->increments("id");
+            $table->id();
 
-            $table->string("nome", 150);
-            $table->string("descricao", 255)->nullable();
-            $table->decimal("preco", 10,2);
-            $table->decimal("desconto", 10,2)->nullable();
-            $table->integer("id_categoria")->unsigned();
+            $table->string("nome");
+            $table->string("cor")->nullable();
+            $table->decimal("custo", 8, 2);
+            $table->decimal("lucro", 8, 2);
+            $table->decimal("preco", 8, 2);
+            $table->decimal("estoque", 8, 2);
+            $table->unsignedBigInteger("id_categoria");
+            $table->unsignedBigInteger("id_desconto")->nullable();
+
 
             $table->timestamps();
 
             $table->foreign("id_categoria")
-                    ->references("id")->on("categorias")
-                    ->onDelete("cascade");
+                ->references("id")->on("categorias")
+                ->onDelete("cascade");
+
+            $table->foreign("id_desconto")
+                ->references("id")->on("descontos")
+                ->onDelete("cascade");
         });
     }
 

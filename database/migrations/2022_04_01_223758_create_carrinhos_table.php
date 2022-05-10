@@ -14,12 +14,12 @@ class CreateCarrinhosTable extends Migration
     public function up()
     {
         Schema::create('carrinhos', function (Blueprint $table) {
-            $table->increments("id");
+            $table->id();
 
             $table->decimal("valor_total", 10,2);
-            $table->string("status", 20)->unique();
+            $table->string("status", 20);
             $table->datetime("data");
-            $table->integer("id_endereco")->unsigned();
+            $table->unsignedBigInteger("id_endereco")->nullable();
 
             $table->timestamps();
 

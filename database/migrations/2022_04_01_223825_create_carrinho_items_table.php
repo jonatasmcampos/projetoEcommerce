@@ -14,11 +14,11 @@ class CreateCarrinhoItemsTable extends Migration
     public function up()
     {
         Schema::create('carrinho_items', function (Blueprint $table) {
-            $table->increments("id");
+            $table->id();
 
             $table->integer("quantidade");
-            $table->integer("id_produto")->unsigned();
-            $table->integer("id_carrinho")->unsigned();
+            $table->unsignedBigInteger("id_produto");
+            $table->unsignedBigInteger("id_carrinho");
 
             $table->timestamps();
 

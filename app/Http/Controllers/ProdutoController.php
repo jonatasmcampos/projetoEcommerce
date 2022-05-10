@@ -46,11 +46,12 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         // já identifica chave estrangeira de categoria e produto para estoque  e retorna o estoque
-        $estoque = Categoria::find($request->categoria)->produtos()->create($request->all())
-            ->estoque()->create(['quantidade' => $request->estoque]);
-
-        $produto = $estoque->produto;
+        $produto = Categoria::find($request->categoria)->produtos()->create($request->all());
+            // ->estoque()->create(['quantidade' => $request->estoque]);
+dd($produto);
+        $produto = $produto;
 
         if ($request->hasFile('image')) {
 
