@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <h6>Alterar senha</h6>
     <br>
-    <div class="noCentro">
-        <div class="box-EditConfigSenha noCentro box-elevado"
-                style="width: 350px !important; height: 400px">
+    <h1 class="titulo">Alterar senha</h1>
+    <br>
+    <div style="display: flex; justify-content: center; width: 100%">
+        <div class="box-form-config" style="width: 50%;">
             <form id="update_senha" method="POST">
                 @csrf
                 @include('usuarioAdmin.minhaConta.inc._formSenha')

@@ -1,20 +1,32 @@
-<div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Senha Atual</label>
-    <input required autocomplete="off" type="password" id="senha_atual" name="senha_atual" class="form-control"
-        id="exampleInputPassword1">
-    <span id="senhaAtualInvalid"></span>
-</div>
-<div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Senha Nova</label>
-    <input autocomplete="off" required type="password" id="senha_nova" name="senha_nova" class="form-control"
-        id="exampleInputPassword1">
+<div class="box-config-senha" style="width: 100%">
 
+    <div class="mb-3 mx-auto box-inputSenha">
+        <div>
+            <span class="input-group-text" id="basic-addon2">Senha atual</span>
+            <input required autocomplete="off" type="password" id="senha_atual" name="senha_atual" class="input-config-senha"
+                id="exampleInputPassword1">
+        </div>
+        <span id="senhaAtualInvalid"></span>
+    </div>
+
+    <div class="mb-3 mx-auto box-inputSenha">
+        <div>
+            <span class="input-group-text" id="basic-addon2">Nova senha</span>
+            <input autocomplete="off" required type="password" id="senha_nova" name="senha_nova" class="input-config-senha"
+                id="exampleInputPassword1">    
+        </div>
+    </div>
+
+    <div class="mb-3 mx-auto box-inputSenha">
+        <div>
+            <span class="input-group-text" id="basic-addon2">Confirmar senha</span>
+            <input autocomplete="off" required type="password" id="senha_confirma_senha" class="input-config-senha"
+                id="exampleInputPassword1">
+        </div>
+        <span id="senhaConfirmFalse"></span>
+    </div>
+
+    <div class="box-btn-senha">
+        <button type="submit" class="btn btn-primary btn-senha">Atualizar</button>
+    </div>
 </div>
-<div class="mb-3">
-    <label for="exampleInputPassword1" name="senha_confirma_senha" class="form-label">Confirma Senha</label>
-    <input autocomplete="off" required type="password" id="senha_confirma_senha" class="form-control"
-        id="exampleInputPassword1">
-    <span id="senhaConfirmFalse"></span>
-</div>
-<br>
-<button type="submit" class="btn btn-primary" style="float: right">Atualizar</button>

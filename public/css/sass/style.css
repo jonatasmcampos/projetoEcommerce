@@ -11539,6 +11539,13 @@ a:hover {
   color: orangered !important;
 }
 
+.bg-table {
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 20px 0;
+  width: 92%;
+}
+
 .box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12156,10 +12163,90 @@ svg {
   color: #dc3545;
 }
 
-.bg-table {
-  background-color: #fff;
+.box-config {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.box-config button {
+  margin: 0 20px;
+}
+
+.input-config {
+  width: 70%;
+  outline: 0;
+  padding: 5px 15px;
+  font-size: 16px;
+  border: 1px solid orangered;
   border-radius: 7px;
-  padding: 20px 0;
-  width: 92%;
+}
+
+.input-group-text {
+  background-color: orangered;
+  color: white;
+  border-radius: 7px;
+}
+
+.box-form-config {
+  width: 50%;
+}
+
+@media (max-width: 900px) {
+  .box-form-config {
+    width: 90%;
+  }
+}
+
+.box-config-senha {
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 20px;
+  width: 100%;
+}
+
+.box-btn-senha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.box-btn-senha button {
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.box-inputSenha {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.box-inputSenha span {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.box-inputSenha div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.input-config-senha {
+  padding: 5px 15px;
+  outline: 0;
+  border-radius: 7px;
+  border: 1px solid orangered;
 }
 /*# sourceMappingURL=style.css.map */
