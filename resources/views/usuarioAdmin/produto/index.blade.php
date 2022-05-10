@@ -31,7 +31,7 @@
                 <li class="tab-content tab-content-first typography">
 
                     @if (!$produtos->count())
-                        <div class="alert alert-warning noCentro" style="flex-direction: column" role="alert">
+                        <div class="alert alert-warning" style="display: flex; flex-direction: column; align-items:center" role="alert">
                             <h4 class="alert-heading"><i class="material-icons">feedback</i></h4>
                             <h3>
                                 Nenhum produto cadastrado!

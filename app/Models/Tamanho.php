@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tamanho extends Model
 {
-    use HasFactory;
+    protected $table = "tamanhos";
+    protected $fillable = [
+        'tamanho'
+    ];
 }

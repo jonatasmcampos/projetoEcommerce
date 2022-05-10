@@ -24,13 +24,15 @@ i{
 .btn-primary{
     background-color: orangered !important;
     border: 1px solid #707070 !important; 
+    color: #fff !important;
     &:hover{
+        color: #fff !important;
         background-color:rgba(255, 69, 0, 0.7) !important;
     }
 }
 
 a{
-    text-decoration: none;
+    text-decoration: none !important;
     color: #000 !important;
     &:hover{
         color: orangered !important;
@@ -630,8 +632,6 @@ svg {
 // -----------------------   ↓↓↓↓↓↓↓↓ MINHA CONTA  ↓↓↓↓↓↓↓↓ -----------------------
 .box-config{
     width: 100%;
-    border: 1px solid black;
-
     button{
         margin: 0 20px;
     }
@@ -662,12 +662,17 @@ svg {
 }
 // -----------------------   ↑↑↑↑↑↑↑ MINHA CONTA ↑↑↑↑↑↑↑ -----------------------
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// -----------------------   ↓↓↓↓↓↓↓↓ SENHA  ↓↓↓↓↓↓↓↓ -----------------------
+
 .box-config-senha{
     background-color: #fff;
-    border: 1px solid black;
     padding: 20px;
     width: 100%;
+    border-radius: 7px;
 }
+
 .box-btn-senha{
     display: flex;
     justify-content: end;
@@ -690,9 +695,19 @@ svg {
     }
 }
 
+@media(max-width:900px){
+    .box-inputSenha{    
+        div{
+            flex-direction: column
+        }
+    }
+}
+
 .input-config-senha{
     padding: 5px 15px;
     outline: 0;
     border-radius: 7px;
     border: 1px solid orangered;
 }
+
+// -----------------------   ↑↑↑↑↑↑↑ SENHA ↑↑↑↑↑↑↑ -----------------------
