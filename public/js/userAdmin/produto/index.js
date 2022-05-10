@@ -1,5 +1,6 @@
+
 function cadastraProdutoClick() {
-  document.getElementById('nav-profile-tab').click();
+  document.getElementById('tab2').click();
 }
 
 //pega os arquivos do input file
@@ -9,18 +10,36 @@ function newInput(input) {
   var listaNomeImagens = "";
   var ul = document.getElementById('dp-files');
   inputFiles = input.files;
+  console.log(inputFiles);
+  if (inputFiles.length > 5) {
 
-  for (i = 0; i < inputFiles.length; i++) {
-    var ext = inputFiles[i].name.split('.').pop();
+    Swal.fire({
+      icon: 'warning',
+      title: 'Limite de imagens Excedido',
+      text: 'Para uma melhor experiência dos usuarios da sua platafomra E-commerce, você tem um limite de 5 imagens por produto!',
+    })
 
-    if (validaExtencaoImage(ext, inputFiles[i].name)) {
-      listaNomeImagens += '<li>' + inputFiles[i].name + '</li>'
-    } else {
-      input.value = "";
-      listaNomeImagens = "";
+    return;
+
+  } else {
+
+    for (i = 0; i < inputFiles.length; i++) {
+      var ext = inputFiles[i].name.split('.').pop();
+
+      if (validaExtencaoImage(ext, inputFiles[i].name)) {
+        listaNomeImagens += '<li>' + inputFiles[i].name + '</li>'
+      } else {
+        input.value = "";
+        listaNomeImagens = "";
+      }
+
     }
+
+    ul.innerHTML = listaNomeImagens;
+
   }
-  ul.innerHTML = listaNomeImagens;
+
+
 }
 
 function validaExtencaoImage(ext, nameImage) {
@@ -55,16 +74,25 @@ $(function () {
         confirmButtonText: 'Sim, Manter Sem Imagem!'
       }).then((result) => {
         console.log(result);
+        //caso queira cadastrar produto sem imagem
         if (result.isConfirmed) {
 
           document.getElementById('formCadastroProduto').submit();
 
         }
       })
+
+    } else if (inputFiles.length > 5) {
+
+      Swal.fire({
+        icon: 'warning',
+        title: 'Limite de imagens Excedido',
+        text: 'Para uma melhor experiência dos usuarios da sua platafomra E-commerce, você tem um limite de 5 imagens por produto!',
+      })
+
+      return;
     } else {
-
       document.getElementById('formCadastroProduto').submit();
-
     }
 
   });

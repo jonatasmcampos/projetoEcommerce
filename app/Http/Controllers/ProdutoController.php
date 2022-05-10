@@ -19,9 +19,10 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $produtos = Produto::all();
+        $produtos = Produto::with('categoria')->whereRaw("nome like '%{$request->nome}%'")->get();
+
         $categorias =  Categoria::all();
         return view('usuarioAdmin.produto.index', compact('produtos', 'categorias'));
     }
@@ -134,6 +135,7 @@ class ProdutoController extends Controller
     {
         $imagens = Imagem::where('id_produto', $id)->get();
 
+      
         if (count($imagens)) {
             Storage::deleteDirectory('public/imageProduto/' . $id);
         }
