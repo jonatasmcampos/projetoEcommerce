@@ -89,16 +89,20 @@
                      
     
                     </select> --}}
-                    <select name="ary[]" multiple="multiple">
-                        <option value="Option 1"> Option 1 </option>
-                        <option value="Option 2"> Option 2 </option>
-                        <option value="Option 3"> Option 3 </option>
-                        <option value="Option 4"> Option 4 </option>
-                        <option value="Option 5"> Option 5 </option>
-                      </select>
+                    
+                    
+                   
                 </div>
+                <select class="js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 100px !important;">
+                    <option value="AL">pp</option>
+                    <option value="WY">gg</option>
+                    <option value="AL">m</option>            
+                    <option value="WY">56</option>
+                    <option value="AL">543</option>              
+                    <option value="WY">435</option>
+                  </select>
             @endif
-       
+    
         </div>
 
 
