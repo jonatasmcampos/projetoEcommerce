@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\MinhaContaController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\TamanhoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,6 @@ Route::put('/img_padrao/{imagem}', [App\Http\Controllers\ProdutoController::clas
 Route::resource('/home/produto', ProdutoController::class);
 //estoques
 Route::resource('/home/estoque', EstoqueController::class);
+
+//tamanhos
+Route::resource('/home/tamanho', TamanhoController::class);
