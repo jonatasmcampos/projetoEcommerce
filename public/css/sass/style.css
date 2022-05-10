@@ -11524,14 +11524,16 @@ i {
 .btn-primary {
   background-color: orangered !important;
   border: 1px solid #707070 !important;
+  color: #fff !important;
 }
 
 .btn-primary:hover {
+  color: #fff !important;
   background-color: rgba(255, 69, 0, 0.7) !important;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: #000 !important;
 }
 
@@ -12165,7 +12167,6 @@ svg {
 
 .box-config {
   width: 100%;
-  border: 1px solid black;
 }
 
 .box-config button {
@@ -12199,9 +12200,9 @@ svg {
 
 .box-config-senha {
   background-color: #fff;
-  border: 1px solid black;
   padding: 20px;
   width: 100%;
+  border-radius: 7px;
 }
 
 .box-btn-senha {
@@ -12241,6 +12242,15 @@ svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media (max-width: 900px) {
+  .box-inputSenha div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .input-config-senha {

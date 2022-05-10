@@ -1,6 +1,15 @@
 @if (!$categorias->count())
-    <h1>Nenhuma Categoria cadastrada</h1>
-    <a href="{{ route('categoria.create') }}" class="btn btn-primary">Cadastrar categoria</a>
+
+    <div class="alert alert-warning" style="display: flex; flex-direction: column; align-items:center" role="alert">
+        <h4 class="alert-heading"><i class="material-icons">feedback</i></h4>
+        <h3>
+            Nenhuma categoria cadastrada!
+        </h3>
+        <hr>
+        <p class="mb-0">
+            <a href="{{ route('categoria.create') }}" class="btn btn-primary">Cadastrar categoria</a>
+        </p>
+    </div>
 @else
     <div>
 
@@ -38,14 +47,13 @@
                         class="form-control" id="exampleInputPassword1">
                 </div>
             </div>
-           
+
             {{-- DESCONTO DO PRODUTO --}}
             <div class="input-group desconto">
                 <label for="cor" class="form-label">Cor</label>
                 <div>
-                    <input id="desconto" name="cor"
-                        value="{{ $produto && $produto->cor ? $produto->cor : '' }}" type="text"
-                        class="form-control" placeholder="cor" aria-label="Cor"
+                    <input id="desconto" name="cor" value="{{ $produto && $produto->cor ? $produto->cor : '' }}"
+                        type="text" class="form-control" placeholder="cor" aria-label="Cor"
                         aria-describedby="basic-addon1">
                 </div>
             </div>
@@ -53,8 +61,7 @@
             {{-- ESTOQUE DO PRODUTO --}}
             <div class="estoque">
                 <label for="exampleInputPassword1" class="form-label">Estoque</label>
-                <input name="estoque"
-                    value="{{ $produto ? $produto->estoque : '0' }}" type="number"
+                <input name="estoque" value="{{ $produto ? $produto->estoque : '0' }}" type="number"
                     class="form-control" id="exampleInputPassword1">
             </div>
 
@@ -95,10 +102,10 @@
                         <option value="Option 3"> Option 3 </option>
                         <option value="Option 4"> Option 4 </option>
                         <option value="Option 5"> Option 5 </option>
-                      </select>
+                    </select>
                 </div>
             @endif
-       
+
         </div>
 
 

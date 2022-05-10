@@ -6,7 +6,7 @@
     <h1 class="titulo">Alterar senha</h1>
     <br>
     <div style="display: flex; justify-content: center; width: 100%">
-        <div class="box-form-config" style="width: 50%;">
+        <div class="box-form-config">
             <form id="update_senha" method="POST">
                 @csrf
                 @include('usuarioAdmin.minhaConta.inc._formSenha')
