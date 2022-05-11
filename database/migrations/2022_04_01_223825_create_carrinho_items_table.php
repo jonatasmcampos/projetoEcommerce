@@ -17,16 +17,16 @@ class CreateCarrinhoItemsTable extends Migration
             $table->id();
 
             $table->integer("quantidade");
-            $table->unsignedBigInteger("id_produto");
-            $table->unsignedBigInteger("id_carrinho");
+            $table->unsignedBigInteger("produto_id");
+            $table->unsignedBigInteger("carrinho_id");
 
             $table->timestamps();
 
-            $table->foreign("id_produto")
+            $table->foreign("produto_id")
                     ->references("id")->on("produtos")
                     ->onDelete("cascade");
             
-            $table->foreign("id_carrinho")
+            $table->foreign("carrinho_id")
                     ->references("id")->on("carrinhos")
                     ->onDelete("cascade");
         });

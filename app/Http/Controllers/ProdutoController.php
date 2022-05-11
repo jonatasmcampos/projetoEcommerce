@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\Estoque;
 use App\Models\Imagem;
 use App\Models\Produto;
+use App\Models\Tamanho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -22,9 +23,9 @@ class ProdutoController extends Controller
     public function index(Request $request)
     {
         $produtos = Produto::with('categoria')->whereRaw("nome like '%{$request->nome}%'")->get();
-
+        $tamanhos = Tamanho::all();
         $categorias =  Categoria::all();
-        return view('usuarioAdmin.produto.index', compact('produtos', 'categorias'));
+        return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias'));
     }
 
     /**
@@ -46,12 +47,16 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-        // já identifica chave estrangeira de categoria e produto para estoque  e retorna o estoque
-        $produto = Categoria::find($request->categoria)->produtos()->create($request->all());
-            // ->estoque()->create(['quantidade' => $request->estoque]);
-dd($produto);
-        $produto = $produto;
+
+        // já identifica chave estrangeira de categoria e produto
+        $produto = Categoria::find($request->categoria_id)->produtos()->create($request->all());
+        // ->estoque()->create(['quantidade' => $request->estoque]);
+
+        if ($request->tamanhos) {
+            foreach ($request->tamanhos as $t) {
+                $produto->tamanhos()->attach($t);
+            }
+        }
 
         if ($request->hasFile('image')) {
 
@@ -134,9 +139,9 @@ dd($produto);
      */
     public function destroy($id)
     {
-        $imagens = Imagem::where('id_produto', $id)->get();
+        $imagens = Imagem::where('produto_id', $id)->get();
 
-      
+
         if (count($imagens)) {
             Storage::deleteDirectory('public/imageProduto/' . $id);
         }

@@ -27,7 +27,7 @@
                 <label for="exampleInputPassword1" class="form-label">Custo</label>
                 <div>
                     <span class="input-group-text" id="basic-addon1">R$</span>
-                    <input required name="custo" value="{{ $produto ? $produto->custo : '0' }}" type="text"
+                    <input required name="custo" value="{{ $produto ? $produto->custo : '' }}" type="text"
                         class="form-control" id="exampleInputPassword1">
                 </div>
             </div>
@@ -35,7 +35,7 @@
                 <label for="exampleInputPassword1" class="form-label">Lucro</label>
                 <div>
                     <span class="input-group-text" id="basic-addon1">%</span>
-                    <input required name="lucro" value="{{ $produto ? $produto->lucro : '0' }}" type="text"
+                    <input required name="lucro" value="{{ $produto ? $produto->lucro : '' }}" type="text"
                         class="form-control" id="exampleInputPassword1">
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <label for="exampleInputPassword1" class="form-label">Preço</label>
                 <div>
                     <span class="input-group-text" id="basic-addon1">R$</span>
-                    <input required name="preco" value="{{ $produto ? $produto->preco : '0' }}" type="text"
+                    <input required name="preco" value="{{ $produto ? $produto->preco : '' }}" type="text"
                         class="form-control" id="exampleInputPassword1">
                 </div>
             </div>
@@ -76,7 +76,7 @@
             @else
                 <div class="categoria">
                     <label for="">Selecione a categoria do produto</label>
-                    <select required name="categoria" class="form-select" aria-label="Default select example">
+                    <select required name="categoria_id" class="form-select" aria-label="Default select example">
 
                         @foreach ($categorias as $c)
                             <option value="{{ $c->id }}">{{ $c->nome }}</option>
@@ -86,26 +86,23 @@
                 </div>
 
                 <div class="categoria">
-                    <label for="">Tamanhos</label>
-                    {{-- <select required name="tamanhos[]" multiple="multiple" class="form-select" aria-label="Default select example">
-                       
-                            <option value="pp">PP</option>
-                            <option value="pp">M</option>
-                            <option value="gg">GG</option>
-                            <option value="pp">G3</option>
-                     
-    
-                    </select> --}}
-                    <select name="ary[]" multiple="multiple">
-                        <option value="Option 1"> Option 1 </option>
-                        <option value="Option 2"> Option 2 </option>
-                        <option value="Option 3"> Option 3 </option>
-                        <option value="Option 4"> Option 4 </option>
-                        <option value="Option 5"> Option 5 </option>
-                    </select>
+                    <label for="">Tamanhos</label><br>
+                    @if ($tamanhos->count())
+                    <select class="js-example-basic-multiple" name="tamanhos[]" multiple="multiple" style="width: 100px !important;">
+                        @foreach ($tamanhos as $t)
+                        <option value="{{$t->id}}">{{$t->tamanho}}</option>
+                        @endforeach
+                        
+                         </select>
+                    @else
+                    <label for="">Nenhum tipo de tamanho registrado</label>
+                    @endif
+                
+                   
                 </div>
+             
             @endif
-
+    
         </div>
 
 

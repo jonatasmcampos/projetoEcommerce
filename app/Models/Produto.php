@@ -15,16 +15,16 @@ class Produto extends ModelPadrao
     ];
 
     public function categoria(){
-        return $this->hasOne('App\Models\Categoria', 'id', 'id_categoria');
+        return $this->belongsTo('App\Models\Categoria');
     }
 
-
-    // public function estoque(){
-    //     return $this->hasOne('App\Models\Estoque', 'id_produto', 'id');
-    // }
+    public function tamanhos()
+    {
+        return $this->belongsToMany('App\Models\Tamanho');
+    }
 
     public function imagens(){
-        return $this->hasMany('App\Models\Imagem', 'id_produto', 'id');
+        return $this->hasMany('App\Models\Imagem');
     }
 
 }

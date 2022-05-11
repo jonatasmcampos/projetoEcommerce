@@ -2,11 +2,10 @@
 function cadastraProdutoClick() {
   document.getElementById('tab2').click();
 }
-
-
-//calculo de lucro
-
-
+//selected2
+$(document).ready(function() {
+  $('.js-example-basic-multiple').select2();
+});
 
 
 //pega os arquivos do input file
