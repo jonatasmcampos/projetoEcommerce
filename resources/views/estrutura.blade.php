@@ -11,7 +11,7 @@
         <!-- chamando os icones do bootstrap-->
         <link rel="stylesheet" href={{asset('css/bootstrap-icons.css')}}>
         <!-- chamando arquivo de css para estilizar a página -->
-        <link rel="stylesheet" href={{asset('css/sass/style.css')}}>
+        <link rel="stylesheet" href={{asset('css/sass/styleUsuario.css')}}>
 
         {{-- Materialize --}}
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
