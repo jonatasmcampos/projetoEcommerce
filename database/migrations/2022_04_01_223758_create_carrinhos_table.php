@@ -19,11 +19,11 @@ class CreateCarrinhosTable extends Migration
             $table->decimal("valor_total", 10,2);
             $table->string("status", 20);
             $table->datetime("data");
-            $table->unsignedBigInteger("id_endereco")->nullable();
+            $table->unsignedBigInteger("endereco_id")->nullable();
 
             $table->timestamps();
 
-            $table->foreign("id_endereco")
+            $table->foreign("endereco_id")
                     ->references("id")->on("enderecos")
                     ->onDelete("cascade");
         });

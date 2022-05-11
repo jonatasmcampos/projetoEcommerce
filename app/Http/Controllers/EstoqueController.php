@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Estoque;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class EstoqueController extends Controller
 {
@@ -15,9 +16,10 @@ class EstoqueController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::with('estoque')->paginate(20);
+        $produtos = Produto::all();
             //  dd($produtos[0]);
         ;
+
         return view('usuarioAdmin.estoque.index', compact('produtos'));
     }
 
@@ -71,8 +73,9 @@ class EstoqueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Estoque::find($id)->update(['quantidade' => $request->quantidade]);
-
+        //  dd($id);
+        Produto::find($id)->update(['estoque' => $request->quantidade]);
+        Session::flash('true', 'Produto Alterado Com Sucesso');
         return redirect(route('estoque.index'));
     }
 
@@ -84,9 +87,9 @@ class EstoqueController extends Controller
      */
     public function destroy($id)
     {
-        
-       Estoque::find($id)->update(['quantidade' => 0]);
-       echo json_encode(true);
-       return ;
+
+        Produto::find($id)->update(['quantidade' => 0]);
+        echo json_encode(true);
+        return;
     }
 }

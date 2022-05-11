@@ -13,21 +13,24 @@ class AddTamanhoProdutoRelationships extends Migration
      */
     public function up()
     {
-        Schema::create('tamanho_produto', function (Blueprint $table) {
-            $table->unsignedBigInteger("id_tamanho");
-            $table->unsignedBigInteger("id_produto");
+        Schema::create('produto_tamanho', function (Blueprint $table) {
+            $table->unsignedBigInteger("produto_id");
+            $table->unsignedBigInteger("tamanho_id");
 
 
             $table->timestamps();
 
-            $table->foreign("id_tamanho")
-                ->references("id")->on("tamanhos")
-                ->onDelete("cascade");
-
-            $table->foreign("id_produto")
+            $table->foreign("produto_id")
                 ->references("id")->on("produtos")
                 ->onDelete("cascade");
+
+                $table->foreign("tamanho_id")
+                ->references("id")->on("tamanhos")
+                ->onDelete("cascade");
         });
+
+
+      
     }
 
     /**

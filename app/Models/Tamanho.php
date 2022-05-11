@@ -11,4 +11,9 @@ class Tamanho extends Model
     protected $fillable = [
         'tamanho'
     ];
+
+    public function produto()
+    {
+        return $this->belongsToMany('App\Models\Produto');
+    }
 }

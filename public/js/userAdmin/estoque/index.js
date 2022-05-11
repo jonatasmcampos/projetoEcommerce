@@ -66,41 +66,12 @@ function pega_id_estoque(estoque_id){
     
     })(window, document);
 
-// $(function () {
-//     $('form[id="formZerarDesconto"]').submit(function (event) {
-//         event.preventDefault();
-       
- 
-//         Swal.fire({
-//             title: 'Zerar Estoque?',
-//             text: "Deseja Realmente Zerar Estoque Deste Produto?",
-//             icon: 'warning',
-//             showCancelButton: true,
-//             confirmButtonColor: '#3085d6',
-//             cancelButtonColor: '#d33',
-//             calcelButtonText: 'Sair!',
-//             confirmButtonText: 'Sim, Zerar!'
-//         }).then((result) => {
-//             if (result.isConfirmed) {
-
-//                 $.ajax({
-//                     url: "home/estoque/" + id,
-//                     type: "GET",
-//                     data: {
-//                         nome: busca,
-//                         codigo: false,
-//                         id: false,
-//                     },
-//                     dataType: 'json',
-//                 }).done(function (response) {
-//                 Swal.fire(
-//                     'Deleted!',
-//                     'Your file has been deleted.',
-//                     'success'
-//                 )
-
-//                 })
-//             }
-//         })
-//     })
-// })
+    
+    function msgSuccess(msg, typ) {
+        Swal.fire({
+          icon: typ,
+          title: msg,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }

@@ -17,11 +17,11 @@ class CreateEstoquesTable extends Migration
             $table->increments("id");
 
             $table->integer("quantidade")->default(0);
-            $table->unsignedBigInteger("id_produto");
+            $table->unsignedBigInteger("produto_id");
 
             $table->timestamps();
 
-            $table->foreign("id_produto")
+            $table->foreign("produto_id")
                     ->references("id")->on("produtos")
                     ->onDelete("cascade");
         });

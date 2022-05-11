@@ -14,7 +14,7 @@ class TamanhoController extends Controller
 
     public function store(Request $request)
     {
-        Tamanho::create($request->all());
+        Tamanho::create(['tamanho' => strtoupper($request->tamanho)]);
         return redirect(route('tamanho.index'));
     }
 }

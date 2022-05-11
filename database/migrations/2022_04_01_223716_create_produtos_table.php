@@ -22,17 +22,17 @@ class CreateProdutosTable extends Migration
             $table->decimal("lucro", 8, 2);
             $table->decimal("preco", 8, 2);
             $table->decimal("estoque", 8, 2);
-            $table->unsignedBigInteger("id_categoria");
-            $table->unsignedBigInteger("id_desconto")->nullable();
+            $table->unsignedBigInteger("categoria_id");
+            $table->unsignedBigInteger("desconto_id")->nullable();
 
 
             $table->timestamps();
 
-            $table->foreign("id_categoria")
+            $table->foreign("categoria_id")
                 ->references("id")->on("categorias")
                 ->onDelete("cascade");
 
-            $table->foreign("id_desconto")
+            $table->foreign("desconto_id")
                 ->references("id")->on("descontos")
                 ->onDelete("cascade");
         });

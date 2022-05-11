@@ -12,6 +12,6 @@ class Categoria extends ModelPadrao
 
     public function produtos()
     {
-        return $this->hasMany('App\Models\Produto', 'id_categoria', 'id');
+        return $this->hasMany('App\Models\Produto');
     }
 }
