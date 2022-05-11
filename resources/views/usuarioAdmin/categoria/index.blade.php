@@ -8,7 +8,10 @@
             @csrf
             @include('usuarioAdmin.categoria.inc._form')
         </form>
+        @if (Session::has('true'))
 
+            <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
+        @endif
         <section class="ftco-section bg-table mx-auto">
             <div class="container">
                 <div class="row">
@@ -35,12 +38,13 @@
                                                 {{ $c->nome }}
                                             </td>
                                             @if (!$c->produtos->count())
-                                                <form action="{{ route('categoria.destroy', $c->id) }}" method="POST">
+                                                <form id="deleteCategoria"
+                                                    action="{{ route('categoria.destroy', $c->id) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <td>
+                                                    <td onclick="confirmaDeleteCategoria()">
                                                         <a class="btn" type="submit">
-                                                            <i class="bi bi-trash"></i>
+                                                            <i class="bi bi-trash">a</i>
                                                         </a>
                                                     </td>
                                                 </form>
@@ -67,7 +71,8 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <ul class="list-group">
-                                                                    <li  style="background-color: orangered !important" class="list-group-item active">Produtos</li>
+                                                                    <li style="background-color: orangered !important"
+                                                                        class="list-group-item active">Produtos</li>
                                                                     @foreach ($c->produtos as $p)
                                                                         <li class="list-group-item">{{ $p->nome }}</li>
                                                                     @endforeach
@@ -168,3 +173,4 @@
         </div>
     </div> --}}
     @endsection
+    <script type="text/javascript" src="{{ asset('js/userAdmin/categoria/index.js') }}" defer></script>

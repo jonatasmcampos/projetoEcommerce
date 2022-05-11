@@ -25,7 +25,7 @@ class ProdutoController extends Controller
         $produtos = Produto::with('categoria')->whereRaw("nome like '%{$request->nome}%'")->get();
         $tamanhos = Tamanho::all();
         $categorias =  Categoria::all();
-        return view('usuarioAdmin.produto.index', compact('produtos','tamanhos', 'categorias'));
+        return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias'));
     }
 
     /**
@@ -47,16 +47,16 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-       
-        // já identifica chave estrangeira de categoria e produto para estoque  e retorna o estoque
+
+        // já identifica chave estrangeira de categoria e produto
         $produto = Categoria::find($request->categoria_id)->produtos()->create($request->all());
-            // ->estoque()->create(['quantidade' => $request->estoque]);
-    
-            if ($request->tamanhos) {
-                foreach ($request->tamanhos as $t) {   
-                    $produto->tamanhos()->attach($t);
-                }
+        // ->estoque()->create(['quantidade' => $request->estoque]);
+
+        if ($request->tamanhos) {
+            foreach ($request->tamanhos as $t) {
+                $produto->tamanhos()->attach($t);
             }
+        }
 
         if ($request->hasFile('image')) {
 
@@ -141,7 +141,7 @@ class ProdutoController extends Controller
     {
         $imagens = Imagem::where('produto_id', $id)->get();
 
-      
+
         if (count($imagens)) {
             Storage::deleteDirectory('public/imageProduto/' . $id);
         }

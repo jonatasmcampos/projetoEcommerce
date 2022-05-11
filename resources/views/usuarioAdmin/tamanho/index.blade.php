@@ -8,13 +8,16 @@
             @csrf
             @include('usuarioAdmin.tamanho.inc._form')
         </form>
+        @if (Session::has('true'))
 
+            <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
+        @endif
         <section class="ftco-section bg-table mx-auto" style="width: 50%">
             <div class="container">
                 <div class="row">
                     <div style="padding:0;">
                         <div class="table-wrap" style="padding: 7px">
-                            <table class="table mx-auto" style="min-width:100% !important;" >
+                            <table class="table mx-auto" style="min-width:100% !important;">
                                 <thead class="thead-primary">
                                     <tr>
                                         <th style="width: 70px">Nº</th>
@@ -34,12 +37,12 @@
                                             <td>
                                                 {{ $t->tamanho }}
                                             </td>
-                                            @if (!$t->count())
-                                                <form action="{{ route('tamanho.destroy', $t->id) }}" method="POST">
+                                            @if (!$t->produtos->count())
+                                                <form id="deleteTamanho" action="{{ route('tamanho.destroy', $t->id) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
                                                     <td>
-                                                        <a class="btn" type="submit">
+                                                        <a onclick="confirmaDeleteTamanho()" class="btn" type="submit">
                                                             <i class="bi bi-trash"></i>
                                                         </a>
                                                     </td>
@@ -51,8 +54,8 @@
                                                         <i class="bi bi-trash"></i>
                                                     </a>
                                                 </td>
-                                                <!-- Modal -->
-                                                {{-- <div class="modal fade" id="modalContemProduto{{ $t->id }}"
+                                                <!-- Modal Caso contem item para esse tamanho-->
+                                                 <div class="modal fade" id="modalContemProduto{{ $t->id }}"
                                                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -68,7 +71,7 @@
                                                             <div class="modal-body">
                                                                 <ul class="list-group">
                                                                     <li  style="background-color: orangered !important" class="list-group-item active">Produtos</li>
-                                                                    @foreach ($t->tamanho as $p)
+                                                                    @foreach ($t->produtos as $p)
                                                                         <li class="list-group-item">{{ $p->nome }}</li>
                                                                     @endforeach
                                                                 </ul>
@@ -80,7 +83,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> --}}
+                                                </div> 
                                             @endif
                                         </tr>
                                         <?php $i++; ?>
@@ -93,3 +96,4 @@
             </div>
         </section>
     @endsection
+    <script type="text/javascript" src="{{ asset('js/userAdmin/tamanho/index.js') }}" defer></script>

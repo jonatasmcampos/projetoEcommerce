@@ -4,10 +4,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\DescontoController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\MinhaContaController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\TamanhoController;
+use App\Models\Desconto;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +44,12 @@ Route::resource('/home/categoria', CategoriaController::class);
 Route::delete('/deleta-imagem/{imagem}', [App\Http\Controllers\ProdutoController::class, 'deleta_image'])->name('deleta_image');
 Route::put('/img_padrao/{imagem}', [App\Http\Controllers\ProdutoController::class, 'torna_imagem_padrao'])->name('img_padrao');
 Route::resource('/home/produto', ProdutoController::class);
+
 //estoques
 Route::resource('/home/estoque', EstoqueController::class);
 
 //tamanhos
 Route::resource('/home/tamanho', TamanhoController::class);
+
+//tamanhos
+Route::resource('/home/descontos', DescontoController::class);

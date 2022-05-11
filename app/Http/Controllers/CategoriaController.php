@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CategoriaController extends Controller
 {
@@ -15,7 +16,6 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -86,6 +86,9 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         Categoria::find($id)->delete();
+
+        Session::flash('true', 'Categoria Excluida Com Sucesso');
+        
         return redirect(route('categoria.create'));
     }
 }

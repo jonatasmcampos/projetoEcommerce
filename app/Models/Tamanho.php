@@ -12,7 +12,7 @@ class Tamanho extends Model
         'tamanho'
     ];
 
-    public function produto()
+    public function produtos()
     {
         return $this->belongsToMany('App\Models\Produto');
     }
