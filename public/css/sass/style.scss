@@ -248,7 +248,7 @@ a{
 }
 
 #sidebar.active .btn.btn-primary:before {
-    content: "\f053";
+    content: "\f054";
     font-family: "FontAwesome";
     right: 2px !important;
 }
@@ -378,7 +378,7 @@ a{
 }
 
 #sidebar .custom-menu .btn.btn-primary:after {
-    content: "\f054";
+    content: "\f053"; //aqui
     left: 2px;
 }
 
@@ -452,6 +452,11 @@ svg {
     height: 40px;
     border-radius: 7px;
 }
+.btn-excluir{    
+    &:hover{
+        color: orangered !important;
+    }
+}
 .input-buscar{
     outline: 0;
     width: 80%;
@@ -475,13 +480,17 @@ svg {
 }
 
 .nome {
-    width: 70%;
+    width: 57%;
 }
 
 @media (max-width: 900px) {
     .nome {
         width: 100%;
     }
+}
+
+.cor{
+    width: 35%;
 }
 
 .preco {
@@ -496,7 +505,38 @@ svg {
     }
 
     input {
-        width: 100px;
+        width: 80px;
+    }
+}
+.custo{
+    span {
+        width: 45px;
+        background-color: orangered;
+        color: #fff;
+    }
+
+    div {
+        display: flex;
+    }
+
+    input {
+        width: 80px;
+    }
+}
+
+.lucro{
+    span {
+        width: 45px;
+        background-color: orangered;
+        color: #fff;
+    }
+
+    div {
+        display: flex;
+    }
+
+    input {
+        width: 60px;
     }
 }
 
@@ -527,13 +567,20 @@ svg {
 .estoque {
 
     input {
-        width: 100px;
+        width: 90px;
     }
 }
 
 .categoria {
     height: fit-content;
-
+    margin: 0 10px;
+    label{
+        margin-bottom: 8px; 
+    }
+}
+.tamanho{
+    height: fit-content;
+    margin: 0 10px;
     label{
         margin-bottom: 8px; 
     }

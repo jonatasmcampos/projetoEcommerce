@@ -51,5 +51,5 @@ Route::resource('/home/estoque', EstoqueController::class);
 //tamanhos
 Route::resource('/home/tamanho', TamanhoController::class);
 
-//tamanhos
+//desconto
 Route::resource('/home/descontos', DescontoController::class);

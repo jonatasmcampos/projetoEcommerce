@@ -6,10 +6,12 @@
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
-    <h6>Editar produto</h6>
     <br>
+    <h1 class="titulo">Editar produto</h1>
+    <br>
+    
 
-    <div class="box-elevado">
+    <div>
         <br>
         @if (!$categorias->count())
             <div class="alert alert-warning noCentro" style="flex-direction: column" role="alert">
@@ -31,11 +33,14 @@
 
             </form>
 
+            <div style="background-color: #fff; padding: 10px 0 2px 0">
             @include('usuarioAdmin.produto.inc._formImagem', [
                 'produto' => $produto,
             ])
+            </div>
+
+            <br>
         @endif
     </div>
-
 @endsection
 <script type="text/javascript" src="{{ asset('js/userAdmin/produto/edit.js') }}" defer></script>

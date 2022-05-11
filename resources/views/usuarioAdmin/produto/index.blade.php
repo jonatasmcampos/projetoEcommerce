@@ -2,6 +2,7 @@
 
 @section('content')
     @if (Session::has('true'))
+
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
 
@@ -14,31 +15,32 @@
         <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
 
             <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
-            <label for="tab1"><i class="icon-bolt"></i>Produtos</label>
+            <label for="tab1"><i class="fa fa-product-hunt" aria-hidden="true"></i>Produtos</label>
 
             <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
-            <label for="tab2"><i class="icon-picture"></i>Cadastrar produto</label>
+            <label for="tab2"><i class="fa fa-bookmark" aria-hidden="true"></i>Cadastrar produto</label>
 
             <!--
-                                                            <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                                                            <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+                                                                <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                                                <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 
-                                                            <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                                                            <label for="tab5"><i class="icon-globe"></i>Newton</label>
-                                                        -->
+                                                                <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+                                                                <label for="tab5"><i class="icon-globe"></i>Newton</label>
+                                                            -->
 
             <ul style="min-height: 75vh;">
                 <li class="tab-content tab-content-first typography">
 
                     @if (!$produtos->count())
-                        <div class="alert alert-warning" style="display: flex; flex-direction: column; align-items:center" role="alert">
+                        <div class="alert alert-warning" style="display: flex; flex-direction: column; align-items:center"
+                            role="alert">
                             <h4 class="alert-heading"><i class="material-icons">feedback</i></h4>
                             <h3>
                                 Nenhum produto cadastrado!
                             </h3>
                             <hr>
                             <p class="mb-0">
-                                <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()">Cadastrar</a>
+                                <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()">Cadastrar produto</a>
                             </p>
                         </div>
                     @else
@@ -48,9 +50,10 @@
 
                         <!-- PESQUISA DE PRODUTOS NA LISTA DE PRODUTOS -->
                         {{-- <div class="input-group"> --}}
-                            <form class="input-group" action="{{route('produto.index')}}" method="GET">
-                                @csrf
-                            <input name="nome" placeholder="Buscar produto" type="search" id="form1" class="input-buscar" />
+                        <form class="input-group" action="{{ route('produto.index') }}" method="GET">
+                            @csrf
+                            <input name="nome" placeholder="Buscar produto" type="search" id="form1"
+                                class="input-buscar" />
                             <button type="submit" class="btn btn-primary btn-buscar">
                                 <i class="bi bi-search"></i>
                             </button>
@@ -104,7 +107,7 @@
                                                             </td>
 
                                                             <td>M</td>
-                                                            
+
                                                             <td class="quantity">
                                                                 <span> {{ $p->cor }}</span>
                                                             </td>
@@ -122,17 +125,14 @@
                                                                 </a>
                                                             </td>
                                                             <td>
-
-                                                             
-                                                                    <form action="{{ route('produto.destroy', $p->id) }}" method="POST">
-                                                                        @method('DELETE')
-                                                                        @csrf
-                                                                        <button type="submit" class="btn btn-excluir" style="padding:0;">
-                                                                            <i class="bi bi-trash-fill"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                   
-                                                            
+                                                                <form style="margin: 0 !important" action="{{ route('produto.destroy', $p->id) }}"
+                                                                    method="POST">
+                                                                    @method('DELETE')
+                                                                    @csrf
+                                                                    <button type="submit" class="btn btn-excluir">
+                                                                        <i class="bi bi-trash"></i>
+                                                                    </button>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                         <?php $i++; ?>
