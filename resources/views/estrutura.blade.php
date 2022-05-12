@@ -26,6 +26,9 @@
             <script src="{{asset('js/jquery.js')}}"></script>
             <!-- chamando o js do bootstrap-->
             <script src="{{asset('js/bootstrap.js')}}"></script>
+
+            <!-- ICONES FAS FA-->
+            <script src="https://kit.fontawesome.com/fc066fbf39.js" crossorigin="anonymous"></script>
         </body>
 
 </html>

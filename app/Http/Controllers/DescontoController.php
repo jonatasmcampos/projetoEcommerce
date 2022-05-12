@@ -12,6 +12,6 @@ class DescontoController extends Controller
     public function index(){
         $produtos = Produto::all();
         $tamanhos = Tamanho::all();
-        return view('UsuarioAdmin.desconto.index', compact('produtos', 'tamanhos'));
+        return view('usuarioAdmin.desconto.index', compact('produtos', 'tamanhos'));
     }
 }
