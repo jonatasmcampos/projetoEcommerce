@@ -51,8 +51,6 @@ function pega_id_estoque(estoque_id) {
                     }
 
                 })
-
-
             }
         })
     }

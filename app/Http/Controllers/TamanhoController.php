@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Tamanho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -10,12 +11,13 @@ class TamanhoController extends Controller
     public function index(){
 
         $tamanhos= Tamanho::all();
+      
         return view('usuarioAdmin.tamanho.index', compact('tamanhos'));
     }
 
     public function store(Request $request)
     {
-        Tamanho::create(['tamanho' => strtoupper($request->tamanho)]);
+        Tamanho::create(['nome' => strtoupper($request->tamanho)]);
         return redirect(route('tamanho.index'));
     }
 

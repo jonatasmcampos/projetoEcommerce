@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CorController;
 use App\Http\Controllers\DescontoController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\MinhaContaController;
@@ -50,6 +51,9 @@ Route::resource('/home/estoque', EstoqueController::class);
 
 //tamanhos
 Route::resource('/home/tamanho', TamanhoController::class);
+
+//cores
+Route::resource('/home/cores', CorController::class);
 
 //desconto
 Route::resource('/home/descontos', DescontoController::class);

@@ -8,8 +8,8 @@
 
     <div>
         @if (Session::has('true'))
-        <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
-    
+
+            <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
         @endif
 
         @if (!$produtos->count())
@@ -23,6 +23,16 @@
             <section class="ftco-section bg-table mx-auto">
                 <div class="container">
                     <div class="row">
+
+                        <form class="input-group" action="{{ route('produto.index') }}" method="GET">
+                            @csrf
+                            <input name="nome" placeholder="Buscar produto" type="search" id="form1"
+                                class="input-buscar" />
+                            <button type="submit" class="btn btn-primary btn-buscar">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </form>
+
                         <div style="padding:0;" class="col-12">
                             <div class="table-wrap">
                                 <table style="width: 70%;" class="table mx-auto">
@@ -30,9 +40,7 @@
                                         <tr>
                                             <th style="width: 70px">Nº</th>
                                             <th>Produto</th>
-                                            <th style="width: 70px">Tam</th>
-                                            <th class="col-3">Cor</th>
-                                            <th style="width: 70px;">Estoque</th>
+                                            <th style="width: 70px">Cor/Tam</th>
                                             <th style="width: 70px">&nbsp;</th>
                                             <th style="width: 70px">&nbsp;</th>
                                         </tr>
@@ -49,20 +57,25 @@
                                                         <span></span>
                                                     </div>
                                                 </td>
-                                                <td>M</td>
-                                                <td class="quantity">
-                                                    <span>Branco com cinza</span>
+                                                <td>
+                                                    <!-- BOTAO visualiza tamanhos -->
+                                                    <a type="button" class="btn" data-bs-toggle="modal"
+                                                        data-bs-target="#modalvisualizaCores{{ $p->id }}">
+                                                        <i class="bi bi-eye-fill"></i>
+                                                    </a>
                                                 </td>
                                                 <td id="idcampoEstoqueQuantidade<?php echo $p->id; ?>">
                                                     {{ $p->estoque }}
                                                 </td>
+
+                                                <!-- BOTAO EDITAR ESTOQUE -->
                                                 <td>
-                                                    <!-- BOTAO EDITAR ESTOQUE -->
-                                                    <a type="button" class="btn" data-bs-toggle="modal"
-                                                        data-bs-target="#modalEditaEstoque{{ $p->id }}">
+                                                    <a href="{{ route('estoque.show', $p->id) }}">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
                                                 </td>
+
+
                                                 <form id="formZerarDesconto" method="POST">
                                                     @method('DELETE')
                                                     @csrf
@@ -79,36 +92,42 @@
                                             </tr>
                                             <?php $i++; ?>
                                             <!-- Modal Edita Estoque -->
-                                            <div class="modal fade" id="modalEditaEstoque{{ $p->id }}"
+                                            <div class="modal fade" id="modalvisualizaCores{{ $p->id }}"
                                                 tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle">Editar
-                                                                estoque de
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Tamanhos
+                                                                por cores de
                                                                 <b style="color: orangered">{{ $p->nome }}</b>
                                                             </h5>
                                                         </div>
-                                                        <form action="{{ route('estoque.update', $p->id) }}"
-                                                            method="POST">
-                                                            <div class="modal-body">
-                                                                @method('PUT')
-                                                                @csrf
-                                                                <div class="form-group mx-sm-3 mb-2">
-                                                                    <input name="quantidade" type="number"
-                                                                        class="form-control" id="inputPassword2"
-                                                                        value="{{ $p->estoque }}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Confirmar</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">
-                                                                    Fechar
-                                                                </button>
-                                                            </div>
-                                                        </form>
+
+                                                        <div class="modal-body">
+                                                            @foreach ($p->cores as $c)
+                                                                <h6>{{ $c->nome }}</h6>
+                                                                @if (!$c->tamanhos->count())
+                                                                    <h6>Nenhum tamanho específicado para essa cor</h6>
+                                                                    @else
+                                                                    @foreach ($c->tamanhos as $t)
+                                                                    <h6>{{ $t->nome }}</h6>
+                                                                @endforeach
+                                                                @endif
+                                                           
+                                                            @endforeach
+
+
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                Fechar
+                                                            </button>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>

@@ -17,8 +17,6 @@ class EstoqueController extends Controller
     public function index()
     {
         $produtos = Produto::all();
-            //  dd($produtos[0]);
-        ;
 
         return view('usuarioAdmin.estoque.index', compact('produtos'));
     }
@@ -50,7 +48,8 @@ class EstoqueController extends Controller
      */
     public function show($id)
     {
-        //
+        $produto = Produto::find($id);
+        return view('usuarioAdmin.estoque.show', compact('produto'));
     }
 
     /**

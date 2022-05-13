@@ -1,3 +1,22 @@
+
+//selected2
+$(document).ready(function () {
+  $('.js-example-basic-multiple').select2();
+});
+
+
+function calcula_custo_lucro_preco() {
+  var custo = $('#custoProduto').val();
+  var preco = $('#precoProduto').val();
+
+  if (custo && preco) {
+   var valor = (parseFloat(preco) - parseFloat(custo)) * 100 / parseFloat(custo);
+   $('#lucroProduto').val(valor.toFixed(2))
+  }
+}
+
+
+
 //pega os arquivos do input file
 var inputFiles = [];
 
@@ -32,6 +51,7 @@ function validaExtencaoImage(ext, nameImage) {
     return false;
   }
 }
+
 
 function msgSuccess(msg, typ) {
   Swal.fire({

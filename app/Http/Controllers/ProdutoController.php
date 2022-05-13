@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Cor;
 use App\Models\Estoque;
 use App\Models\Imagem;
 use App\Models\Produto;
@@ -25,7 +26,9 @@ class ProdutoController extends Controller
         $produtos = Produto::with('categoria')->whereRaw("nome like '%{$request->nome}%'")->get();
         $tamanhos = Tamanho::all();
         $categorias =  Categoria::all();
-        return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias'));
+        $cores =  Cor::all();
+
+        return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias', 'cores'));
     }
 
     /**
@@ -47,15 +50,12 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-
         // já identifica chave estrangeira de categoria e produto
         $produto = Categoria::find($request->categoria_id)->produtos()->create($request->all());
-        // ->estoque()->create(['quantidade' => $request->estoque]);
 
-        if ($request->tamanhos) {
-            foreach ($request->tamanhos as $t) {
-                $produto->tamanhos()->attach($t);
-            }
+        if ($request->cores) {
+            // $produto->tamanhos()->attach($request->tamanhos);
+            $produto->cores()->attach($request->cores);
         }
 
         if ($request->hasFile('image')) {
@@ -88,7 +88,14 @@ class ProdutoController extends Controller
     {
         $produto = Produto::find($id);
         $categorias =  Categoria::all();
-        return view('usuarioAdmin.produto.edit', compact('produto', 'categorias'));
+        $tamanhos = Tamanho::all();
+
+        foreach ($produto->tamanhos as $key => $t) {
+            $tamanho_produto['id'][] = $t->id;
+            $tamanho_produto['tamanho'][] = $t->tamanho;
+        }
+
+        return view('usuarioAdmin.produto.edit', compact('produto', 'categorias', 'tamanhos', 'tamanho_produto'));
     }
 
     /**
@@ -109,6 +116,12 @@ class ProdutoController extends Controller
         }
 
         $produto->update($request->all());
+
+
+        if ($request->tamanhos) {
+            //mantem igual a tabela muito para muitos de produto e tamanho
+            $produto->tamanhos()->sync($request->tamanhos);
+        }
 
         Session::flash('true', 'Produto atualizado com sucesso');
         return redirect(route('produto.edit', $produto->id));
@@ -161,14 +174,12 @@ class ProdutoController extends Controller
      */
     public function deleta_image(Imagem $imagem)
     {
-        //deleta arquivo 
         Storage::delete(str_replace('storage', 'public', $imagem->nome));
 
         if ($imagem->prioridade) {
             $imagem_star = Imagem::where('id_produto', $imagem->id_produto)->where('prioridade', null)->first();
 
             $imagem_star->update(['prioridade' => 1]);
-            // dd($imagem);
         }
         //deleta caminho no banco
         $imagem->delete();

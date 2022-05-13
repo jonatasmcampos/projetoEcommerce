@@ -17,14 +17,11 @@ class CreateProdutosTable extends Migration
             $table->id();
 
             $table->string("nome");
-            $table->string("cor")->nullable();
             $table->decimal("custo", 8, 2);
             $table->decimal("lucro", 8, 2);
             $table->decimal("preco", 8, 2);
-            $table->decimal("estoque", 8, 2);
             $table->unsignedBigInteger("categoria_id");
             $table->unsignedBigInteger("desconto_id")->nullable();
-
 
             $table->timestamps();
 

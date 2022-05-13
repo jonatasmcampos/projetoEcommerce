@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTamanhosTable extends Migration
+class CreateEstoqueTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,16 @@ class CreateTamanhosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tamanhos', function (Blueprint $table) {
+        Schema::create('estoque', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->integer('quantidade');
+            $table->unsignedBigInteger("prod_tam_cor_id");
+
             $table->timestamps();
+
+            $table->foreign("prod_tam_cor_id")
+            ->references("id")->on("prod_tam_cor")
+            ->onDelete("cascade");
         });
     }
 
@@ -27,6 +33,6 @@ class CreateTamanhosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tamanhos');
+        Schema::dropIfExists('estoque');
     }
 }

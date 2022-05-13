@@ -1,4 +1,4 @@
-function confirmaDeleteTamanho() {
+function tamanhodestroy(id) {
 
     Swal.fire({
         title: 'Excluir tamanho?',
@@ -13,15 +13,9 @@ function confirmaDeleteTamanho() {
 
         if (result.isConfirmed) {
 
-            document.getElementById('deleteTamanho').submit();
-
-        } else {
-
-            msgSuccess('Não Foi Possível', 'error')
+            document.getElementById('tamanhodestroy' + id).submit();
 
         }
-
-
     });
 }
 

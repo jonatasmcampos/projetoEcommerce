@@ -1,4 +1,4 @@
-function confirmaDeleteCategoria() {
+function categoriadestroy(id) {
 
     Swal.fire({
         title: 'Excluir categoria?',
@@ -13,14 +13,9 @@ function confirmaDeleteCategoria() {
 
         if (result.isConfirmed) {
 
-            document.getElementById('deleteCategoria').submit();
-
-        } else {
-            msgSuccess('Não Foi Possível', 'error')
+            document.getElementById('categoriadestroy' + id).submit();
 
         }
-
-
     });
 }
 
