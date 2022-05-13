@@ -21,12 +21,12 @@
             <label for="tab2"><i class="fa fa-tags" aria-hidden="true"></i>Por categoria</label>
 
             <!--
-                                                                                        <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                                                                                        <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+                                                                                            <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                                                                            <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 
-                                                                                        <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                                                                                        <label for="tab5"><i class="icon-globe"></i>Newton</label>
-                                                                                    -->
+                                                                                            <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+                                                                                            <label for="tab5"><i class="icon-globe"></i>Newton</label>
+                                                                                        -->
 
             <ul style="min-height: 75vh;">
                 <li class="tab-content tab-content-first typography">
@@ -44,6 +44,14 @@
                     @php
                         $i = 1;
                     @endphp
+
+                    <form class="input-group" action="{{ route('descontos.index') }}" method="GET">
+                        @csrf
+                        <input name="nome" placeholder="Buscar produto" type="search" id="form1" class="input-buscar" />
+                        <button type="submit" class="btn btn-primary btn-buscar">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
 
                     <!-- LISTA DE PRODUTOS -->
                     <section class="ftco-section">
@@ -85,7 +93,7 @@
                                                             @if ($tamanhos->count())
                                                                 <select class="js-example-basic-multiple" name="tamanhos[]"
                                                                     multiple="multiple" style="width: 100px !important;">
-                                                                    @foreach ($tamanhos as $t)
+                                                                    @foreach ($p->tamanhos as $t)
                                                                         <option value="{{ $t->id }}">
                                                                             {{ $t->tamanho }}</option>
                                                                     @endforeach
@@ -106,7 +114,7 @@
                                                                 value="{{ $p ? $p->desconto : '' }}" type="text"
                                                                 class="form-control" id="exampleInputPassword1">
                                                         </td>
-                                                        
+
                                                         <td>
                                                             {{ $p->estoque }}
                                                         </td>

@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tamanho extends Model
 {
+    use HasFactory;
     protected $table = "tamanhos";
     protected $fillable = [
-        'tamanho'
+        'nome'
     ];
 
-    public function produtos()
+    // public function produtos()
+    // {
+    //     return $this->belongsToMany('App\Models\Produto');
+    // }
+
+    public function cores()
     {
-        return $this->belongsToMany('App\Models\Produto');
+        return $this->belongsToMany('App\Models\Cor');
     }
+
 }

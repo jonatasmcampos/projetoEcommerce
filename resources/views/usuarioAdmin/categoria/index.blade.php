@@ -38,13 +38,14 @@
                                                 {{ $c->nome }}
                                             </td>
                                             @if (!$c->produtos->count())
-                                                <form id="deleteCategoria"
+                                                <form id="categoriadestroy<?php echo $c->id ?>"
                                                     action="{{ route('categoria.destroy', $c->id) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <td onclick="confirmaDeleteCategoria()">
+                                                    {{--onclick avisa antes e deletar a categoria caso não é pq tem produto na categoria --}}
+                                                    <td onclick="categoriadestroy(<?php echo $c->id ?>)">
                                                         <a class="btn" type="submit">
-                                                            <i class="bi bi-trash">a</i>
+                                                            <i class="bi bi-trash"></i>
                                                         </a>
                                                     </td>
                                                 </form>

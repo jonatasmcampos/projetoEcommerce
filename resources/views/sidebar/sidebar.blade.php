@@ -28,6 +28,7 @@
                         <a class="card-link" href="{{ route('produto.index') }}">Produtos</a>
                         <a class="card-link" href="{{ route('estoque.index') }}">Estoque</a>
                         <a class="card-link" href="{{ route('categoria.create') }}">Categorias</a>
+                        <a class="card-link" href="{{ route('cores.index') }}">Cores</a>
                         <a class="card-link" href="{{ route('tamanho.index') }}">Tamanhos</a>
                         <a class="card-link" href="{{ route('descontos.index') }}">Descontos</a>
                     </div>

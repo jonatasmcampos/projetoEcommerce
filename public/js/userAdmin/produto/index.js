@@ -3,10 +3,40 @@ function cadastraProdutoClick() {
   document.getElementById('tab2').click();
 }
 //selected2
-$(document).ready(function() {
+$(document).ready(function () {
   $('.js-example-basic-multiple').select2();
 });
 
+
+function calcula_custo_lucro_preco() {
+  var custo = $('#custoProduto').val();
+  var preco = $('#precoProduto').val();
+
+  if (custo && preco) {
+   var valor = (parseFloat(preco) - parseFloat(custo)) * 100 / parseFloat(custo);
+   $('#lucroProduto').val(valor.toFixed(2))
+  }
+}
+
+function produtodestroy(id) {
+
+  Swal.fire({
+    title: 'Excluir Produto',
+    text: "Deseja Realmente Excluir Este Produto?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    calcelButtonText: 'Sair!',
+    confirmButtonText: 'Sim, Excluir!'
+  }).then((result) => {
+
+    if (result.isConfirmed) {
+      document.getElementById('produtodestroy' + id).submit();
+    }
+
+  })
+}
 
 //pega os arquivos do input file
 var inputFiles = [];

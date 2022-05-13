@@ -2,11 +2,11 @@
 
 @section('content')
     <br>
-    <h1 class="titulo">Tamanhos</h6>
+    <h1 class="titulo">Cores</h6>
 
-        <form action="{{route('tamanho.store')}}" method="POST">
-            @csrf
-            @include('usuarioAdmin.tamanho.inc._form')
+        <form action="{{route('cores.store')}}" method="POST">
+            @csrf 
+            @include('usuarioAdmin.cor.inc._form')
         </form>
         @if (Session::has('true'))
 
@@ -21,7 +21,7 @@
                                 <thead class="thead-primary">
                                     <tr>
                                         <th style="width: 70px">Nº</th>
-                                        <th>Tamanho</th>
+                                        <th>Cores</th>
                                         <th style="width: 70px">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -29,33 +29,33 @@
                                     @php
                                         $i = 1;
                                     @endphp
-                                    @foreach ($tamanhos as $t)
+                                    @foreach ($cores as $c)
                                         <tr class="alert" role="alert">
                                             <td>
                                                 <span>{{ $i }}</span>
                                             </td>
                                             <td>
-                                                {{ $t->nome }}
+                                                {{ $c->nome }}
                                             </td>
-                                            @if (!$t->count())
-                                                <form id="tamanhodestroy<?php echo $t->id ?>" action="{{ route('tamanho.destroy', $t->id) }}" method="POST">
+                                            {{-- @if (!$c->produtos->count())
+                                                <form id="coresdestroy<?php echo $c->id ?>" action="{{ route('cores.destroy', $c->id) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
                                                     <td>
-                                                        <a onclick="tamanhodestroy(<?php echo $t->id ?>)" class="btn" type="submit">
+                                                        <a onclick="coresdestroy(<?php echo $c->id ?>)" class="btn" type="submit">
                                                             <i class="bi bi-trash"></i>
                                                         </a>
                                                     </td>
-                                                </form>
-                                            @else
-                                                <td>
+                                                </form> --}}
+                                            {{-- @else --}}
+                                                {{-- <td>
                                                     <a type="button" class="btn" data-bs-toggle="modal"
-                                                        data-bs-target="#modalContemProduto{{ $t->id }}">
+                                                        data-bs-target="#modalContemProduto{{ $c->id }}">
                                                         <i class="bi bi-trash"></i>
                                                     </a>
                                                 </td>
                                                 <!-- Modal Caso contem item para esse tamanho-->
-                                                 <div class="modal fade" id="modalContemProduto{{ $t->id }}"
+                                                 <div class="modal fade" id="modalContemProduto{{ $c->id }}"
                                                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -63,19 +63,19 @@
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="staticBackdropLabel">
                                                                     Categoria
-                                                                    <b>{{ $t->tamanho }}</b> Contém Produto
+                                                                    <b>{{ $c->tamanho }}</b> Contém Produto
                                                                 </h5>
                                                                 <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            {{-- <div class="modal-body">
+                                                            <div class="modal-body">
                                                                 <ul class="list-group">
                                                                     <li  style="background-color: orangered !important" class="list-group-item active">Produtos</li>
-                                                                    @foreach ($t->produtos as $p)
+                                                                    @foreach ($c->produtos as $p)
                                                                         <li class="list-group-item">{{ $p->nome }}</li>
                                                                     @endforeach
                                                                 </ul>
-                                                            </div> --}}
+                                                            </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Sair</button>
@@ -84,7 +84,7 @@
                                                         </div>
                                                     </div>
                                                 </div> 
-                                            @endif
+                                            @endif --}}
                                         </tr>
                                         <?php $i++; ?>
                                     @endforeach
