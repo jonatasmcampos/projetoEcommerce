@@ -470,12 +470,20 @@ svg {
 
 .box-formCadastrarProdutos {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     padding: 20px;
 
     div {
         margin-right: 7px;
         margin-bottom: 7px;
+    }
+
+    .etapa1{
+       
+    }
+    .etapa2{
+        
     }
 }
 
