@@ -4,7 +4,7 @@
         <!-- contact content -->
         <div class="header-content-top d-flex justify-content-center align-items-center">
             <div>
-                <img src="{{asset('img/capa.png')}}" alt="Imagem tema da loja virtual">
+                <img src="{{ asset('img/capa.png') }}" alt="Imagem tema da loja virtual">
             </div>
         </div>
         <!-- / contact content -->
@@ -25,23 +25,38 @@
                         <label class="open-menu-login-account" for="open-menu-login-account">
 
                             <input class="input-menu" id="open-menu-login-account" type="checkbox" name="menu" />
+                            <span class="login-text">
+                                @if (Auth::user())
+                                    <a class="btn dropdown-toggle" href="#" role="button"
+                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-user-circle"></i> &nbsp; {{ Auth::user()->name }}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                                            {{ __('Sair') }}
+                                        </a>
 
-                            <i class="fas fa-user-circle"></i><span class="login-text">Hello, Sign in <strong>Create
-                                    Account</strong></span> <span class="item-arrow"></span>
-
-                            <!-- submenu -->
-                            <ul class="login-list">
-                                <li class="login-list-item"><a href="https://www.cupcom.com.br/">My account</a></li>
-                                <li class="login-list-item"><a href="https://www.cupcom.com.br/">Create account</a></li>
-                                <li class="login-list-item"><a href="https://www.cupcom.com.br/">logout</a></li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                @else
+                                    <a class="btn btn-entrar" href="{{ route('home') }}" role="button">
+                                        <i class="fas fa-user-circle"></i> &nbsp; Entrar
+                                    </a>
+                                @endif
+                            </span>
+                            <span class="item-arrow"></span>
                         </label>
-                </ul>
-                </li>
-                <li class="nav-content-item"><a class="nav-content-link" href="https://www.cupcom.com.br/"><i
-                            class="fas fa-heart"></i></a></li>
-                <li class="nav-content-item"><a class="nav-content-link" href="https://www.cupcom.com.br/"><i
-                            class="fas fa-shopping-cart"></i></a></li>
-                <!-- call to action -->
+                    </li>
+                    <li class="nav-content-item">
+                        <a class="nav-content-link carrinho" href="#carrinho">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="quantidade">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -50,7 +65,7 @@
             <nav class="all-category-nav">
                 <label class="open-menu-all" for="open-menu-all">
                     <input class="input-menu-all" id="open-menu-all" type="checkbox" name="menu-open" />
-                    <span class="all-navigator"><i class="fas fa-bars"></i> <span>All category</span> <i
+                    <span class="all-navigator"><i class="fas fa-bars"></i> <span>Todas categorias</span> <i
                             class="fas fa-angle-down"></i>
                         <i class="fas fa-angle-up"></i>
                     </span>

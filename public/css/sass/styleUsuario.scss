@@ -6,7 +6,7 @@
 
 $cor-destaque: #f2cc8f;
 
-$cor-primaria: #81b29a;
+$cor-primaria: orangered;
 $font: 'Rubik', sans-serif;
 $cor-texto: #555;
 $shadow: 2px 9px 49px -17px rgba(0,0,0,0.3);
@@ -42,10 +42,6 @@ strong {
     color: $cor-texto;
   }
   
-  ul {
-    list-style: none;
-    padding: 0;
-  }
   // conatiner header
   header {
     box-shadow: $shadow;
@@ -182,6 +178,11 @@ strong {
     }
     // nav mobile
     .nav-content{
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
       // list nav
       .nav-content-list{
         align-items: center;
@@ -215,6 +216,8 @@ strong {
             cursor: pointer;
             display: flex;
             position: relative;
+            border: 1px solid $cor-primaria;
+            border-radius: 5px;
           }
           .input-menu {
             display: none;
@@ -251,10 +254,15 @@ strong {
         //nav items  
         .nav-content-item {
           &:nth-child(2):hover .fas {
-            color: #e74c3c;
+            color: $cor-primaria;
           }
           &:hover .fas {
-            color: #545bc4;
+            color: $cor-primaria;
+          }
+        }
+        .btn-entrar{          
+          &:hover{
+            color: $cor-primaria !important;
           }
         }
         // text create account login
@@ -265,9 +273,6 @@ strong {
             flex-direction: column;
             font-size: 12px;
             margin-left: 5px;
-            @media (max-width: 991px) {
-              display: none;
-            }
             strong {
               display: block;
             }
@@ -329,6 +334,10 @@ strong {
       @media (max-width: 991px){
         display: none;
       }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
     }
      // container all navigator
     .all-navigator {
@@ -360,19 +369,26 @@ strong {
     }
     // button all category
     .all-category-nav {
+      display: none;
       cursor: pointer;
       max-width: 300px;
       position: relative;
       width: 100%;
       @media (max-width: 991px){
+        display: block;
         max-width: 100%;
       }
+      
       // label menu all
       .open-menu-all {
         align-items: center;
         cursor: pointer;
         display: flex;
         position: relative;
+        ul {
+          list-style: none;
+          padding: 0;
+        }
       }
       // input menu all
       .input-menu-all {
@@ -412,10 +428,17 @@ strong {
           display: block;
           background: $cor-primaria;
   
+          a{
+            color: #fff !important;
+          }
           .category-second-list {
             left: 100%;
             opacity: 1;
             visibility: visible;
+            ul {
+              list-style: none;
+              padding: 0;
+            }
           }
           .all-category-list-link {
             color: #fff;
@@ -472,7 +495,7 @@ strong {
       &:hover {
         background: $cor-primaria;
         a {
-          color: #fff;
+          color: #fff !important;
         }
       }
     }
@@ -480,15 +503,80 @@ strong {
   .fa-bars {
     font-size: 28px;
   }
+
+  .carrinho{
+    .quantidade{
+      margin-left: 1px;
+      border-radius: 27px;
+      padding: 5px;
+    }
+  }
+
+  .dropdown-item{
+    &:active{
+      background-color: $cor-primaria;
+      color: #fff !important;
+    }
+  }
 // ------------------------------ ↑↑↑↑↑↑↑ NAVBAR ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
 
-// ------------------------------ ↓↓↓↓↓↓↓ NAVBAR ↓↓↓↓↓↓↓ ------------------------------
+// ------------------------------ ↓↓↓↓↓↓↓ APRESENTACAO ↓↓↓↓↓↓↓ ------------------------------
+.conteudoPrincipal{
+  display: flex;
+}
+.conteudoFiltrado{
+  margin-top: 10px;
+  width: 98%;
+  min-height: 100vh;
 
+  .filtroMais{
+    width: 100%;
+    height: fit-content;
 
+    .form-select{
+      width: 300px;
+      float: right;
+    }
+  }
+}
+.filtros{
+  border: 1px solid black;
+  width: 220px;
+  min-height: 100vh;
+  margin-top: 10px;
 
-// ------------------------------ ↑↑↑↑↑↑↑ NAVBAR ↑↑↑↑↑↑↑ ------------------------------
+  ul{
+    list-style: none;
+
+    li{
+      margin-bottom: 5px;
+      &:hover{
+        color: $cor-primaria;
+      }
+    }
+  }
+  .lista-titulo{
+      margin-top: 5px; 
+  }
+  div{
+    margin: 10px 0 0 10px;
+  }
+
+  .card{
+    margin: 0;
+    padding:0;
+  }
+  .card-body{
+    width: fit-content;
+    border: none;
+  }
+  
+
+}
+
+// ------------------------------ ↑↑↑↑↑↑↑ APRESENTACAO ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
 
