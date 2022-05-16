@@ -18,7 +18,7 @@
             <div class="box-formCadastrarProdutos">
 
                 <!-- ETAPA UM -->
-                <div class="etapa1">
+                <div id="estapa_1_produto" class="etapa1">
 
                     {{-- NOME DO PRODUTO --}}
                     <div class="nome">
@@ -65,7 +65,7 @@
                     @else
                         <div class="categoria">
                             <label for="">Selecione a categoria do produto</label>
-                            <select required name="categoria_id" class="form-select"
+                            <select id="selectProdutoCreate" required name="categoria_id" class="form-select"
                                 aria-label="Default select example">
 
                                 @foreach ($categorias as $c)
@@ -76,10 +76,23 @@
                         </div>
 
                     @endif
+                    <a class="btn btn-primary" onclick="desabilitaInputsProduto()">prosseguir</a>
                 </div>
 
+                <style>
+
+    .etapa2{
+        visibility: hidden;
+        display: flex;
+        width: 50%;
+        margin-left: 45px;
+        margin-bottom: 5px
+    }
+                </style>
+                
+<hr>
                 <!-- ETAPA DOIS -->
-                <div class="etapa2">
+                <div  id="estapa_2_produto" class="etapa2">
 
                      <!-- TAMANHO -->
                      <div class="tamanho">
