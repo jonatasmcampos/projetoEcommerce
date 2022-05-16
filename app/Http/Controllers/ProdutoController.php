@@ -27,7 +27,7 @@ class ProdutoController extends Controller
         $tamanhos = Tamanho::all();
         $categorias =  Categoria::all();
         $cores =  Cor::all();
-
+        
         return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias', 'cores'));
     }
 

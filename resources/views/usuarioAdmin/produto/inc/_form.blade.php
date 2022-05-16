@@ -80,28 +80,30 @@
                 </div>
 
                 <style>
+                    .etapa2 {
+                        visibility: hidden;
+                        margin-left: 45px;
+                        margin-bottom: 5px
+                    }
+                    #tabelaEtapa2Produto{
+                        visibility: hidden;
+                    }
 
-    .etapa2{
-        visibility: hidden;
-        display: flex;
-        width: 50%;
-        margin-left: 45px;
-        margin-bottom: 5px
-    }
                 </style>
-                
-<hr>
-                <!-- ETAPA DOIS -->
-                <div  id="estapa_2_produto" class="etapa2">
 
-                     <!-- TAMANHO -->
-                     <div class="tamanho">
+                <hr>
+                <!-- ETAPA DOIS -->
+                <div id="estapa_2_produto" class="row etapa2">
+
+                    <!-- TAMANHO -->
+
+                    <div class="col-md-3 tamanho">
                         <label for="">Tamanhos</label><br>
                         @if ($tamanhos->count())
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Selecione um tamanho</option>
+                            <select class="form-select" id="selectTamanhoEtapa2Produto"
+                                aria-label="Default select example">
                                 @foreach ($tamanhos as $t)
-                                    <option value="{{ $t->id }}">{{ $t->tamanho }}</option>
+                                    <option value="{{ $t->id }}">{{ $t->nome }}</option>
                                 @endforeach
                             </select>
                         @else
@@ -110,30 +112,51 @@
                     </div>
 
                     <!-- COR -->
-                    <div class="cor">
-                        <label for="cor" class="form-label">Cor</label>
-                        <div>
-                            <input id="cor" name="cor" value="{{ $produto && $produto->cor ? $produto->cor : '' }}"
-                                type="text" class="form-control" aria-label="Cor" aria-describedby="basic-addon1">
-                        </div>
+                    <div class="col-md-3 tamanho">
+                        <label for="">Cores</label><br>
+                        @if ($cores->count())
+                            <select class="form-select" id="selectCorEtapa2Produto"
+                                aria-label="Default select example">
+                                @foreach ($cores as $c)
+                                    <option value="{{ $c->id }}">{{ $c->nome }}</option>
+                                @endforeach
+                            </select>
+                        @else
+                            <label for="">Nenhuma Cor Cadastrada</label>
+                        @endif
                     </div>
 
                     <!-- ESTOQUE -->
-                    <div class="estoque">
+                    <div class="col-md-3 estoque">
                         <label for="exampleInputPassword1" class="form-label">Estoque</label>
-                        <input name="estoque" value="{{ $produto ? $produto->estoque : '0' }}" type="number"
-                            class="form-control" id="exampleInputPassword1">
+                        <input name="estoque[]" value="{{ $produto ? $produto->estoque : '' }}" type="number"
+                            class="form-control" id="estoqueEtapa2Produto">
+                        <span id="inputEstoqueZero"></span>
                     </div>
 
+                    <div>
+                        <a onclick="addInputsEtapa2()" class="btn"><i class="bi bi-plus-square"></i></a>
+
+                        {{-- <a class="btn"><i class="bi bi-file-minus"></i></a> --}}
+                    </div>
                 </div>
 
-
-
-
-
             </div>
-
+            <table id="tabelaEtapa2Produto" class="table table-borderless">
+                <thead>
+                    <tr style="background: black;">
+                        <th scope="col">#</th>
+                        <th scope="col">Tamanho</th>
+                        <th scope="col">Cor</th>
+                        <th scope="col">Estoque</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color: black" id="tabelaTrEtapa2Produto">
+                    {{-- entra os intens selecionados --}}
+                </tbody>
+            </table>
             {{-- BOTAO DE CADASTRAR O PRODUTO --}}
+            
             <button style="float: right !important; margin: 0 20px 20px 0; height: max-content;" type="submit"
                 class="btn btn-primary">
                 {{ $produto ? 'Atualizar' : 'Cadastrar produto' }}
