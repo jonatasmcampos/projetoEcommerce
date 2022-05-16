@@ -18,6 +18,30 @@ function calcula_custo_lucro_preco() {
   }
 }
 
+function desabilitaInputsProduto() {
+  var camposEstapa1Produto = document.querySelectorAll('#estapa_1_produto input')
+document.getElementById('selectProdutoCreate').disabled = true
+  //camposEstapa1Produto.forEach(console.log);
+  camposEstapa1Produto.forEach(element => {
+    console.log(element.disabled = true);
+  });
+ // console.log('');
+
+
+ 
+  var camposEstapa2Produto = document.getElementById('estapa_2_produto')
+
+  //console.log(camposEstapa2Produto);
+  camposEstapa2Produto.style.visibility != "visible" ?
+  camposEstapa2Produto.style.visibility = "visible" :
+  camposEstapa2Produto.style.visibility = "hidden"
+}
+
+
+
+
+
+
 function produtodestroy(id) {
 
   Swal.fire({
