@@ -533,6 +533,11 @@ strong {
 // ********************************************************************************************
 
 // ------------------------------ ↓↓↓↓↓↓↓ FILTROS DOS PRODUTOS ↓↓↓↓↓↓↓ ------------------------------
+.btn-filtrar{
+  display: none;
+  margin: 10px 0;
+  width: 90%;
+}
 .conteudoPrincipal{
   display: flex;
 }
@@ -551,6 +556,11 @@ strong {
       width: 300px;
       float: right;
     }
+  }
+}
+@media(max-width: 900px){
+  .conteudoFiltrado{
+    align-items: center;
   }
 }
 .filtros{
@@ -586,6 +596,18 @@ strong {
   }
   
 
+}
+
+@media(max-width: 900px){
+  .filtros{
+    display: none;
+  }
+  .filtroMais{
+    display: none;
+  }
+  .btn-filtrar{
+    display: block;
+  }
 }
 
 // ------------------------------ ↑↑↑↑↑↑↑ FILTROS DOS PRODUTOS ↑↑↑↑↑↑↑ ------------------------------

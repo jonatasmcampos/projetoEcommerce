@@ -12135,6 +12135,12 @@ header {
   color: #fff !important;
 }
 
+.btn-filtrar {
+  display: none;
+  margin: 10px 0;
+  width: 90%;
+}
+
 .conteudoPrincipal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12164,6 +12170,14 @@ header {
 .conteudoFiltrado .filtroMais .form-select {
   width: 300px;
   float: right;
+}
+
+@media (max-width: 900px) {
+  .conteudoFiltrado {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .filtros {
@@ -12203,6 +12217,18 @@ header {
   width: -moz-fit-content;
   width: fit-content;
   border: none;
+}
+
+@media (max-width: 900px) {
+  .filtros {
+    display: none;
+  }
+  .filtroMais {
+    display: none;
+  }
+  .btn-filtrar {
+    display: block;
+  }
 }
 
 .exibicaoProdutos {

@@ -96,7 +96,11 @@
 
         <!-- CONTEUDO FILTRADO -->
         <section class="conteudoFiltrado">
-
+            
+            <!-- BOTAO DO MODAL PRA EXIBIR FILTROS NO MOBILE -->
+            <button type="button" class="btn btn-primary btn-filtrar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Filtros
+            </button>
             <!-- FILTRO DE MAIOR PREÇO / MENOR PREÇO -->
             <div class="filtroMais">
                 <select class="form-select" aria-label="Default select example">
@@ -114,8 +118,9 @@
                 <div class="card cardProduto containerImagem">
                     <img src="{{ asset('img/roupa2.png') }}" class="card-img-top imagemProduto" alt="Imagem do produto">
                     <div class="middle">
-                        <div class="btnVerProduto"> 
-                           <a href="{{route('produto.show',1)}}">Ver detalhes</a> </div>
+                        <div class="btnVerProduto">
+                            <a href="{{ route('produto.show', 1) }}">Ver detalhes</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">
@@ -128,11 +133,116 @@
                     </div>
                 </div>
 
-
-
             </div>
             <!-- FIM EXIBIÇÃO DOS PRODUTOS -->
 
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-titl text-center" id="exampleModalLabel">Filtros</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- FILTROS -->
+                            <aside class="filtros" style="display: block; width: 100%">
+                                
+                                <hr>
+                                <!-- CATEGORIAS -->
+                                <div>
+                                    <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> Categorias
+                                    </a>
+
+                                    <div class="collapse show" id="collapseExample">
+                                        <div class="card card-body">
+                                            <ul>
+                                                <a href="#">
+                                                    <li>Camisas</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>Calças</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>Bermudas</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>Sapatos</li>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CORES -->
+                                <div>
+                                    <a data-bs-toggle="collapse" href="#collapseExample1" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> Cores
+                                    </a>
+
+                                    <div class="collapse show" id="collapseExample1">
+                                        <div class="card card-body">
+                                            <ul>
+                                                <a href="#">
+                                                    <li>Cinza</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>Branco</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>Preta</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>Amarelo</li>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- TAMANHOS -->
+                                <div>
+                                    <a data-bs-toggle="collapse" href="#collapseExample2" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> Tamanhos
+                                    </a>
+
+                                    <div class="collapse show" id="collapseExample2">
+                                        <div class="card card-body">
+                                            <ul>
+                                                <a href="#">
+                                                    <li>PP</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>P</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>M</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>G</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>GG</li>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-primary">Filtrar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- FIM CONTEUDO FILTRADO -->
     </main>
