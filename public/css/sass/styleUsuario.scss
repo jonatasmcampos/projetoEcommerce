@@ -25,6 +25,16 @@ a{
     color: $cor-texto !important;
 }
 
+.btn-primary{
+  background-color: orangered !important;
+  border: 1px solid #707070 !important; 
+  color: #fff !important;
+  &:hover{
+      color: #fff !important;
+      background-color:rgba(255, 69, 0, 0.7) !important;
+  }
+}
+
 // ------------------------------ ↑↑↑↑↑↑↑ COMUM ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
@@ -522,7 +532,7 @@ strong {
 
 // ********************************************************************************************
 
-// ------------------------------ ↓↓↓↓↓↓↓ APRESENTACAO ↓↓↓↓↓↓↓ ------------------------------
+// ------------------------------ ↓↓↓↓↓↓↓ FILTROS DOS PRODUTOS ↓↓↓↓↓↓↓ ------------------------------
 .conteudoPrincipal{
   display: flex;
 }
@@ -530,6 +540,8 @@ strong {
   margin-top: 10px;
   width: 98%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   .filtroMais{
     width: 100%;
@@ -576,10 +588,100 @@ strong {
 
 }
 
-// ------------------------------ ↑↑↑↑↑↑↑ APRESENTACAO ↑↑↑↑↑↑↑ ------------------------------
+// ------------------------------ ↑↑↑↑↑↑↑ FILTROS DOS PRODUTOS ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
 
+// ------------------------------ ↓↓↓↓↓↓↓ EXIBIÇÃO DOS PRODUTOS ↓↓↓↓↓↓↓ ------------------------------
+
+.exibicaoProdutos{
+
+  display:  flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 95%;
+  height: 100%;
+  margin-top: 10px;
+  margin: 0 10px;
+
+  .cardProduto{
+    width: 18rem;
+    margin: 10px 20px;
+    height: fit-content;
+
+    img{
+      height: 250px;
+      width: 275px;
+    }
+    .card-body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 70px !important;
+      padding:0;
+      justify-content: center;
+
+      h5{
+        padding: 0;
+        margin: 0 0 5px 0;  
+      }
+    }
+    .precoProduto{
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+    }
+  }
+
+  .containerImagem {
+    position: relative;
+    width: fit-content;
+  }
+  
+  .imagemProduto {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .containerImagem:hover .imagemProduto {
+    opacity: 0.5;
+  }
+  
+  .containerImagem:hover .middle {
+    opacity: 1;
+  }
+  
+  .btnVerProduto {
+    background-color: $cor-primaria;
+    color: white;
+    font-size: 16px;
+    padding: 5px 15px;
+    cursor: pointer;
+
+    a{
+      color: #fff !important;
+    }
+  }
+
+}
+
+
+// ------------------------------ ↑↑↑↑↑↑↑ EXIBIÇÃO DOS PRODUTOS ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
 // ********************************************************************************************

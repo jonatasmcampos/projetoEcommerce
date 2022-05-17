@@ -75,7 +75,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        // return redirect(route('produto.destroy', $id));
+        return view('usuario.produto.show');
     }
 
     /**

@@ -4,7 +4,7 @@
 
     <!-- CONTEUDO PRINCIPAL DO SITE -->
     <main class="conteudoPrincipal">
-        
+
         <!-- FILTROS -->
         <aside class="filtros">
             <h5 style="margin-left: 35%; margin-top: 10px; margin-bottom: 10px">Filtros</h5>
@@ -103,9 +103,35 @@
                     <option selected>Selecione</option>
                     <option value="1">Menor preço</option>
                     <option value="2">Maior preço</option>
-                  </select>
+                </select>
             </div>
             <!-- FIM FILTRO DE MAIOR PREÇO / MENOR PREÇO -->
+
+
+            <!-- EXIBIÇÃO DOS PRODUTOS -->
+            <div class="exibicaoProdutos">
+
+                <div class="card cardProduto containerImagem">
+                    <img src="{{ asset('img/roupa2.png') }}" class="card-img-top imagemProduto" alt="Imagem do produto">
+                    <div class="middle">
+                        <div class="btnVerProduto"> 
+                           <a href="{{route('produto.show',1)}}">Ver detalhes</a> </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Nome do produto
+                        </h5>
+                        <div class="card-text precoProduto">
+                            <h6><s>R$ 15,90</s></h6>
+                            <h6>R$ 15,90</h6>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- FIM EXIBIÇÃO DOS PRODUTOS -->
 
         </section>
         <!-- FIM CONTEUDO FILTRADO -->
