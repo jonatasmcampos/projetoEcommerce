@@ -684,6 +684,158 @@ strong {
 // ------------------------------ ↑↑↑↑↑↑↑ EXIBIÇÃO DOS PRODUTOS ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
+
+// ------------------------------ ↓↓↓↓↓↓↓ PAGINA INDIVIDUAL DO PRODUTO ↓↓↓↓↓↓↓ ------------------------------
+
+.produtoIndividual{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+@media(max-width: 900px){
+  .produtoIndividual{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.produtoFotos{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  .listaFotos{
+    margin: 0 10px;
+    height:100%;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+
+    img{
+      width: 80px;
+      height: 100px;
+      margin: 5px 0;
+
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+  .fotoGrande{
+    height:100%;
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      width: 300px;
+      height: 500px;
+    }
+  }
+}
+@media(max-width: 900px){
+  .produtoFotos{
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  .listaFotos{
+    img{
+      width: 50px !important;
+      height: 80px !important;
+    }
+  }
+
+  .fotoGrande{
+    img{
+      width: 240px !important;
+      height: 290px !important;
+    }
+  }
+}
+
+.infoCompra{
+  width: 50%;
+  height: 100%;
+  padding-top: 20px;
+  padding-left:50px;
+  border-left: 1px solid #ccc;
+
+  & > div{
+    margin: 40px 0;
+  }
+
+  .precoProdutos{
+    display: flex;
+  }
+  .tamanhosProdutos{
+    display: flex;
+    flex-wrap: wrap;
+
+    span{
+      text-align: center;
+      padding: 0 10px;
+      margin: 5px 7px;
+      border: 1px solid rgb(129, 129, 129);
+      border-radius: 7px;
+
+      &:hover{
+        border: 2px solid black;
+      }
+    }
+  }
+
+  .coresProdutos{
+    display: flex;
+    flex-wrap: wrap;
+
+    span{
+      text-align: center;
+      padding: 0 10px;
+      margin: 5px 7px;
+      border: 1px solid rgb(129, 129, 129);
+      border-radius: 7px;
+
+      &:hover{
+        border: 2px solid black;
+      }
+    }
+  }
+
+  .botoes{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 55%;
+  }
+}
+@media(max-width: 900px){
+  .infoCompra{
+    width: 90%;
+    border: 1px solid #ccc;
+    padding-left: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > div{
+      margin: 20px 0;
+    }
+  }
+
+  .botoes{
+    width: 100% !important;
+    border: 1px solid black;
+  }
+}
+
+// ------------------------------ ↑↑↑↑↑↑↑ PAGINA INDIVIDUAL DO PRODUTO ↑↑↑↑↑↑↑ ------------------------------
+
 // ********************************************************************************************
 // ********************************************************************************************
 // ********************************************************************************************
