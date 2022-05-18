@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\Cor;
 use App\Models\Estoque;
 use App\Models\Imagem;
+use App\Models\ProdTamCor;
 use App\Models\Produto;
 use App\Models\Tamanho;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class ProdutoController extends Controller
         $tamanhos = Tamanho::all();
         $categorias =  Categoria::all();
         $cores =  Cor::all();
-        
+
         return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias', 'cores'));
     }
 
@@ -48,14 +49,33 @@ class ProdutoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ProdTamCor $prodTamCor)
     {
-        // já identifica chave estrangeira de categoria e produto
-        $produto = Categoria::find($request->categoria_id)->produtos()->create($request->all());
+        $produtoTCE = $request->produtoTCE;
+        $tamanhos = [];
 
-        if ($request->cores) {
-            // $produto->tamanhos()->attach($request->tamanhos);
-            $produto->cores()->attach($request->cores);
+        // já identifica chave estrangeira de categoria e produto
+        $produto = Categoria::find($request->categoria_id)->produtos()->create([
+            'nome'  =>  $request->nome,
+            'custo' =>  $request->custo,
+            'preco' =>  $request->preco,
+            'lucro' =>  $request->lucro,
+        ]);
+
+        for ($i = 0; $i < count($produtoTCE); $i++) {
+            //converte string para array para fazer a separação
+            $dados =  explode(',', $produtoTCE[$i]);
+
+            $tamanhos[] = $dados[0];
+            $cores[] = $dados[1];
+
+            $prodTamCor =  ProdTamCor::create([
+                'produto_id' => $produto->id,
+                'tamanho_id' => $dados[0],
+                'cor_id' => $dados[1],
+            ]);
+
+            $estoque = $prodTamCor->estoque()->create(['quantidade' => $dados[2]]);
         }
 
         if ($request->hasFile('image')) {
@@ -89,13 +109,15 @@ class ProdutoController extends Controller
         $produto = Produto::find($id);
         $categorias =  Categoria::all();
         $tamanhos = Tamanho::all();
+        $cores = Cor::all();
 
-        foreach ($produto->tamanhos as $key => $t) {
-            $tamanho_produto['id'][] = $t->id;
-            $tamanho_produto['tamanho'][] = $t->tamanho;
-        }
+        // dd($produto->prodTamCors[0]->cor);
+        // foreach ($produto->tamanhos as $key => $t) {
+        //     $tamanho_produto['id'][] = $t->id;
+        //     $tamanho_produto['tamanho'][] = $t->tamanho;
+        // }
 
-        return view('usuarioAdmin.produto.edit', compact('produto', 'categorias', 'tamanhos', 'tamanho_produto'));
+        return view('usuarioAdmin.produto.edit', compact('produto', 'categorias', 'tamanhos', 'cores'));
     }
 
     /**
@@ -186,6 +208,14 @@ class ProdutoController extends Controller
 
         Session::flash('true', 'Imagem deletada com sucesso');
         return redirect(route('produto.edit', $imagem->id_produto));
+    }
+
+    public function deleta_dado_produto($prodTamCor_id)
+    {
+        ProdTamCor::find($prodTamCor_id)->delete();
+        echo json_encode(true);
+
+        return;
     }
 
     public function upload_redimensiona_salva_image_produto($request, $produto)

@@ -15,12 +15,17 @@ class Cor extends Model
 
     public function produtos()
     {
-        return $this->belongsToMany('App\Models\Produto');
+        return $this->belongsTo('App\Models\Produto');
     }
 
+    public function prodTamCors()
+    {
+        return $this->hasMany('App\Models\Cor');
+    }
+    
     public function tamanhos()
     {
-        return $this->belongsToMany('App\Models\Tamanho', 'tamanho_cor');
+        return $this->belongsToMany('App\Models\Tamanho', 'prod_tam_cor');
     }
 
 }
