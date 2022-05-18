@@ -25,6 +25,16 @@ a{
     color: $cor-texto !important;
 }
 
+.btn-primary{
+  background-color: orangered !important;
+  border: 1px solid #707070 !important; 
+  color: #fff !important;
+  &:hover{
+      color: #fff !important;
+      background-color:rgba(255, 69, 0, 0.7) !important;
+  }
+}
+
 // ------------------------------ ↑↑↑↑↑↑↑ COMUM ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
@@ -522,7 +532,12 @@ strong {
 
 // ********************************************************************************************
 
-// ------------------------------ ↓↓↓↓↓↓↓ APRESENTACAO ↓↓↓↓↓↓↓ ------------------------------
+// ------------------------------ ↓↓↓↓↓↓↓ FILTROS DOS PRODUTOS ↓↓↓↓↓↓↓ ------------------------------
+.btn-filtrar{
+  display: none;
+  margin: 10px 0;
+  width: 90%;
+}
 .conteudoPrincipal{
   display: flex;
 }
@@ -530,6 +545,8 @@ strong {
   margin-top: 10px;
   width: 98%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   .filtroMais{
     width: 100%;
@@ -539,6 +556,11 @@ strong {
       width: 300px;
       float: right;
     }
+  }
+}
+@media(max-width: 900px){
+  .conteudoFiltrado{
+    align-items: center;
   }
 }
 .filtros{
@@ -576,12 +598,266 @@ strong {
 
 }
 
-// ------------------------------ ↑↑↑↑↑↑↑ APRESENTACAO ↑↑↑↑↑↑↑ ------------------------------
+@media(max-width: 900px){
+  .filtros{
+    display: none;
+  }
+  .filtroMais{
+    display: none;
+  }
+  .btn-filtrar{
+    display: block;
+  }
+}
+
+// ------------------------------ ↑↑↑↑↑↑↑ FILTROS DOS PRODUTOS ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
 
+// ------------------------------ ↓↓↓↓↓↓↓ EXIBIÇÃO DOS PRODUTOS ↓↓↓↓↓↓↓ ------------------------------
+
+.exibicaoProdutos{
+
+  display:  flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 95%;
+  height: 100%;
+  margin-top: 10px;
+  margin: 0 10px;
+
+  .cardProduto{
+    width: 18rem;
+    margin: 10px 20px;
+    height: fit-content;
+
+    img{
+      height: 250px;
+      width: 275px;
+    }
+    .card-body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 70px !important;
+      padding:0;
+      justify-content: center;
+
+      h5{
+        padding: 0;
+        margin: 0 0 5px 0;  
+      }
+    }
+    .precoProduto{
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+    }
+  }
+
+  .containerImagem {
+    position: relative;
+    width: fit-content;
+  }
+  
+  .imagemProduto {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .containerImagem:hover .imagemProduto {
+    opacity: 0.5;
+  }
+  
+  .containerImagem:hover .middle {
+    opacity: 1;
+  }
+  
+  .btnVerProduto {
+    background-color: $cor-primaria;
+    color: white;
+    font-size: 16px;
+    padding: 5px 15px;
+    cursor: pointer;
+
+    a{
+      color: #fff !important;
+    }
+  }
+
+}
+
+
+// ------------------------------ ↑↑↑↑↑↑↑ EXIBIÇÃO DOS PRODUTOS ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
+
+// ------------------------------ ↓↓↓↓↓↓↓ PAGINA INDIVIDUAL DO PRODUTO ↓↓↓↓↓↓↓ ------------------------------
+
+.produtoIndividual{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+@media(max-width: 900px){
+  .produtoIndividual{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.produtoFotos{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  .listaFotos{
+    margin: 0 10px;
+    height:100%;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+
+    img{
+      width: 80px;
+      height: 100px;
+      margin: 5px 0;
+
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+  .fotoGrande{
+    height:100%;
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+      width: 300px;
+      height: 500px;
+    }
+  }
+}
+@media(max-width: 900px){
+  .produtoFotos{
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  .listaFotos{
+    img{
+      width: 50px !important;
+      height: 80px !important;
+    }
+  }
+
+  .fotoGrande{
+    img{
+      width: 240px !important;
+      height: 290px !important;
+    }
+  }
+}
+
+.infoCompra{
+  width: 50%;
+  height: 100%;
+  padding-top: 20px;
+  padding-left:50px;
+  border-left: 1px solid #ccc;
+
+  & > div{
+    margin: 40px 0;
+  }
+
+  .precoProdutos{
+    display: flex;
+  }
+  .tamanhosProdutos{
+    display: flex;
+    flex-wrap: wrap;
+
+    span{
+      text-align: center;
+      padding: 0 10px;
+      margin: 5px 7px;
+      border: 1px solid rgb(129, 129, 129);
+      border-radius: 7px;
+
+      &:hover{
+        border: 2px solid black;
+      }
+    }
+  }
+
+  .coresProdutos{
+    display: flex;
+    flex-wrap: wrap;
+
+    span{
+      text-align: center;
+      padding: 0 10px;
+      margin: 5px 7px;
+      border: 1px solid rgb(129, 129, 129);
+      border-radius: 7px;
+
+      &:hover{
+        border: 2px solid black;
+      }
+    }
+  }
+
+  .botoes{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 55%;
+  }
+}
+@media(max-width: 900px){
+  .infoCompra{
+    width: 90%;
+    border: 1px solid #ccc;
+    padding-left: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > div{
+      margin: 20px 0;
+    }
+  }
+
+  .botoes{
+    width: 100% !important;
+    border: 1px solid black;
+  }
+}
+
+// ------------------------------ ↑↑↑↑↑↑↑ PAGINA INDIVIDUAL DO PRODUTO ↑↑↑↑↑↑↑ ------------------------------
+
 // ********************************************************************************************
 // ********************************************************************************************
 // ********************************************************************************************
