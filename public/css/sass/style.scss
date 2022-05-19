@@ -472,18 +472,20 @@ svg {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-items: center;
     padding: 20px;
 
     div {
-        margin-right: 7px;
         margin-bottom: 7px;
     }
 
     .etapa1{
-       
+       width: 97%;
+       display: flex !important;
+       flex-wrap: wrap !important;
     }
     .etapa2{
-        
+        width: fit-content;
     }
 }
 
@@ -497,9 +499,7 @@ svg {
     }
 }
 
-.cor{
-    width: 35%;
-}
+
 
 .preco {
     span {
@@ -589,6 +589,14 @@ svg {
 .tamanho{
     height: fit-content;
     margin: 0 10px;
+    width: fit-content;
+    label{
+        margin-bottom: 8px; 
+    }
+}
+.cor{
+    width: fit-content;
+    height: fit-content;
     label{
         margin-bottom: 8px; 
     }

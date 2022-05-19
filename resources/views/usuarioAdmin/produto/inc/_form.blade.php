@@ -36,15 +36,7 @@
                                 id="custoProduto">
                         </div>
                     </div>
-                    <!-- LUCRO -->
-                    <div class="lucro">
-                        <label for="exampleInputPassword1" class="form-label">Lucro</label>
-                        <div>
-                            <span class="input-group-text" id="basic-addon1">%</span>
-                            <input readonly required name="lucro" value="{{ $produto ? $produto->lucro : '' }}"
-                                type="text" class="form-control" id="lucroProduto">
-                        </div>
-                    </div>
+
                     <!-- PRECO -->
                     <div class="preco">
                         <label for="exampleInputPassword1" class="form-label">Preço</label>
@@ -53,6 +45,16 @@
                             <input onblur="calcula_custo_lucro_preco()" required name="preco"
                                 value="{{ $produto ? $produto->preco : '' }}" type="text" class="form-control"
                                 id="precoProduto">
+                        </div>
+                    </div>
+
+                    <!-- LUCRO -->
+                    <div class="lucro">
+                        <label for="exampleInputPassword1" class="form-label">Lucro</label>
+                        <div>
+                            <span class="input-group-text" id="basic-addon1">%</span>
+                            <input readonly required name="lucro" value="{{ $produto ? $produto->lucro : '' }}"
+                                type="text" class="form-control" id="lucroProduto">
                         </div>
                     </div>
 
@@ -78,9 +80,9 @@
                         </div>
 
                     @endif
-                    <a id="botaoProsseguirEtapa1" class="btn btn-primary"
-                        onclick="desabilitaInputsetapa1()">prosseguir</a>
                 </div>
+                <a style="height: fit-content; width: 50%" id="botaoProsseguirEtapa1" class="btn btn-primary"
+                    onclick="desabilitaInputsetapa1()">Prosseguir</a>
 
                 <style>
                     .etapa2 {
@@ -116,7 +118,7 @@
                     </div>
 
                     <!-- COR -->
-                    <div class="col-md-3 tamanho">
+                    <div class="col-md-3 cor">
                         <label for="">Cores</label><br>
                         @if ($cores->count())
                             <select class="form-select" id="selectCorEtapa2Produto"
@@ -131,16 +133,18 @@
                     </div>
 
                     <!-- ESTOQUE -->
-                    <div class="col-md-3 estoque">
-                        <label for="exampleInputPassword1" class="form-label">Estoque</label>
-                        <input value="" type="number" class="form-control"
-                            id="estoqueEtapa2Produto">
-                        <span id="inputEstoqueZero"></span>
+                    <div class="col-md-3 estoque d-flex">
+                        <div>
+                            <label for="exampleInputPassword1" class="form-label">Estoque</label>
+                            <input value="" type="number" class="form-control" id="estoqueEtapa2Produto">
+                            <span id="inputEstoqueZero"></span>
+                        </div>
+                        <div style="margin-left: 20px; position: relative; top: 45%">
+                            <a onclick="addInputsEtapa2()" class="btn"><i class="bi bi-plus-square"></i></a>
+                        </div>
                     </div>
 
                     <div>
-                        <a onclick="addInputsEtapa2()" class="btn"><i class="bi bi-plus-square"></i></a>
-
                         {{-- <a class="btn"><i class="bi bi-file-minus"></i></a> --}}
                     </div>
                 </div>
@@ -161,18 +165,20 @@
                         {{-- entra os intens selecionados --}}
                         @foreach ($produto->prodTamCors as $item)
                             <tr>
-                                <input type="hidden" name="" value="{{$item->tamanho->id}}">
-                                <input type="hidden" name="" value="{{$item->cor->id}}">
-                                <td><button type="button" onclick="deletaprodTamCorEstoque(<?php echo $item->id ?>, this, '<?php echo $item->tamanho->nome ?>', '<?php echo $item->cor->nome ?>')">excluir</button></td>
-                                <td>{{$item->tamanho->nome}}</td>
-                                <td>{{$item->cor->nome}}</td>
-                                <td>{{$item->estoque->quantidade}}</td>
+                                <input type="hidden" name="" value="{{ $item->tamanho->id }}">
+                                <input type="hidden" name="" value="{{ $item->cor->id }}">
+                                <td><button type="button"
+                                        onclick="deletaprodTamCorEstoque(<?php echo $item->id; ?>, this, '<?php echo $item->tamanho->nome; ?>', '<?php echo $item->cor->nome; ?>')">excluir</button>
+                                </td>
+                                <td>{{ $item->tamanho->nome }}</td>
+                                <td>{{ $item->cor->nome }}</td>
+                                <td>{{ $item->estoque->quantidade }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
 
-                <a id="botaoProsseguirEtapa2" class="btn btn-primary" onclick="desabilitaInputsetapa2()">prosseguir</a>
+                <a style="position: relative; left: 25%; width: 50%" id="botaoProsseguirEtapa2" class="btn btn-primary" onclick="desabilitaInputsetapa2()">Prosseguir</a>
 
                 <div id="inputshidden">
 
@@ -192,7 +198,7 @@
                     </tbody>
                 </table>
 
-                <a id="botaoProsseguirEtapa2" class="btn btn-primary" onclick="desabilitaInputsetapa2()">prosseguir</a>
+                <a style="position: relative; left: 25%; width: 50%" id="botaoProsseguirEtapa2" class="btn btn-primary" onclick="desabilitaInputsetapa2()">Prosseguir</a>
 
                 <div id="inputshidden">
 

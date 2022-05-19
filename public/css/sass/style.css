@@ -12010,12 +12010,29 @@ svg {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px;
 }
 
 .box-formCadastrarProdutos div {
-  margin-right: 7px;
   margin-bottom: 7px;
+}
+
+.box-formCadastrarProdutos .etapa1 {
+  width: 97%;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-wrap: wrap !important;
+      flex-wrap: wrap !important;
+}
+
+.box-formCadastrarProdutos .etapa2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .nome {
@@ -12026,10 +12043,6 @@ svg {
   .nome {
     width: 100%;
   }
-}
-
-.cor {
-  width: 35%;
 }
 
 .preco span {
@@ -12133,9 +12146,25 @@ svg {
   height: -moz-fit-content;
   height: fit-content;
   margin: 0 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .tamanho label {
+  margin-bottom: 8px;
+}
+
+.cor {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.cor label {
   margin-bottom: 8px;
 }
 
