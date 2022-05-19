@@ -5,7 +5,7 @@
 
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
-   
+
     <br>
     <h1 class="titulo">Produtos</h1>
 
@@ -21,12 +21,12 @@
             <label for="tab2"><i class="fa fa-bookmark" aria-hidden="true"></i>Cadastrar produto</label>
 
             <!--
-                                                                            <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                                                                            <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+                                                                                <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                                                                <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 
-                                                                            <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                                                                            <label for="tab5"><i class="icon-globe"></i>Newton</label>
-                                                                        -->
+                                                                                <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+                                                                                <label for="tab5"><i class="icon-globe"></i>Newton</label>
+                                                                            -->
 
             <ul style="min-height: 75vh;">
                 <li class="tab-content tab-content-first typography">
@@ -107,11 +107,33 @@
                                                                 <span>{{ $p->categoria->nome }}</span>
                                                             </td>
 
-                                                            <td>M</td>
+                                                            <!-- TAMANHOS -->
+                                                            <td>
+                                                                <div class="dropdown">
+                                                                    <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        <i class="fa fa-text-height"></i>
+                                                                    </button>
+                                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
+                                                                        @foreach ($array_tamanho_sem_repetir as $key => $value)
+                                                                           <li class="dropdown-item">{{$value}}</li>
+                                                                        @endforeach                                                                    
+                                                                    </ul>
+                                                                  </div>
+                                                            </td>
 
                                                             <td class="quantity">
-                                                                <span> {{ $p->cor }}</span>
+                                                                <div class="dropdown">
+                                                                    <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        <i class="fa fa-adjust"></i>
+                                                                    </button>
+                                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
+                                                                       @foreach ($array_cor_sem_repetir as $key => $value)
+                                                                           <li class="dropdown-item">{{$value}}</li>
+                                                                       @endforeach     
+                                                                    </ul>
+                                                                </div>
                                                             </td>
+
                                                             <td>R$ {{ $p->custo }}</td>
                                                             <td>R$ {{ $p->preco }}</td>
                                                             <td>
@@ -167,8 +189,9 @@
                         </div>
 
 
-                        <button id="botaoCadastrarProduto" style="float: right !important; margin: 0 20px 20px 0; height: max-content; visibility: hidden;" type="submit"
-                            class="btn btn-primary">
+                        <button id="botaoCadastrarProduto"
+                            style="float: right !important; margin: 0 20px 20px 0; height: max-content; visibility: hidden;"
+                            type="submit" class="btn btn-primary">
                             Cadastrar produto
                         </button>
                     </form>

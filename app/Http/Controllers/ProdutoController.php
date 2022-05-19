@@ -24,12 +24,28 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        $produtos = Produto::with('categoria')->whereRaw("nome like '%{$request->nome}%'")->get();
+        $produtos = Produto::with('categoria','prodTamCors')->whereRaw("nome like '%{$request->nome}%'")->get();
         $tamanhos = Tamanho::all();
         $categorias =  Categoria::all();
-        $cores =  Cor::all();
+        $cores =  Cor::all();  
 
-        return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias', 'cores'));
+        $array_cor_sem_repetir = $this->retirarItemRepetido($produtos, 'cor');
+        $array_tamanho_sem_repetir = $this->retirarItemRepetido($produtos, 'tamanho');
+
+        return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias', 'cores','array_cor_sem_repetir','array_tamanho_sem_repetir'));
+    }
+
+    public function retirarItemRepetido($produtos, $tipo){       
+        
+        foreach ($produtos as $key => $value) {    
+            $f = count($value->prodTamCors);
+            foreach ($value->prodTamCors as $key => $valuee) {
+                $coresProduto[$key] = $valuee->$tipo->nome;
+            }      
+        }
+        
+        $array_r = array_unique($coresProduto);         
+        return $array_r;
     }
 
     /**
