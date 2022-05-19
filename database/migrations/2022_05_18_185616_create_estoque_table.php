@@ -21,8 +21,8 @@ class CreateEstoqueTable extends Migration
             $table->timestamps();
 
             $table->foreign("prod_tam_cor_id")
-            ->references("id")->on("prod_tam_cor")
-            ->onDelete("cascade");
+                ->references("id")->on("prod_tam_cor")
+                ->onDelete("cascade");
         });
     }
 

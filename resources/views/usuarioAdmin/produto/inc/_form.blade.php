@@ -31,8 +31,9 @@
                         <label for="exampleInputPassword1" class="form-label">Custo</label>
                         <div>
                             <span class="input-group-text" id="basic-addon1">R$</span>
-                            <input required name="custo" value="{{ $produto ? $produto->custo : '' }}" type="text"
-                                class="form-control" id="exampleInputPassword1">
+                            <input onblur="calcula_custo_lucro_preco()" required name="custo"
+                                value="{{ $produto ? $produto->custo : '' }}" type="text" class="form-control"
+                                id="custoProduto">
                         </div>
                     </div>
                     <!-- LUCRO -->
@@ -40,8 +41,8 @@
                         <label for="exampleInputPassword1" class="form-label">Lucro</label>
                         <div>
                             <span class="input-group-text" id="basic-addon1">%</span>
-                            <input required name="lucro" value="{{ $produto ? $produto->lucro : '0' }}" type="text"
-                                class="form-control" id="exampleInputPassword1">
+                            <input readonly required name="lucro" value="{{ $produto ? $produto->lucro : '' }}"
+                                type="text" class="form-control" id="lucroProduto">
                         </div>
                     </div>
                     <!-- PRECO -->
@@ -49,8 +50,9 @@
                         <label for="exampleInputPassword1" class="form-label">Preço</label>
                         <div>
                             <span class="input-group-text" id="basic-addon1">R$</span>
-                            <input required name="preco" value="{{ $produto ? $produto->preco : '0' }}" type="text"
-                                class="form-control" id="exampleInputPassword1">
+                            <input onblur="calcula_custo_lucro_preco()" required name="preco"
+                                value="{{ $produto ? $produto->preco : '' }}" type="text" class="form-control"
+                                id="precoProduto">
                         </div>
                     </div>
 
@@ -69,39 +71,43 @@
                                 aria-label="Default select example">
 
                                 @foreach ($categorias as $c)
-                                    <option value="{{ $c->id }}">{{ $c->nome }}</option>
+                                    <option selected value="{{ $c->id }}">{{ $c->nome }}</option>
                                 @endforeach
 
                             </select>
                         </div>
 
                     @endif
-                    <a class="btn btn-primary" onclick="desabilitaInputsProduto()">prosseguir</a>
+                    <a id="botaoProsseguirEtapa1" class="btn btn-primary"
+                        onclick="desabilitaInputsetapa1()">prosseguir</a>
                 </div>
 
                 <style>
+                    .etapa2 {
+                        visibility: hidden;
+                        margin-left: 45px;
+                        margin-bottom: 5px
+                    }
 
-    .etapa2{
-        visibility: hidden;
-        display: flex;
-        width: 50%;
-        margin-left: 45px;
-        margin-bottom: 5px
-    }
+                    #tabelaEtapa2Produto {
+                        visibility: hidden;
+                    }
+
                 </style>
-                
-<hr>
-                <!-- ETAPA DOIS -->
-                <div  id="estapa_2_produto" class="etapa2">
 
-                     <!-- TAMANHO -->
-                     <div class="tamanho">
+                <hr>
+                <!-- ETAPA DOIS -->
+                <div id="etapa_2_produto" class="row etapa2">
+
+                    <!-- TAMANHO -->
+
+                    <div class="col-md-3 tamanho">
                         <label for="">Tamanhos</label><br>
                         @if ($tamanhos->count())
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Selecione um tamanho</option>
+                            <select class="form-select" id="selectTamanhoEtapa2Produto"
+                                aria-label="Default select example">
                                 @foreach ($tamanhos as $t)
-                                    <option value="{{ $t->id }}">{{ $t->tamanho }}</option>
+                                    <option value="{{ $t->id }}">{{ $t->nome }}</option>
                                 @endforeach
                             </select>
                         @else
@@ -110,34 +116,88 @@
                     </div>
 
                     <!-- COR -->
-                    <div class="cor">
-                        <label for="cor" class="form-label">Cor</label>
-                        <div>
-                            <input id="cor" name="cor" value="{{ $produto && $produto->cor ? $produto->cor : '' }}"
-                                type="text" class="form-control" aria-label="Cor" aria-describedby="basic-addon1">
-                        </div>
+                    <div class="col-md-3 tamanho">
+                        <label for="">Cores</label><br>
+                        @if ($cores->count())
+                            <select class="form-select" id="selectCorEtapa2Produto"
+                                aria-label="Default select example">
+                                @foreach ($cores as $c)
+                                    <option value="{{ $c->id }}">{{ $c->nome }}</option>
+                                @endforeach
+                            </select>
+                        @else
+                            <label for="">Nenhuma Cor Cadastrada</label>
+                        @endif
                     </div>
 
                     <!-- ESTOQUE -->
-                    <div class="estoque">
+                    <div class="col-md-3 estoque">
                         <label for="exampleInputPassword1" class="form-label">Estoque</label>
-                        <input name="estoque" value="{{ $produto ? $produto->estoque : '0' }}" type="number"
-                            class="form-control" id="exampleInputPassword1">
+                        <input value="" type="number" class="form-control"
+                            id="estoqueEtapa2Produto">
+                        <span id="inputEstoqueZero"></span>
                     </div>
 
+                    <div>
+                        <a onclick="addInputsEtapa2()" class="btn"><i class="bi bi-plus-square"></i></a>
+
+                        {{-- <a class="btn"><i class="bi bi-file-minus"></i></a> --}}
+                    </div>
                 </div>
-
-
-
-
 
             </div>
 
-            {{-- BOTAO DE CADASTRAR O PRODUTO --}}
-            <button style="float: right !important; margin: 0 20px 20px 0; height: max-content;" type="submit"
-                class="btn btn-primary">
-                {{ $produto ? 'Atualizar' : 'Cadastrar produto' }}
-            </button>
+            @if ($produto)
+                <table id="tabelaEtapa2Produto" class="table table-borderless">
+                    <thead>
+                        <tr style="background: black;">
+                            <th scope="col">#</th>
+                            <th scope="col">Tamanho</th>
+                            <th scope="col">Cor</th>
+                            <th scope="col">Estoque</th>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color: black" id="tabelaTrEtapa2Produto">
+                        {{-- entra os intens selecionados --}}
+                        @foreach ($produto->prodTamCors as $item)
+                            <tr>
+                                <input type="hidden" name="" value="{{$item->tamanho->id}}">
+                                <input type="hidden" name="" value="{{$item->cor->id}}">
+                                <td><button type="button" onclick="deletaprodTamCorEstoque(<?php echo $item->id ?>, this, '<?php echo $item->tamanho->nome ?>', '<?php echo $item->cor->nome ?>')">excluir</button></td>
+                                <td>{{$item->tamanho->nome}}</td>
+                                <td>{{$item->cor->nome}}</td>
+                                <td>{{$item->estoque->quantidade}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <a id="botaoProsseguirEtapa2" class="btn btn-primary" onclick="desabilitaInputsetapa2()">prosseguir</a>
+
+                <div id="inputshidden">
+
+                </div>
+            @else
+                <table id="tabelaEtapa2Produto" class="table table-borderless">
+                    <thead>
+                        <tr style="background: black;">
+                            <th scope="col">#</th>
+                            <th scope="col">Tamanho</th>
+                            <th scope="col">Cor</th>
+                            <th scope="col">Estoque</th>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color: black" id="tabelaTrEtapa2Produto">
+                        {{-- entra os intens selecionados --}}
+                    </tbody>
+                </table>
+
+                <a id="botaoProsseguirEtapa2" class="btn btn-primary" onclick="desabilitaInputsetapa2()">prosseguir</a>
+
+                <div id="inputshidden">
+
+                </div>
+            @endif
 
         </div>
     </div>

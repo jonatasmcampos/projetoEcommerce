@@ -15,20 +15,14 @@ class Produto extends ModelPadrao
         'cor',
         'preco',
     ];
+    public function prodTamCors()
+    {
+        return $this->hasmany('App\Models\ProdTamCor');
+    }
 
     public function categoria()
     {
         return $this->belongsTo('App\Models\Categoria');
-    }
-
-    public function tamanhos()
-    {
-        return $this->belongsToMany('App\Models\Tamanho');
-    }
-
-    public function cores()
-    {
-        return $this->belongsToMany('App\Models\Cor', 'produto_cor');
     }
 
     public function imagens()

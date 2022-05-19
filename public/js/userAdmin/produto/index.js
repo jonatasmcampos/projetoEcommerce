@@ -2,46 +2,174 @@
 function cadastraProdutoClick() {
   document.getElementById('tab2').click();
 }
-//selected2
-$(document).ready(function () {
-  $('.js-example-basic-multiple').select2();
-});
-
 
 function calcula_custo_lucro_preco() {
   var custo = $('#custoProduto').val();
   var preco = $('#precoProduto').val();
 
   if (custo && preco) {
-   var valor = (parseFloat(preco) - parseFloat(custo)) * 100 / parseFloat(custo);
-   $('#lucroProduto').val(valor.toFixed(2))
+    var valor = (parseFloat(preco) - parseFloat(custo)) * 100 / parseFloat(custo);
+    $('#lucroProduto').val(valor.toFixed(2))
   }
 }
 
-function desabilitaInputsProduto() {
+function desabilitaInputsetapa1() {
   var camposEstapa1Produto = document.querySelectorAll('#estapa_1_produto input')
-document.getElementById('selectProdutoCreate').disabled = true
-  //camposEstapa1Produto.forEach(console.log);
+  var verifyDadosEtapa1 = [];
+
   camposEstapa1Produto.forEach(element => {
-    console.log(element.disabled = true);
+    if (!element.value && element.name != 'lucro') {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Campo ' + element.name + ' esta vazio',
+        showConfirmButton: false,
+        timer: 2000
+      });
+    } else {
+      element.readOnly = true;
+      verifyDadosEtapa1[verifyDadosEtapa1.length] = element.value;
+    }
   });
- // console.log('');
+  console.log(verifyDadosEtapa1);
+  if (verifyDadosEtapa1.length === 4) {
+    document.getElementById('selectProdutoCreate').readOnly = true
+    var camposEstapa2Produto = document.getElementById('etapa_2_produto')
 
+    camposEstapa2Produto.style.visibility != "visible" ?
+      camposEstapa2Produto.style.visibility = "visible" :
+      camposEstapa2Produto.style.visibility = "hidden";
 
- 
-  var camposEstapa2Produto = document.getElementById('estapa_2_produto')
-
-  //console.log(camposEstapa2Produto);
-  camposEstapa2Produto.style.visibility != "visible" ?
-  camposEstapa2Produto.style.visibility = "visible" :
-  camposEstapa2Produto.style.visibility = "hidden"
+    document.getElementById('botaoProsseguirEtapa1').style.visibility = "hidden";
+  }
 }
 
+dados = [];
 
+function addInputsEtapa2() {
 
+  var tamanho = $("#selectTamanhoEtapa2Produto :selected");
+  var cor = $("#selectCorEtapa2Produto :selected");
+  var estoque = $("#estoqueEtapa2Produto").val();
+  var msg = document.getElementById('inputEstoqueZero');
 
+  var indice = dados.length
 
+  if (!estoque.length) {
 
+    msg.style.color = "red";
+    msg.innerHTML = "Valor Inválido";
+
+  } else {
+    var verify = 1;
+
+    if (!dados.length) {
+
+      dados[indice] = [tamanho.val(), cor.val(), estoque];
+      dados[indice]['table'] = [tamanho.text(), cor.text(), estoque];
+
+      $("#tabelaTrEtapa2Produto").append('<tr> <td><button type="button" onclick="removeTr(this,' + indice + ')">Excluir</button></td><td>' + dados[0]['table'][0] + '</td><td>' + dados[0]['table'][1] + '</td><td>' + dados[0]['table'][2] + '</td></tr>');
+
+      verify = 0;
+    } else {
+
+      for (let i = 0; i < dados.length; i++) {
+
+        if (dados[i][0] == tamanho.val() && dados[i][1] == cor.val()) {
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Já existe esse produto deste tamanho e cor inserido',
+            showConfirmButton: false,
+            timer: 2000
+          });
+
+          verify = 0
+
+        }
+      }
+      // console.log(dados.length++);
+      if (verify) {
+
+        dados[indice] = [tamanho.val(), cor.val(), estoque];
+        dados[indice]['table'] = [tamanho.text(), cor.text(), estoque];
+
+        document.getElementById("tabelaTrEtapa2Produto").innerHTML = ""
+        //console.log(dados);
+        for (let i = 0; i < dados.length; i++) {
+
+          montaHtml(i, dados[i]['table'][0], dados[i]['table'][1], dados[i]['table'][2])
+
+        }
+      }
+    }
+
+  }
+  // console.log(document.getElementById('dadosProduto').value = dados);
+  if (dados.length >= 1) {
+    var tabelaEtapa2Produto = document.getElementById('tabelaEtapa2Produto')
+
+    tabelaEtapa2Produto.style.visibility = "visible"
+  }
+}
+
+function removeTr(item, indice) {
+  var tr = $(item).closest('tr');
+
+  tr.fadeOut(500, function () {
+    tr.remove();
+  });
+
+  dados.splice(indice, 1);
+
+  document.getElementById("tabelaTrEtapa2Produto").innerHTML = ""
+
+  for (let i = 0; i < dados.length; i++) {
+
+    montaHtml(i, dados[i]['table'][0], dados[i]['table'][1], dados[i]['table'][2])
+
+  }
+
+  if (dados.length == 0) {
+    var tabelaEtapa2Produto = document.getElementById('tabelaEtapa2Produto')
+
+    tabelaEtapa2Produto.style.visibility = "hidden"
+  }
+}
+function montaHtml(count, tamanho, cor, estoque) {
+
+  $("#tabelaTrEtapa2Produto").append('<tr> <td><button type="button" onclick="removeTr(this,' + count + ')">Excluir</button></td><td>' + tamanho + '</td><td>' + cor + '</td><td>' + estoque + '</td></tr>');
+
+}
+
+function desabilitaInputsetapa2() {
+
+  if (!dados.length) {
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Nenhum tamanho e cor selecionado para este produto',
+      showConfirmButton: false,
+      timer: 2000
+    });
+
+  } else {
+
+    for (let i = 0; i < dados.length; i++) {
+
+      $("#inputshidden").append('<input type="hidden" name="produtoTCE[]" value="' + dados[i] + '" >');
+
+    }
+
+    document.getElementById('botaoCadastrarProduto').style.visibility = "visible"
+
+    document.getElementById('etapa3Produto').style.visibility = "visible"
+
+    document.getElementById('etapa_2_produto').style.visibility = "hidden";
+
+    document.getElementById('botaoProsseguirEtapa2').style.visibility = "hidden";
+  }
+
+}
 function produtodestroy(id) {
 
   Swal.fire({
@@ -120,7 +248,18 @@ $(function () {
   $('form[id="formCadastroProduto"]').submit(function (event) {
     event.preventDefault();
 
-    if (!inputFiles.length) {
+
+    if ($("#tabelaEtapa2Produto tr").length <= 1) {
+
+      Swal.fire({
+        icon: 'warning',
+        title: 'Dados Inválidos',
+        text: 'Nenhuma Tamanho ou cor específicado para este produto',
+      })
+
+      return;
+
+    } else if (!inputFiles.length) {
 
       Swal.fire({
         title: 'Nenhuma Imagem Selecionada',

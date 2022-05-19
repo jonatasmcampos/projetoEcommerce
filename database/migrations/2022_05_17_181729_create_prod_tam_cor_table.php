@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddProdTamCorRelationships extends Migration
+class CreateProdTamCorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,20 +15,25 @@ class AddProdTamCorRelationships extends Migration
     {
         Schema::create('prod_tam_cor', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("produto_id");
+            $table->unsignedBigInteger("tamanho_id");
             $table->unsignedBigInteger("cor_id");
-            $table->unsignedBigInteger("produto_tamanho_id");
+
 
             $table->timestamps();
 
+            $table->foreign("produto_id")
+                ->references("id")->on("produtos")
+                ->onDelete("cascade");
+
+            $table->foreign("tamanho_id")
+                ->references("id")->on("tamanhos")
+                ->onDelete("cascade");
+
+
             $table->foreign("cor_id")
-            ->references("id")->on("cores")
-            ->onDelete("cascade");
-
-            $table->foreign("produto_tamanho_id")
-            ->references("id")->on("produto_tamanho")
-            ->onDelete("cascade");
-
-         
+                ->references("id")->on("cores")
+                ->onDelete("cascade");
         });
     }
 
@@ -40,6 +45,5 @@ class AddProdTamCorRelationships extends Migration
     public function down()
     {
         Schema::dropIfExists('prod_tam_cor');
-
     }
 }

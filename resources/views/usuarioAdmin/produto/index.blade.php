@@ -5,7 +5,7 @@
 
         <body onload="msgSuccess('<?php echo Session::get('true'); ?>', 'success')">
     @endif
-
+   
     <br>
     <h1 class="titulo">Produtos</h1>
 
@@ -21,12 +21,12 @@
             <label for="tab2"><i class="fa fa-bookmark" aria-hidden="true"></i>Cadastrar produto</label>
 
             <!--
-                                                                <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                                                                <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+                                                                            <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                                                                            <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 
-                                                                <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                                                                <label for="tab5"><i class="icon-globe"></i>Newton</label>
-                                                            -->
+                                                                            <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+                                                                            <label for="tab5"><i class="icon-globe"></i>Newton</label>
+                                                                        -->
 
             <ul style="min-height: 75vh;">
                 <li class="tab-content tab-content-first typography">
@@ -40,7 +40,8 @@
                             </h3>
                             <hr>
                             <p class="mb-0">
-                                <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()">Cadastrar produto</a>
+                                <a type="button" class="btn btn-primary" onclick="cadastraProdutoClick()">Cadastrar
+                                    produto</a>
                             </p>
                         </div>
                     @else
@@ -125,7 +126,8 @@
                                                                 </a>
                                                             </td>
                                                             <td>
-                                                                <form style="margin: 0 !important" action="{{ route('produto.destroy', $p->id) }}"
+                                                                <form style="margin: 0 !important"
+                                                                    action="{{ route('produto.destroy', $p->id) }}"
                                                                     method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
@@ -156,12 +158,19 @@
                         @include('usuarioAdmin.produto.inc._form', [
                             'produto' => '',
                         ])
+
                         @include('usuarioAdmin.produto.inc._formImagem', [
                             'produto' => '',
                         ])
                         <div>
                             <ul id="dp-files"></ul>
                         </div>
+
+
+                        <button id="botaoCadastrarProduto" style="float: right !important; margin: 0 20px 20px 0; height: max-content; visibility: hidden;" type="submit"
+                            class="btn btn-primary">
+                            Cadastrar produto
+                        </button>
                     </form>
 
                 </li>

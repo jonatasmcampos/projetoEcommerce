@@ -43,6 +43,7 @@ Route::resource('/home/categoria', CategoriaController::class);
 
 //produtos
 Route::delete('/deleta-imagem/{imagem}', [App\Http\Controllers\ProdutoController::class, 'deleta_image'])->name('deleta_image');
+Route::delete('/deleta-dado-produto/{prodTamCor_id}', [App\Http\Controllers\ProdutoController::class, 'deleta_dado_produto'])->name('deleta_dado_produto');
 Route::put('/img_padrao/{imagem}', [App\Http\Controllers\ProdutoController::class, 'torna_imagem_padrao'])->name('img_padrao');
 Route::resource('/home/produto', ProdutoController::class);
 

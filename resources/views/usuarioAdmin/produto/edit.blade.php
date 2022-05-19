@@ -9,7 +9,6 @@
     <br>
     <h1 class="titulo">Editar produto</h1>
     <br>
-    
 
     <div>
         <br>
