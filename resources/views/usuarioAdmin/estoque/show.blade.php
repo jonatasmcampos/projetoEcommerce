@@ -14,7 +14,7 @@
         <section class="ftco-section bg-table mx-auto">
             <div class="container">
                 <div class="row">
-                    <span>Produto&nbsp;&nbsp;&nbsp; {{ $produto->nome }}</span>
+                    
                     <div style="padding:0;" class="col-12">
                         <div class="table-wrap">
                             <table style="width: 70%;" class="table mx-auto">
@@ -28,18 +28,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($produto->cores as $c)
+
+                                    @foreach ($produto->prodTamCors as $c)
                                         <tr class="alert" role="alert">
 
                                             <td id="idcampoEstoqueQuantidade<?php echo $c->id; ?>">
-                                                {{ $c->nome }}
+                                                {{ $c->cor->nome }}
                                             </td>
                                             <td>
+                                                {{$c->tamanho->nome}}
                                                 <!-- BOTAO visualiza tamanhos -->
-                                                <a type="button" class="btn" data-bs-toggle="modal"
+                                                {{-- <a type="button" class="btn" data-bs-toggle="modal"
                                                     data-bs-target="#modalVisualizaTamanhos{{ $c->id }}">
                                                     <i class="bi bi-eye-fill"></i>
-                                                </a>
+                                                </a> --}}
                                             </td>
                                             <td>
                                                 <!-- BOTAO visualiza Estoque por tamanho -->
@@ -83,19 +85,19 @@
 
                                                     <div class="modal-body">
                                                         <h5 class="modal-title" id="exampleModalLongTitle">Cor :
-                                                            {{ $c->nome }}
+                                                            {{ $c->cor->nome }}
                                                         </h5>
                                                         <ul class="list-group">
                                                             <li class="list-group-item active" aria-current="true">Tamanhos
                                                             </li>
-                                                            @if (!$c->tamanhos->count())
+                                                            @if (!$c->tamanho->count())
                                                                 <li class="list-group-item" aria-current="true">Nenhum
                                                                     tamanho adicionado para essa cor</li>
                                                             @else
-                                                                @foreach ($c->tamanhos as $t)
+                                                                
                                                                     <li class="list-group-item" aria-current="true">
-                                                                        {{ $t->nome }}</li>
-                                                                @endforeach
+                                                                        {{ $c->tamanho->nome }}</li>
+                                                                
                                                             @endif
 
 
@@ -160,19 +162,19 @@
 
                                                     <div class="modal-body">
                                                         <h5 class="modal-title" id="exampleModalLongTitle">Cor :
-                                                            {{ $c->nome }}
+                                                            {{ $c->cor->nome }}
                                                         </h5>
                                                         <ul class="list-group">
                                                             <li class="list-group-item active" aria-current="true">Tamanhos
                                                             </li>
-                                                            @if (!$c->tamanhos->count())
+                                                            @if (!$c->tamanho->count())
                                                                 <li class="list-group-item" aria-current="true">Nenhum
                                                                     tamanho adicionado para essa cor</li>
                                                             @else
-                                                                @foreach ($c->tamanhos as $t)
+                                                                
                                                                     <li class="list-group-item" aria-current="true">
-                                                                        {{ $t->nome }}</li>
-                                                                @endforeach
+                                                                        {{ $c->tamanho->nome }}</li>
+                                                                
                                                             @endif
 
                                                             <div>

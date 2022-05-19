@@ -40,7 +40,8 @@
                                         <tr>
                                             <th style="width: 70px">Nº</th>
                                             <th>Produto</th>
-                                            <th style="width: 70px">Cor/Tam</th>
+                                            <th style="width: 120px">Cor/Tam</th>
+                                            {{-- <th style="width: 70px">&nbsp;</th> --}}
                                             <th style="width: 70px">&nbsp;</th>
                                             <th style="width: 70px">&nbsp;</th>
                                         </tr>
@@ -64,9 +65,10 @@
                                                         <i class="bi bi-eye-fill"></i>
                                                     </a>
                                                 </td>
-                                                <td id="idcampoEstoqueQuantidade<?php echo $p->id; ?>">
+
+                                                {{-- <td id="idcampoEstoqueQuantidade<?php echo $p->id; ?>">
                                                     {{ $p->estoque }}
-                                                </td>
+                                                </td> --}}
 
                                                 <!-- BOTAO EDITAR ESTOQUE -->
                                                 <td>
@@ -81,7 +83,7 @@
                                                     @csrf
 
                                                     <!--BOTAO ZERAR ESTOQUE -->
-                                                    <td>
+                                                    <td style="width: 70px">
                                                         <a type="submit" class="Dica js-zerar"
                                                             onclick="pega_id_estoque(<?php echo $p->id; ?>)">
                                                             <i class="bi bi-file-excel"></i>
@@ -97,31 +99,27 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle">Tamanhos
-                                                                por cores de
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Estoque de 
                                                                 <b style="color: orangered">{{ $p->nome }}</b>
                                                             </h5>
                                                         </div>
 
                                                         <div class="modal-body">
-                                                            @foreach ($p->cores as $c)
-                                                                <h6>{{ $c->nome }}</h6>
-                                                                @if (!$c->tamanhos->count())
-                                                                    <h6>Nenhum tamanho específicado para essa cor</h6>
-                                                                    @else
-                                                                    @foreach ($c->tamanhos as $t)
-                                                                    <h6>{{ $t->nome }}</h6>
-                                                                @endforeach
-                                                                @endif
-                                                           
+                                                            
+                                                            @foreach ($p->prodTamCors as $prod)
+                                                                   <div class="d-flex">
+                                                                       <h6>{{ $prod->cor->nome }}</h6>
+                                                                       @if (!$prod->tamanho->count())
+                                                                           <h6>Nenhum tamanho específicado para essa cor</h6>
+                                                                       @else                                                                       
+                                                                           <h6> &nbsp; - &nbsp; {{$prod->tamanho->nome}}</h6>                                                                      
+                                                                       @endif
+                                                                       <h6> &nbsp; - &nbsp; {{$prod->estoque->quantidade}}</h6>
+                                                                   </div>                                                                
                                                             @endforeach
-
-
-
-
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                                                            {{-- <button type="submit" class="btn btn-primary">Confirmar</button> --}}
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">
                                                                 Fechar
