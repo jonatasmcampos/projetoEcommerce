@@ -12250,6 +12250,21 @@ svg {
   color: #dc3545;
 }
 
+.lista-estoque {
+  width: 70%;
+}
+
+@media (max-width: 900px) {
+  .lista-estoque {
+    width: 90%;
+  }
+}
+
+.tabela-estoque {
+  background-color: #fff;
+  border-radius: 7px;
+}
+
 .box-config {
   width: 100%;
 }
