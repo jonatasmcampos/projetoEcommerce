@@ -706,6 +706,23 @@ svg {
     background-color: #fff;
     border-radius: 7px;
 }
+
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-footer{
+    & > div{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .btn-editar-fechar{
+        width: fit-content;
+    }
+}
 // -----------------------   ↑↑↑↑↑↑↑ ESTOQUE ↑↑↑↑↑↑↑ -----------------------
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
