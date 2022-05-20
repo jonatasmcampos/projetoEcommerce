@@ -20,9 +20,9 @@
                             <table style="width: 70%;" class="table mx-auto">
                                 <thead class="thead-primary">
                                     <tr>
-                                        <th style="width: 70px;">Cor</th>
+                                        <th style="width: 70px;">Cores</th>
                                         <th style="width: 70px;">Tamanhos</th>
-                                        <th style="width: 70px;">estoques</th>
+                                        <th style="width: 70px;">Estoque</th>
                                         <th style="width: 70px">&nbsp;</th>
                                         <th style="width: 70px">&nbsp;</th>
                                     </tr>
@@ -35,20 +35,11 @@
                                             <td id="idcampoEstoqueQuantidade<?php echo $c->id; ?>">
                                                 {{ $c->cor->nome }}
                                             </td>
-                                            <td>
-                                                {{$c->tamanho->nome}}
-                                                <!-- BOTAO visualiza tamanhos -->
-                                                {{-- <a type="button" class="btn" data-bs-toggle="modal"
-                                                    data-bs-target="#modalVisualizaTamanhos{{ $c->id }}">
-                                                    <i class="bi bi-eye-fill"></i>
-                                                </a> --}}
+                                            <td>                                               
+                                                {{$c->tamanho->nome}}                                               
                                             </td>
                                             <td>
-                                                <!-- BOTAO visualiza Estoque por tamanho -->
-                                                <a type="button" class="btn" data-bs-toggle="modal"
-                                                    data-bs-target="#modalVisualizaEstoqueCor{{ $c->id }}">
-                                                    <i class="bi bi-eye-fill"></i>
-                                                </a>
+                                                {{$c->estoque->quantidade}}                                               
                                             </td>
                                             <td>
                                                 <!-- BOTAO EDITAR ESTOQUE Tamanho -->
@@ -70,84 +61,7 @@
                                                     </a>
                                                 </td>
                                             </form>
-                                        </tr>
-
-                                        <!-- Modal visualiza Tamanhos da cor -->
-                                        <div class="modal fade" id="modalVisualizaTamanhos{{ $c->id }}"
-                                            tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Produto
-                                                            <b style="color: orangered">{{ $produto->nome }}</b>
-                                                        </h5>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Cor :
-                                                            {{ $c->cor->nome }}
-                                                        </h5>
-                                                        <ul class="list-group">
-                                                            <li class="list-group-item active" aria-current="true">Tamanhos
-                                                            </li>
-                                                            @if (!$c->tamanho->count())
-                                                                <li class="list-group-item" aria-current="true">Nenhum
-                                                                    tamanho adicionado para essa cor</li>
-                                                            @else
-                                                                
-                                                                    <li class="list-group-item" aria-current="true">
-                                                                        {{ $c->tamanho->nome }}</li>
-                                                                
-                                                            @endif
-
-
-                                                        </ul>
-                                                    </div>
-                                                    <div class="modal-footer">
-
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            Fechar
-                                                        </button>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Modal visualiza Estoques por tamanhos da cor -->
-                                        <div class="modal fade" id="modalVisualizaEstoqueCor{{ $c->id }}"
-                                            tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Editar
-                                                            estoque de
-                                                            <b style="color: orangered">{{ $produto->nome }}</b>
-                                                        </h5>
-                                                    </div>
-                                                    <form action="{{ route('estoque.update', $produto->id) }}"
-                                                        method="POST">
-                                                        <div class="modal-body">
-                                                            @method('PUT')
-                                                            @csrf
-                                                            <div class="form-group mx-sm-3 mb-2">
-                                                                <input name="quantidade" type="number"
-                                                                    class="form-control" id="inputPassword2"
-                                                                    value="{{ $produto->estoque }}">
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary">Confirmar</button>
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">
-                                                                Fechar
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </tr>                                    
 
                                         <!-- Modal editar  -->
                                         <div class="modal fade" id="modaleditarEstqoueTamanho{{ $c->id }}"

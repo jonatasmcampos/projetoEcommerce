@@ -114,7 +114,7 @@
                                                                         <i class="fa fa-text-height"></i>
                                                                     </button>
                                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
-                                                                        @foreach ($array_tamanho_sem_repetir as $key => $value)
+                                                                        @foreach ($array_r['tamanho'] as $key => $value)
                                                                            <li class="dropdown-item">{{$value}}</li>
                                                                         @endforeach                                                                    
                                                                     </ul>
@@ -127,7 +127,7 @@
                                                                         <i class="fa fa-adjust"></i>
                                                                     </button>
                                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
-                                                                       @foreach ($array_cor_sem_repetir as $key => $value)
+                                                                       @foreach ($array_r['cores'] as $key => $value)
                                                                            <li class="dropdown-item">{{$value}}</li>
                                                                        @endforeach     
                                                                     </ul>

@@ -41,7 +41,6 @@
                                             <th style="width: 70px">Nº</th>
                                             <th>Produto</th>
                                             <th style="width: 120px">Cor/Tam</th>
-                                            {{-- <th style="width: 70px">&nbsp;</th> --}}
                                             <th style="width: 70px">&nbsp;</th>
                                             <th style="width: 70px">&nbsp;</th>
                                         </tr>
@@ -58,6 +57,7 @@
                                                         <span></span>
                                                     </div>
                                                 </td>
+
                                                 <td>
                                                     <!-- BOTAO visualiza tamanhos -->
                                                     <a type="button" class="btn" data-bs-toggle="modal"
@@ -65,10 +65,6 @@
                                                         <i class="bi bi-eye-fill"></i>
                                                     </a>
                                                 </td>
-
-                                                {{-- <td id="idcampoEstoqueQuantidade<?php echo $p->id; ?>">
-                                                    {{ $p->estoque }}
-                                                </td> --}}
 
                                                 <!-- BOTAO EDITAR ESTOQUE -->
                                                 <td>
@@ -91,6 +87,7 @@
                                                         </a>
                                                     </td>
                                                 </form>
+
                                             </tr>
                                             <?php $i++; ?>
                                             <!-- Modal Edita Estoque -->
@@ -104,8 +101,7 @@
                                                             </h5>
                                                         </div>
 
-                                                        <div class="modal-body">
-                                                            
+                                                        <div class="modal-body">                                                            
                                                             @foreach ($p->prodTamCors as $prod)
                                                                    <div class="d-flex">
                                                                        <h6>{{ $prod->cor->nome }}</h6>

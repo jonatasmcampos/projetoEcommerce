@@ -29,22 +29,24 @@ class ProdutoController extends Controller
         $categorias =  Categoria::all();
         $cores =  Cor::all();  
 
-        $array_cor_sem_repetir = $this->retirarItemRepetido($produtos, 'cor');
-        $array_tamanho_sem_repetir = $this->retirarItemRepetido($produtos, 'tamanho');
+        $array_r = $this->retirarItemRepetido($produtos);
 
-        return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias', 'cores','array_cor_sem_repetir','array_tamanho_sem_repetir'));
+        return view('usuarioAdmin.produto.index', compact('produtos', 'tamanhos', 'categorias', 'cores','array_r'));
     }
 
-    public function retirarItemRepetido($produtos, $tipo){       
+    public function retirarItemRepetido($produtos){       
         
         foreach ($produtos as $key => $value) {    
             $f = count($value->prodTamCors);
             foreach ($value->prodTamCors as $key => $valuee) {
-                $coresProduto[$key] = $valuee->$tipo->nome;
+                $dadosProdutos['cores'][$key] = $valuee->cor->nome;
+                $dadosProdutos['tamanho'][$key] = $valuee->tamanho->nome;
             }      
         }
         
-        $array_r = array_unique($coresProduto);         
+        $array_r['cores'] = array_unique($dadosProdutos['cores']); 
+        $array_r['tamanho'] = array_unique($dadosProdutos['tamanho']);     
+        
         return $array_r;
     }
 
