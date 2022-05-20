@@ -41,9 +41,9 @@
                                     <a style="width: 100%" class="btn btn-primary" data-bs-toggle="collapse"
                                         href="#collapseExample<?php echo $prod->id; ?>" role="button" aria-expanded="false"
                                         aria-controls="collapseExample">
-                                        <div>
-                                            {{ $i }}
-                                            {{ $prod->nome }}
+                                        <div class="d-flex">
+                                            <div style="margin-right: 30px">{{ $i }}</div>
+                                            <div>{{ $prod->nome }}</div>
                                         </div>
                                     </a>
                                     <div class="collapse" id="collapseExample<?php echo $prod->id; ?>">
@@ -55,7 +55,7 @@
                                                         <th scope="col">Cor</th>
                                                         <th scope="col">Tamanho</th>
                                                         <th scope="col">Estoque</th>
-                                                        <th scope="col"> --- </th>
+                                                        <th scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 @foreach ($prod->prodTamCors as $produto)
@@ -64,7 +64,7 @@
                                                             <th scope="row">{{ $j }}</th>
                                                             <td>{{ $produto->cor->nome }}</td>
                                                             <td>{{ $produto->tamanho->nome }}</td>
-                                                            <td>{{ $produto->estoque->quantidade }}</td>
+                                                            <td id="idcampoEstoqueQuantidade<?php echo $produto->id?>">{{ $produto->estoque->quantidade }}</td>
                                                             <td>
                                                                 <!-- BOTAO EDITAR ESTOQUE Tamanho -->
                                                                 <a type="button" class="btn"
@@ -91,61 +91,62 @@
                                                                     </h5>
                                                                 </div>
 
-                                                                <div class="modal-body">
-                                                                    <h5 class="modal-title" id="exampleModalLongTitle">
-                                                                        Cor :
-                                                                        {{ $produto->cor->nome }}
-                                                                    </h5>
-                                                                    <ul class="list-group">
-                                                                        <li class="list-group-item active"
-                                                                            aria-current="true">Tamanhos
-                                                                        </li>
+                                                                <form action="{{route('estoque.update', $produto->id)}}" method="POST">
+                                                                    @method('PUT')
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                        <h5 class="modal-title"
+                                                                            id="exampleModalLongTitle">
+                                                                            Cor :
+                                                                            {{ $produto->cor->nome }}
+                                                                        </h5>
+
                                                                         @if (!$produto->tamanho->count())
-                                                                            <li class="list-group-item" aria-current="true">
-                                                                                Nenhum
-                                                                                tamanho adicionado para essa cor</li>
+                                                                            <h5>Nenhum tamanho adicionado para essa cor.
+                                                                            </h5>
                                                                         @else
-                                                                            <li class="list-group-item" aria-current="true">
-                                                                                {{ $produto->tamanho->nome }}</li>
+                                                                            <h5> Tamanho: {{ $produto->tamanho->nome }}
+                                                                            </h5>
                                                                         @endif
 
-                                                                        <div>
+                                                                        <br>
 
+                                                                        <div>
                                                                             <h5 onclick="exibir()" class="my-2 btn-tamanho">
-                                                                                <i class="material-icons">add</i>
                                                                                 <p style="margin: 0 0 0 5px">
-                                                                                    Adicionar tamanho
+                                                                                    Editar estoque
                                                                                 </p>
                                                                             </h5>
 
                                                                             <div id="campoInserir" class="campo-incluir">
                                                                                 <div>
-                                                                                    <input placeholder="Tamanho" required
-                                                                                        name="tamanho" type="text"
+                                                                                    <input placeholder="Quantidade" required
+                                                                                        name="quantidade" type="text"
                                                                                         class="form-control"
                                                                                         id="exampleInputEmail1">
                                                                                 </div>
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary mx-3">Adicionar</button>
                                                                             </div>
 
                                                                         </div>
+                                                                    </div>
 
+                                                                    <div class="modal-footer">                                                                      
 
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary">Confirmar</button>
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">
-                                                                        Fechar
-                                                                    </button>
-                                                                </div>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Editar</button>
 
+                                                                        <button id="fechaModalEstoque<?php echo $produto->id?>" type="submit" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">
+                                                                            Fechar
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                                <a  onclick="pega_id_estoque(<?php echo $produto->id?>)"
+                                                                class="btn btn-primary js-zerar">Zerar estoque</a>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <!-- FIM MODAL -->
                                                 @endforeach
                                             </table>
                                         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estoque;
+use App\Models\ProdTamCor;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -60,7 +61,7 @@ class EstoqueController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -72,9 +73,8 @@ class EstoqueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //  dd($id);
-        Produto::find($id)->update(['estoque' => $request->quantidade]);
-        Session::flash('true', 'Produto Alterado Com Sucesso');
+        ProdTamCor::find($id)->estoque->update(['quantidade' => $request->quantidade]);
+        Session::flash('true', 'Estoque alterado com sucesso!');
         return redirect(route('estoque.index'));
     }
 
@@ -86,8 +86,7 @@ class EstoqueController extends Controller
      */
     public function destroy($id)
     {
-
-        Produto::find($id)->update(['quantidade' => 0]);
+        ProdTamCor::find($id)->estoque->update(['quantidade' => 0]);
         echo json_encode(true);
         return;
     }

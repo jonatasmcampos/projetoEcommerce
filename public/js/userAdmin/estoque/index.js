@@ -1,9 +1,7 @@
 
 function pega_id_estoque(estoque_id) {
     id_estoque = estoque_id
-
 }
-
 
 (function (win, doc) {
     'use strict'
@@ -14,7 +12,7 @@ function pega_id_estoque(estoque_id) {
 
         Swal.fire({
             title: 'Zerar Estoque?',
-            text: "Deseja Realmente Zerar Estoque Deste Produto?",
+            text: "Deseja realmente zerar estoque deste produto?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -22,7 +20,6 @@ function pega_id_estoque(estoque_id) {
             calcelButtonText: 'Sair!',
             confirmButtonText: 'Sim, Zerar!'
         }).then((result) => {
-
             if (result.isConfirmed) {
 
                 $.ajax({
@@ -38,9 +35,9 @@ function pega_id_estoque(estoque_id) {
 
                     if (response === true) {
                         document.getElementById('idcampoEstoqueQuantidade' + id_estoque).innerText = '0'
+                        document.getElementById('fechaModalEstoque' + id_estoque).click()
 
                         Swal.fire({
-
                             icon: 'success',
                             title: 'Estoque Zerado Com Sucesso',
                             showConfirmButton: false,
