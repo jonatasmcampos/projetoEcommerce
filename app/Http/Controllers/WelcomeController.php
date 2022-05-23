@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -11,9 +12,10 @@ class WelcomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('usuario.welcome');
+        $produtos = Produto::with('imagens')->get();
+        return view('usuario.welcome', compact('produtos'));
     }
 
     /**

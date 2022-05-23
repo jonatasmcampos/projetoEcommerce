@@ -115,23 +115,26 @@
             <!-- EXIBIÇÃO DOS PRODUTOS -->
             <div class="exibicaoProdutos">
 
-                <div class="card cardProduto containerImagem">
-                    <img src="{{ asset('img/roupa2.png') }}" class="card-img-top imagemProduto" alt="Imagem do produto">
-                    <div class="middle">
-                        <div class="btnVerProduto">
-                            <a href="{{ route('produto.show', 1) }}">Ver detalhes</a>
+                @foreach ($produtos as $prod)    
+                    <div class="card cardProduto containerImagem">
+                    
+                        <img src="{{ asset( !count($prod->imagens) ? '' : $prod->imagens[0]->nome) }}" class="card-img-top imagemProduto" alt="Imagem do produto">
+                        
+                        <div class="middle">
+                            <div class="btnVerProduto">
+                                <a href="{{ route('produto.show', 1) }}">Ver detalhes</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{$prod->nome}}
+                            </h5>
+                            <div class="card-text precoProduto">
+                                {{$prod->preco}}
+                            </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            Nome do produto
-                        </h5>
-                        <div class="card-text precoProduto">
-                            <h6><s>R$ 15,90</s></h6>
-                            <h6>R$ 15,90</h6>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
             <!-- FIM EXIBIÇÃO DOS PRODUTOS -->
