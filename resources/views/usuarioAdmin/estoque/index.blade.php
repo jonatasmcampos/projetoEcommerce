@@ -38,7 +38,7 @@
                                     $j = 1;
                                 @endphp
                                 <div>
-                                    <a style="width: 100%" class="btn btn-primary" data-bs-toggle="collapse"
+                                    <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary" data-bs-toggle="collapse"
                                         href="#collapseExample<?php echo $prod->id; ?>" role="button" aria-expanded="false"
                                         aria-controls="collapseExample">
                                         <div class="d-flex">

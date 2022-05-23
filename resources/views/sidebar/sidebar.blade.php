@@ -23,14 +23,48 @@
                     Cadastros
                 </a>
 
-                <div class="collapse" id="collapseCadastro">
+                <div class="
+                    collapse 
+                    @if(Request::segment(2) != null && Request::segment(1) != 'mihaConta') show @endif
+
+
+
+                " id="collapseCadastro">
                     <div class="card card-body">
-                        <a class="card-link" href="{{ route('produto.index') }}">Produtos</a>
-                        <a class="card-link" href="{{ route('estoque.index') }}">Estoque</a>
-                        <a class="card-link" href="{{ route('categoria.create') }}">Categorias</a>
-                        <a class="card-link" href="{{ route('cores.index') }}">Cores</a>
-                        <a class="card-link" href="{{ route('tamanho.index') }}">Tamanhos</a>
-                        <a class="card-link" href="{{ route('descontos.index') }}">Descontos</a>
+                        <a class=" 
+                            card-link
+                            @if (Request::segment(2) == 'produto') active @endif "
+                            href="{{ route('produto.index') }}">
+                            Produtos
+                        </a>
+                        <a class="
+                            card-link 
+                            @if (Request::segment(2) == 'estoque') active @endif "
+                            href="{{ route('estoque.index') }}">
+                            Estoque
+                        </a>
+
+                        <a class="card-link
+                        @if (Request::segment(2) == 'categoria') active @endif
+                        "
+                            href="{{ route('categoria.create') }}">Categorias</a>
+
+                        <a class="card-link
+                        @if (Request::segment(2) == 'cores') active @endif
+                        "
+                            href="{{ route('cores.index') }}">Cores</a>
+
+
+                        <a class="card-link
+                        @if (Request::segment(2) == 'tamanho') active @endif
+                        "
+                            href="{{ route('tamanho.index') }}">Tamanhos</a>
+
+
+                        <a class="card-link
+                        @if (Request::segment(2) == 'descontos') active @endif
+                        "
+                            href="{{ route('descontos.index') }}">Descontos</a>
                     </div>
                 </div>
             </li>
@@ -41,10 +75,24 @@
                     Configurações
                 </a>
 
-                <div class="collapse" id="collapseConfig">
+                <div class="
+                    collapse
+                    @if(Request::segment(2) != null && Request::segment(1) != 'home') show @endif
+                " id="collapseConfig">
                     <div class="card card-body">
-                        <a class="card-link" href="{{ route('edit_configuracao') }}">Minha conta</a>
-                        <a class="card-link" href="{{ route('edit_senha') }}">Alterar senha</a>
+                        <a class="
+                            card-link
+                            @if (Request::segment(2) == 'edit-configuracao') active @endif
+                        " href="{{ route('edit_configuracao') }}">
+                            Minha conta
+                        </a>
+                        
+                        <a class="
+                            card-link
+                            @if (Request::segment(2) == 'edit-senha') active @endif
+                        " href="{{ route('edit_senha') }}">
+                            Alterar senha
+                        </a>
                     </div>
                 </div>
             </li>

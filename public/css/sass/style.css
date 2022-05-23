@@ -11742,6 +11742,12 @@ a:hover {
   text-align: center;
 }
 
+.active {
+  background-color: orangered;
+  border-bottom: 1px solid #fff !important;
+  color: #fff !important;
+}
+
 .wrapper {
   width: 100%;
 }
