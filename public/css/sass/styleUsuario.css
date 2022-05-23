@@ -12181,7 +12181,7 @@ header {
 }
 
 .filtros {
-  border: 1px solid black;
+  border: 1px solid #ccc;
   width: 220px;
   min-height: 100vh;
   margin-top: 10px;
@@ -12191,20 +12191,13 @@ header {
   list-style: none;
 }
 
-.filtros ul li {
-  margin-bottom: 5px;
-}
-
-.filtros ul li:hover {
-  color: orangered;
+.filtros ul a:hover {
+  background-color: #ccc;
+  font-weight: bold;
 }
 
 .filtros .lista-titulo {
   margin-top: 5px;
-}
-
-.filtros div {
-  margin: 10px 0 0 10px;
 }
 
 .filtros .card {
@@ -12213,9 +12206,6 @@ header {
 }
 
 .filtros .card-body {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
   border: none;
 }
 

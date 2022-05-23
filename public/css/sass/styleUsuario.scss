@@ -564,7 +564,7 @@ strong {
   }
 }
 .filtros{
-  border: 1px solid black;
+  border: 1px solid #ccc;
   width: 220px;
   min-height: 100vh;
   margin-top: 10px;
@@ -572,18 +572,13 @@ strong {
   ul{
     list-style: none;
 
-    li{
-      margin-bottom: 5px;
-      &:hover{
-        color: $cor-primaria;
-      }
+    a:hover{
+      background-color: #ccc;
+      font-weight: bold;
     }
   }
   .lista-titulo{
       margin-top: 5px; 
-  }
-  div{
-    margin: 10px 0 0 10px;
   }
 
   .card{
@@ -591,11 +586,8 @@ strong {
     padding:0;
   }
   .card-body{
-    width: fit-content;
     border: none;
   }
-  
-
 }
 
 @media(max-width: 900px){

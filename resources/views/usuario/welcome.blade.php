@@ -10,25 +10,26 @@
             <h5 style="margin-left: 35%; margin-top: 10px; margin-bottom: 10px">Filtros</h5>
             <hr>
             <!-- CATEGORIAS -->
-            <div>
-                <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            <div style="width: 100%">
+                
+                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
                     aria-controls="collapseExample">
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i> Categorias
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Categorias
                 </a>
 
                 <div class="collapse show" id="collapseExample">
                     <div class="card card-body">
-                        <ul>
-                            <a href="#">
+                        <ul class="list-group">
+                            <a href="#" class="list-group-item">
                                 <li>Camisas</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>Calças</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>Bermudas</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>Sapatos</li>
                             </a>
                         </ul>
@@ -37,25 +38,25 @@
             </div>
 
             <!-- CORES -->
-            <div>
-                <a data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false"
+            <div style="width: 100%">
+                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false"
                     aria-controls="collapseExample">
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i> Cores
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Cores
                 </a>
 
                 <div class="collapse show" id="collapseExample1">
                     <div class="card card-body">
-                        <ul>
-                            <a href="#">
+                        <ul class="list-group">
+                            <a href="#" class="list-group-item">
                                 <li>Cinza</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>Branco</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>Preta</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>Amarelo</li>
                             </a>
                         </ul>
@@ -64,28 +65,28 @@
             </div>
 
             <!-- TAMANHOS -->
-            <div>
-                <a data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
+            <div style="width: 100%">
+                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
                     aria-controls="collapseExample">
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i> Tamanhos
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Tamanhos
                 </a>
 
                 <div class="collapse show" id="collapseExample2">
                     <div class="card card-body">
-                        <ul>
-                            <a href="#">
+                        <ul class="list-group">
+                            <a href="#" class="list-group-item">
                                 <li>PP</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>P</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>M</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>G</li>
                             </a>
-                            <a href="#">
+                            <a href="#" class="list-group-item">
                                 <li>GG</li>
                             </a>
                         </ul>
@@ -152,28 +153,30 @@
                         <div class="modal-body">
                             <!-- FILTROS -->
                             <aside class="filtros" style="display: block; width: 100%">
-                                
+                                <h5 style="margin-left: 35%; margin-top: 10px; margin-bottom: 10px">Filtros</h5>
                                 <hr>
                                 <!-- CATEGORIAS -->
-                                <div>
-                                    <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                                        aria-controls="collapseExample">
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> Categorias
+                                <div style="width: 100%">
+
+                                    <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por"
+                                        data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Categorias
                                     </a>
 
                                     <div class="collapse show" id="collapseExample">
                                         <div class="card card-body">
-                                            <ul>
-                                                <a href="#">
+                                            <ul class="list-group">
+                                                <a href="#" class="list-group-item">
                                                     <li>Camisas</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>Calças</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>Bermudas</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>Sapatos</li>
                                                 </a>
                                             </ul>
@@ -182,25 +185,26 @@
                                 </div>
 
                                 <!-- CORES -->
-                                <div>
-                                    <a data-bs-toggle="collapse" href="#collapseExample1" role="button"
+                                <div style="width: 100%">
+                                    <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por"
+                                        data-bs-toggle="collapse" href="#collapseExample1" role="button"
                                         aria-expanded="false" aria-controls="collapseExample">
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> Cores
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Cores
                                     </a>
 
                                     <div class="collapse show" id="collapseExample1">
                                         <div class="card card-body">
-                                            <ul>
-                                                <a href="#">
+                                            <ul class="list-group">
+                                                <a href="#" class="list-group-item">
                                                     <li>Cinza</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>Branco</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>Preta</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>Amarelo</li>
                                                 </a>
                                             </ul>
@@ -209,28 +213,29 @@
                                 </div>
 
                                 <!-- TAMANHOS -->
-                                <div>
-                                    <a data-bs-toggle="collapse" href="#collapseExample2" role="button"
+                                <div style="width: 100%">
+                                    <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por"
+                                        data-bs-toggle="collapse" href="#collapseExample2" role="button"
                                         aria-expanded="false" aria-controls="collapseExample">
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> Tamanhos
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Tamanhos
                                     </a>
 
                                     <div class="collapse show" id="collapseExample2">
                                         <div class="card card-body">
-                                            <ul>
-                                                <a href="#">
+                                            <ul class="list-group">
+                                                <a href="#" class="list-group-item">
                                                     <li>PP</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>P</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>M</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>G</li>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" class="list-group-item">
                                                     <li>GG</li>
                                                 </a>
                                             </ul>
