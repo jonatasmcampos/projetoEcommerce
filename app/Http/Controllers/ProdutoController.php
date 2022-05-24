@@ -35,17 +35,16 @@ class ProdutoController extends Controller
     }
 
     public function retirarItemRepetido($produtos){       
-        
+        $dadosProdutos = [];
         foreach ($produtos as $key => $value) {    
-            $f = count($value->prodTamCors);
-            foreach ($value->prodTamCors as $key => $valuee) {
-                $dadosProdutos['cores'][$key] = $valuee->cor->nome;
-                $dadosProdutos['tamanho'][$key] = $valuee->tamanho->nome;
+
+            foreach ($value->prodTamCors as $keyy => $valuee) {
+                $dadosProdutos[$value->id]['cores'][] = $valuee->cor->nome;
+                $dadosProdutos[$value->id]['tamanho'][] = $valuee->tamanho->nome;
             }      
+            $array_r[$value->id]['cores'] = array_unique($dadosProdutos[$value->id]['cores']); 
+            $array_r[$value->id]['tamanho'] = array_unique($dadosProdutos[$value->id]['tamanho']);     
         }
-        
-        $array_r['cores'] = array_unique($dadosProdutos['cores']); 
-        $array_r['tamanho'] = array_unique($dadosProdutos['tamanho']);     
         
         return $array_r;
     }

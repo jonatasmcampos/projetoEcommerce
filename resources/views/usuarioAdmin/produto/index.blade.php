@@ -85,7 +85,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($produtos as $p)
+                                                    @foreach ($produtos as $key => $p)
                                                         <tr class="alert" role="alert">
                                                             <td>
                                                                 <span>{{ $i }}</span>
@@ -114,7 +114,8 @@
                                                                         <i class="fa fa-text-height"></i>
                                                                     </button>
                                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
-                                                                        @foreach ($array_r['tamanho'] as $key => $value)
+                                                                        
+                                                                        @foreach ($array_r[$p->id]['tamanho'] as $key => $value)
                                                                            <li class="dropdown-item">{{$value}}</li>
                                                                         @endforeach                                                                    
                                                                     </ul>
@@ -127,7 +128,7 @@
                                                                         <i class="fa fa-adjust"></i>
                                                                     </button>
                                                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
-                                                                       @foreach ($array_r['cores'] as $key => $value)
+                                                                       @foreach ($array_r[$p->id]['cores'] as $key => $value)
                                                                            <li class="dropdown-item">{{$value}}</li>
                                                                        @endforeach     
                                                                     </ul>
