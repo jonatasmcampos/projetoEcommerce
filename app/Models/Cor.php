@@ -20,7 +20,7 @@ class Cor extends Model
 
     public function prodTamCors()
     {
-        return $this->hasMany('App\Models\Cor');
+        return $this->hasMany('App\Models\ProdTamCor');
     }
     
     public function tamanhos()

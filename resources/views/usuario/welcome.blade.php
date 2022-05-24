@@ -11,27 +11,23 @@
             <hr>
             <!-- CATEGORIAS -->
             <div style="width: 100%">
-                
-                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
+
+                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse"
+                    href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Categorias
                 </a>
 
                 <div class="collapse show" id="collapseExample">
                     <div class="card card-body">
                         <ul class="list-group">
-                            <a href="#" class="list-group-item">
-                                <li>Camisas</li>
+                            <a href="{{ route('usuariohome', 'todoscat') }}" class="list-group-item">
+                                <li>TODOS</li>
                             </a>
-                            <a href="#" class="list-group-item">
-                                <li>Calças</li>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <li>Bermudas</li>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <li>Sapatos</li>
-                            </a>
+                            @foreach ($categorias as $cat)
+                                <a href="{{ route('usuariohome', $cat->id) }}" class="list-group-item">
+                                    <li>{{ $cat->nome }}</li>
+                                </a>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -39,26 +35,22 @@
 
             <!-- CORES -->
             <div style="width: 100%">
-                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
+                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse"
+                    href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                     <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Cores
                 </a>
 
                 <div class="collapse show" id="collapseExample1">
                     <div class="card card-body">
                         <ul class="list-group">
-                            <a href="#" class="list-group-item">
-                                <li>Cinza</li>
+                            <a href="{{ route('usuariohome', 'todos') }}" class="list-group-item">
+                                <li>TODOS</li>
                             </a>
-                            <a href="#" class="list-group-item">
-                                <li>Branco</li>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <li>Preta</li>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <li>Amarelo</li>
-                            </a>
+                            @foreach ($cores as $cor)
+                                <a href="#" class="list-group-item">
+                                    <li>{{ $cor->nome }}</li>
+                                </a>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -66,29 +58,22 @@
 
             <!-- TAMANHOS -->
             <div style="width: 100%">
-                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
-                    aria-controls="collapseExample">
+                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse"
+                    href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
                     <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Tamanhos
                 </a>
 
                 <div class="collapse show" id="collapseExample2">
                     <div class="card card-body">
                         <ul class="list-group">
-                            <a href="#" class="list-group-item">
-                                <li>PP</li>
+                            <a href="{{ route('usuariohome', 'todos') }}" class="list-group-item">
+                                <li>TODOS</li>
                             </a>
-                            <a href="#" class="list-group-item">
-                                <li>P</li>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <li>M</li>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <li>G</li>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <li>GG</li>
-                            </a>
+                            @foreach ($tamanhos as $t)
+                                <a href="#" class="list-group-item">
+                                    <li>{{ $t->nome }}</li>
+                                </a>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -97,7 +82,7 @@
 
         <!-- CONTEUDO FILTRADO -->
         <section class="conteudoFiltrado">
-            
+
             <!-- BOTAO DO MODAL PRA EXIBIR FILTROS NO MOBILE -->
             <button type="button" class="btn btn-primary btn-filtrar" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Filtros
@@ -116,22 +101,22 @@
             <!-- EXIBIÇÃO DOS PRODUTOS -->
             <div class="exibicaoProdutos">
 
-                @foreach ($produtos as $prod)    
+                @foreach ($produtos as $prod)
                     <div class="card cardProduto containerImagem">
-                    
-                        <img src="{{ asset( !count($prod->imagens) ? '' : $prod->imagens[0]->nome) }}" class="card-img-top imagemProduto" alt="Imagem do produto">
-                        
+                        <img src="{{ asset(!count($prod->imagens) ? '' : $prod->imagens[0]->nome) }}"
+                            class="card-img-top imagemProduto" alt="Imagem do produto">
+
                         <div class="middle">
                             <div class="btnVerProduto">
-                                <a href="{{ route('produto.show', 1) }}">Ver detalhes</a>
+                                <a href="{{ route('produto.show', $prod->id) }}">Ver detalhes</a>
                             </div>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">
-                                {{$prod->nome}}
+                                {{ $prod->nome }}
                             </h5>
                             <div class="card-text precoProduto">
-                                {{$prod->preco}}
+                                {{ $prod->preco }}
                             </div>
                         </div>
                     </div>
@@ -167,18 +152,11 @@
                                     <div class="collapse show" id="collapseExample">
                                         <div class="card card-body">
                                             <ul class="list-group">
-                                                <a href="#" class="list-group-item">
-                                                    <li>Camisas</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>Calças</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>Bermudas</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>Sapatos</li>
-                                                </a>
+                                                @foreach ($categorias as $cat)
+                                                    <a href="{{ route('usuariohome', $cat->id) }}" class="list-group-item">
+                                                        <li>{{ $cat->nome }}</li>
+                                                    </a>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -195,18 +173,11 @@
                                     <div class="collapse show" id="collapseExample1">
                                         <div class="card card-body">
                                             <ul class="list-group">
-                                                <a href="#" class="list-group-item">
-                                                    <li>Cinza</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>Branco</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>Preta</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>Amarelo</li>
-                                                </a>
+                                                @foreach ($cores as $cor)
+                                                    <a href="{{ route('usuariohome', $cat->id) }}" class="list-group-item">
+                                                        <li>{{ $cor->nome }}</li>
+                                                    </a>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -223,21 +194,11 @@
                                     <div class="collapse show" id="collapseExample2">
                                         <div class="card card-body">
                                             <ul class="list-group">
-                                                <a href="#" class="list-group-item">
-                                                    <li>PP</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>P</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>M</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>G</li>
-                                                </a>
-                                                <a href="#" class="list-group-item">
-                                                    <li>GG</li>
-                                                </a>
+                                                @foreach ($tamanhos as $t)
+                                                    <a href="{{ route('usuariohome', $cat->id) }}" class="list-group-item">
+                                                        <li>{{ $t->nome }}</li>
+                                                    </a>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -245,8 +206,8 @@
                             </aside>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                             <button type="button" class="btn btn-primary">Filtrar </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         </div>
                     </div>
                 </div>

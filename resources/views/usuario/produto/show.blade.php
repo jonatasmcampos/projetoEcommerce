@@ -25,22 +25,22 @@
 
         <!-- INFO PARA COMPRA DO PRODUTO -->
         <div class="infoCompra">
-            <h2>Nome do produto</h2>
-            <h6>10 disponiveis</h6>
+            
+            <h2>{{$produto->nome}}</h2>
+            
             <!-- PREÇO DO PRODUTO -->
             <div class="precoProdutos">
-                <h5 style="margin-right: 30px"><s>R$ 24,90</s></h5>
-                <h5>R$ 15,90</h5>
+                {{-- <h5 style="margin-right: 30px"><s>R$ 24,90</s></h5> --}}
+                <h5>R$ {{$produto->preco}}</h5>
             </div>
 
             <!--ESCOLHER TAMANHO -->
             <div class="tamanhos">
                 <h6>Tamanhos</h6>
                 <div class="tamanhosProdutos">
-                    <span>PP</span>
-                    <span>M</span>
-                    <span>G</span>
-                    <span>GG</span>
+                    @foreach ($tamCor['tamanhos'] as $t)
+                        <span>{{$t->nome}}</span>
+                    @endforeach
                 </div>
             </div>
 
@@ -48,10 +48,9 @@
             <div class="cores">
                 <h6>Cores</h6>
                 <div class="coresProdutos">
-                    <span>Branco</span>
-                    <span>Azul</span>
-                    <span>Preto</span>
-                    <span>Amarelo</span>
+                    @foreach ($tamCor['cores'] as $t)
+                        <span>{{$t->nome}}</span>
+                    @endforeach
                 </div>
             </div>
 

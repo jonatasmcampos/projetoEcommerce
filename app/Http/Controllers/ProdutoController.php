@@ -112,7 +112,20 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        return view('usuario.produto.show');
+        $produto = Produto::with('prodTamCors')->find($id);
+
+        $tamCor = [];
+
+        foreach ($produto->prodTamCors as $key => $value) {
+            $tamCor['tamanhos'][] = $value->tamanho_id;
+            $tamCor['cores'][] = $value->cor_id;
+        }
+
+        $tamCor['tamanhos'] = Tamanho::whereIn('id', $tamCor['tamanhos'])->get();
+        $tamCor['cores'] = Cor::whereIn('id', $tamCor['cores'])->get();
+        
+
+        return view('usuario.produto.show', compact('produto', 'tamCor'));
     }
 
     /**

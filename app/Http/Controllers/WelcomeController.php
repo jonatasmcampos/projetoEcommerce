@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
+use App\Models\Cor;
 use App\Models\Produto;
+use App\Models\Tamanho;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -12,10 +15,17 @@ class WelcomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index($id = null)
     {
-        $produtos = Produto::with('imagens')->get();
-        return view('usuario.welcome', compact('produtos'));
+        // dd($id);
+        $produtos = Produto::with('imagens')->where('categoria_id', $id)->get();
+        if($id == 'todoscat'){
+            $produtos = Produto::with('imagens')->get();
+        }
+        $categorias = Categoria::all();
+        $cores = Cor::all();
+        $tamanhos = Tamanho::all();
+        return view('usuario.welcome', compact('produtos','categorias','cores','tamanhos'));
     }
 
     /**

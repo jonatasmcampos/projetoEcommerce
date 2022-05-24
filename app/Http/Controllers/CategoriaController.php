@@ -38,7 +38,7 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        Categoria::create($request->all());
+        Categoria::create(['nome' => strtoupper($request->nome)]);
 
         return redirect(route('categoria.create'));
     }
