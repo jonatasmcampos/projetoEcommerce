@@ -8,7 +8,7 @@
 
     <br>
     <h1 class="titulo">Produtos</h1>
-
+    
     <div class="page mx-auto">
 
         <!-- tabs -->
@@ -21,14 +21,14 @@
             <label for="tab2"><i class="fa fa-bookmark" aria-hidden="true"></i>Cadastrar produto</label>
 
             <!--
-                                                                                <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-                                                                                <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
+                <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+                <label for="tab3"><i class="icon-cogs"></i>Einstein</label>
 
-                                                                                <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
-                                                                                <label for="tab5"><i class="icon-globe"></i>Newton</label>
-                                                                            -->
+                <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+                <label for="tab5"><i class="icon-globe"></i>Newton</label>
+            -->
 
-            <ul style="min-height: 75vh;">
+            <ul style="min-height: 85vh;">
                 <li class="tab-content tab-content-first typography">
 
                     @if (!$produtos->count())
@@ -66,7 +66,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div style="padding:0;" class="col-12">
-                                        <div class="table-wrap" style="height: 45vh">
+                                        <div class="table-wrap" style="height: 73vh;">
                                             <table class="table">
                                                 <thead class="thead-primary">
                                                     <tr>
@@ -110,27 +110,35 @@
                                                             <!-- TAMANHOS -->
                                                             <td>
                                                                 <div class="dropdown">
-                                                                    <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    <button class="btn" type="button"
+                                                                        id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                                        aria-expanded="false">
                                                                         <i class="fa fa-text-height"></i>
                                                                     </button>
-                                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
-                                                                        
+                                                                    <ul class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButton1">
+
                                                                         @foreach ($array_r[$p->id]['tamanho'] as $key => $value)
-                                                                           <li class="dropdown-item">{{$value}}</li>
-                                                                        @endforeach                                                                    
+                                                                            <li class="dropdown-item">{{ $value }}
+                                                                            </li>
+                                                                        @endforeach
                                                                     </ul>
-                                                                  </div>
+                                                                </div>
                                                             </td>
 
                                                             <td class="quantity">
                                                                 <div class="dropdown">
-                                                                    <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                    <button class="btn" type="button"
+                                                                        id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                                        aria-expanded="false">
                                                                         <i class="fa fa-adjust"></i>
                                                                     </button>
-                                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> 
-                                                                       @foreach ($array_r[$p->id]['cores'] as $key => $value)
-                                                                           <li class="dropdown-item">{{$value}}</li>
-                                                                       @endforeach     
+                                                                    <ul class="dropdown-menu"
+                                                                        aria-labelledby="dropdownMenuButton1">
+                                                                        @foreach ($array_r[$p->id]['cores'] as $key => $value)
+                                                                            <li class="dropdown-item">{{ $value }}
+                                                                            </li>
+                                                                        @endforeach
                                                                     </ul>
                                                                 </div>
                                                             </td>

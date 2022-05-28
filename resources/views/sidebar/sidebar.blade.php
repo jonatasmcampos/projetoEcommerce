@@ -110,10 +110,8 @@
     </nav>
 
     <!-- CONTEUDO DO ECOMMERCE AQUI -->
-    <div id="content">
-
+    <div id="content" style="margin-left: 30px">
         @yield('content')
-
     </div>
 
 </aside>

@@ -9,42 +9,48 @@ body {
     background: #ddd !important;
 }
 
-.sombra{
+.sombra {
     box-shadow: 0px 0px 5px black !important;
 }
-.titulo{
-    margin-left: 40%;
+
+.titulo {
+    position: absolute;
+    top: 10px;
+    right: 30px;
     letter-spacing: 3px;
 }
 
-i{
+i {
     font-size: 16px !important;
 }
 
-.btn-primary{
+.btn-primary {
     background-color: orangered !important;
-    border: 1px solid #707070 !important; 
+    border: 1px solid #707070 !important;
     color: #fff !important;
-    &:hover{
+
+    &:hover {
         color: #fff !important;
-        background-color:rgba(255, 69, 0, 0.7) !important;
+        background-color: rgba(255, 69, 0, 0.7) !important;
     }
 }
 
-a{
+a {
     text-decoration: none !important;
     color: #000 !important;
-    &:hover{
+
+    &:hover {
         color: orangered !important;
     }
 }
 
-.bg-table{
-    background-color: #fff; 
+.bg-table {
+    background-color: #fff;
     border-radius: 7px;
     padding: 20px 0;
-    width:92%;
+    width: 92%;
 }
+
 // -----------------------   ↑↑↑↑↑↑↑ PADRÃO ↑↑↑↑↑↑↑ -----------------------
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -219,7 +225,7 @@ a{
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // -----------------------   ↓↓↓↓↓↓ SIDEBAR ↓↓↓↓↓↓ -----------------------
-.active{
+.active {
     background-color: orangered;
     border-bottom: 1px solid #fff !important;
     color: #fff !important;
@@ -233,7 +239,7 @@ a{
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
-    max-width: 200vh;   
+    max-width: 200vh;
     background: #32373d;
     color: #fff;
     transition: all 0.3s;
@@ -342,7 +348,7 @@ a{
     }
 
     #sidebar .custom-menu {
-        margin-right: -60px !important;
+        margin-right: -35px !important;
         top: 10px !important;
     }
 }
@@ -396,42 +402,54 @@ svg {
     overflow: hidden;
     vertical-align: middle;
 }
+
 .img {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center; }
+    background-position: center center;
+}
 
 .bg-wrap {
     width: 100%;
     position: relative;
-    z-index: 0; }
-    .bg-wrap:after {
-      z-index: -1;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      content: '';
-      background: #000;
-      opacity: .3; }
-    .bg-wrap .user-logo .img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin: 0 auto;
-      margin-bottom: 10px; }
-    .bg-wrap .user-logo h3 {
-      color: #fff;
-      font-size: 18px; }
+    z-index: 0;
+}
+
+.bg-wrap:after {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: #000;
+    opacity: .3;
+}
+
+.bg-wrap .user-logo .img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.bg-wrap .user-logo h3 {
+    color: #fff;
+    font-size: 18px;
+}
 
 .card-link:hover {
     text-decoration: none;
     background-color: orangered !important;
 }
-.card-link + .card-link {
-    margin-left: 0 !important; }
-.card{
+
+.card-link+.card-link {
+    margin-left: 0 !important;
+}
+
+.card {
     background-color: #707070 !important;
 }
 
@@ -441,7 +459,8 @@ svg {
     min-height: 100vh;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
-    transition: all 0.3s; }
+    transition: all 0.3s;
+}
 
 // -----------------------   ↑↑↑↑↑↑↑ SIDEBAR ↑↑↑↑↑↑↑ -----------------------
 
@@ -449,20 +468,23 @@ svg {
 
 
 // -----------------------   ↓↓↓↓↓↓ PRODUTOS ↓↓↓↓↓↓ -----------------------
-.input-group{
+.input-group {
     justify-content: center;
     margin: 10px 0;
 }
-.btn-buscar{
+
+.btn-buscar {
     height: 40px;
     border-radius: 7px;
 }
-.btn-excluir{    
-    &:hover{
+
+.btn-excluir {
+    &:hover {
         color: orangered !important;
     }
 }
-.input-buscar{
+
+.input-buscar {
     outline: 0;
     width: 80%;
     height: 40px;
@@ -484,12 +506,13 @@ svg {
         margin-bottom: 7px;
     }
 
-    .etapa1{
-       width: 97%;
-       display: flex !important;
-       flex-wrap: wrap !important;
+    .etapa1 {
+        width: 97%;
+        display: flex !important;
+        flex-wrap: wrap !important;
     }
-    .etapa2{
+
+    .etapa2 {
         width: fit-content;
     }
 }
@@ -521,7 +544,8 @@ svg {
         width: 80px;
     }
 }
-.custo{
+
+.custo {
     span {
         width: 45px;
         background-color: orangered;
@@ -537,7 +561,7 @@ svg {
     }
 }
 
-.lucro{
+.lucro {
     span {
         width: 45px;
         background-color: orangered;
@@ -587,23 +611,28 @@ svg {
 .categoria {
     height: fit-content;
     margin: 0 10px;
-    label{
-        margin-bottom: 8px; 
+
+    label {
+        margin-bottom: 8px;
     }
 }
-.tamanho{
+
+.tamanho {
     height: fit-content;
     margin: 0 10px;
     width: fit-content;
-    label{
-        margin-bottom: 8px; 
+
+    label {
+        margin-bottom: 8px;
     }
 }
-.cor{
+
+.cor {
     width: fit-content;
     height: fit-content;
-    label{
-        margin-bottom: 8px; 
+
+    label {
+        margin-bottom: 8px;
     }
 }
 
@@ -634,12 +663,12 @@ svg {
 
 .table-wrap {
     overflow-x: scroll;
-    min-height: 63vh;
+    min-height: 75vh;
 }
 
 .table {
-    min-width: 1000px !important;
-    width: 100%;
+    min-width: 960px !important;
+    width: 70%;
     background: #fff;
 }
 
@@ -699,48 +728,124 @@ svg {
 
 // -----------------------   ↓↓↓↓↓↓↓↓ ESTOQUE  ↓↓↓↓↓↓↓↓ -----------------------
 
-.lista-estoque{
+.lista-estoque {
     width: 70%;
 }
-@media(max-width: 900px){
-    .lista-estoque{
+
+@media(max-width: 900px) {
+    .lista-estoque {
         width: 90%;
     }
 }
-.tabela-estoque{
+
+.tabela-estoque {
     background-color: #fff;
     border-radius: 7px;
 }
 
-.modal-body{
+.tabela-head {
+    border-bottom: 1px solid black;
+
+    th {
+        padding: 5px 10px !important;
+    }
+}
+
+.tabela-body {
+
+    border-bottom: 1px solid black;
+    
+    td{
+        padding: 5px 10px !important;
+    }
+
+    &:hover {
+        border-top: 3px solid orangered;
+        border-bottom: 3px solid orangered;
+    }
+
+    &:nth-child( 2n ) {
+        background-color: #F2F2F2;
+    }
+
+}
+
+.modal-body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.modal-footer{
-    & > div{
+.modal-footer {
+    &>div {
         display: flex;
         justify-content: space-between;
         width: 100%;
     }
-    .btn-editar-fechar{
+
+    .btn-editar-fechar {
         width: fit-content;
     }
 }
+
 // -----------------------   ↑↑↑↑↑↑↑ ESTOQUE ↑↑↑↑↑↑↑ -----------------------
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+// -----------------------   ↓↓↓↓↓↓↓↓ CATEGORIA  ↓↓↓↓↓↓↓↓ -----------------------
+
+.section-categoria{
+    padding: 10px; 
+    width: 70% !important;
+}
+@media (max-width: 900px){
+    .section-categoria{
+        width: 95% !important;
+    }
+}
+
+.add-categoria{
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+.tb-categoria{
+
+    border-radius: 7px !important;
+
+    thead{
+        background-color: orangered;
+        th{
+            padding: 10px;
+        }
+    }
+
+    td{
+        padding: 5px 10px;
+    }
+    
+    tr{
+        border-bottom: 1px solid black !important;
+        &:nth-child( 2n ) {
+            background-color: #F2F2F2;
+        }
+    }
+}
+
+// -----------------------   ↑↑↑↑↑↑↑ CATEGORIA ↑↑↑↑↑↑↑ -----------------------
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 // -----------------------   ↓↓↓↓↓↓↓↓ MINHA CONTA  ↓↓↓↓↓↓↓↓ -----------------------
-.box-config{
+.box-config {
     width: 100%;
-    button{
+
+    button {
         margin: 0 20px;
     }
 }
 
-.input-config{
+.input-config {
     width: 70%;
     outline: 0;
     padding: 5px 15px;
@@ -749,64 +854,68 @@ svg {
     border-radius: 7px;
 }
 
-.input-group-text{
+.input-group-text {
     background-color: orangered;
     color: white;
     border-radius: 7px;
 }
 
-.box-form-config{
+.box-form-config {
     width: 50%;
 }
-@media(max-width: 900px){
-    .box-form-config{
+
+@media(max-width: 900px) {
+    .box-form-config {
         width: 90%;
     }
 }
+
 // -----------------------   ↑↑↑↑↑↑↑ MINHA CONTA ↑↑↑↑↑↑↑ -----------------------
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // -----------------------   ↓↓↓↓↓↓↓↓ SENHA  ↓↓↓↓↓↓↓↓ -----------------------
 
-.box-config-senha{
+.box-config-senha {
     background-color: #fff;
     padding: 20px;
     width: 100%;
     border-radius: 7px;
 }
 
-.box-btn-senha{
+.box-btn-senha {
     display: flex;
     justify-content: end;
-    button{
+
+    button {
         margin-right: 20px;
         margin-bottom: 10px;
     }
 }
-.box-inputSenha{
+
+.box-inputSenha {
     width: fit-content;
     display: flex;
     flex-direction: column;
 
-    span{
+    span {
         width: fit-content;
     }
 
-    div{
+    div {
         display: flex;
     }
 }
 
-@media(max-width:900px){
-    .box-inputSenha{    
-        div{
+@media(max-width:900px) {
+    .box-inputSenha {
+        div {
             flex-direction: column
         }
     }
 }
 
-.input-config-senha{
+.input-config-senha {
     padding: 5px 15px;
     outline: 0;
     border-radius: 7px;

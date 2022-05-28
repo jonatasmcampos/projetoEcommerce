@@ -24,8 +24,8 @@ use App\Models\Desconto;
 */
 
 Auth::routes();
-Route::get('/{id?}', [App\Http\Controllers\WelcomeController::class, 'index'])->name('usuariohome');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/{id?}', [App\Http\Controllers\WelcomeController::class, 'index'])->name('usuariohome');
 
 //Rotas para categoria
 
