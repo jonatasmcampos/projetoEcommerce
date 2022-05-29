@@ -12,69 +12,99 @@
             <!-- LISTA DAS FOTOS -->
             <div class="listaFotos">
                 <img src="{{ asset('img/roupa1.png') }}" alt="Foto do produto">
-                <img src="{{ asset('img/roupa1.png') }}" alt="Foto do produto">
-                <img src="{{ asset('img/roupa1.png') }}" alt="Foto do produto">
-                <img src="{{ asset('img/roupa1.png') }}" alt="Foto do produto">
-                <img src="{{ asset('img/roupa1.png') }}" alt="Foto do produto">
+                <img src="{{ asset('img/roupa2.png') }}" alt="Foto do produto">
+                <img src="{{ asset('img/roupa3.png') }}" alt="Foto do produto">
             </div>
             <!-- FOTO GRANDE -->
             <div class="fotoGrande">
-                <img src="{{ asset('img/roupa1.png') }}" alt="Foto do produto">
+                {{-- <img src="{{ asset('img/roupa1.png') }}" alt="Foto do produto"> --}}
+
+                <div class="slide-foto-produto">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ asset('img/roupa1.png') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('img/roupa2.png') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('img/roupa3.png') }}" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
 
         <!-- INFO PARA COMPRA DO PRODUTO -->
         <div class="infoCompra">
-            
-            <h2>{{$produto->nome}}</h2>
-            
+
+            <h2>{{ $produto->nome }}</h2>
+
             <!-- PREÇO DO PRODUTO -->
             <div class="precoProdutos">
                 {{-- <h5 style="margin-right: 30px"><s>R$ 24,90</s></h5> --}}
-                <h5>R$ {{$produto->preco}}</h5>
+                <h5>R$ {{ $produto->preco }}</h5>
             </div>
 
             <!--ESCOLHER TAMANHO -->
-            <div class="tamanhos">
+            <div class="flex-f">
                 <h6>Tamanhos</h6>
                 <div class="tamanhosProdutos">
                     @foreach ($tamCor['tamanhos'] as $t)
-                        <span>{{$t->nome}}</span>
+                        <span>{{ $t->nome }}</span>
                     @endforeach
                 </div>
             </div>
 
             <!--ESCOLHER CORES -->
-            <div class="cores">
+            <div class="flex-f">
                 <h6>Cores</h6>
                 <div class="coresProdutos">
                     @foreach ($tamCor['cores'] as $t)
-                        <span>{{$t->nome}}</span>
+                        <span>{{ $t->nome }}</span>
                     @endforeach
                 </div>
             </div>
 
             <!-- QUANTIDADE -->
-            <div>
+            <div class="flex-f">
                 <h6>Quantidade</h6>
-                <div class="input-group mb-3" style="width: 140px">
+                <div class="input-group mx-2" style="width: 140px">
                     <span class="input-group-text">-</span>
-                    <input type="text" class="form-control text-center" value="0" aria-label="Amount (to the nearest dollar)">
+                    <input type="text" class="form-control text-center" value="0"
+                        aria-label="Amount (to the nearest dollar)">
                     <span class="input-group-text">+</span>
                 </div>
             </div>
 
             <!-- BOTAO DE COMPRA -->
-            <div class="botoes">
-                <button type="button" class="btn btn-primary">
-                    <i class="fa fa-money-bill-alt"></i>
-                    Comprar
-                </button>
-                <button type="button" class="btn btn-primary">
-                     <i class="fa fa-cart-plus"></i> 
-                     Adicionar ao carrinho
-                </button>
-            </div>
+
+            <button type="button" class="btn btn-primary btn-compra">
+                <i class="fa fa-money-bill-alt"></i>
+                Comprar
+            </button>
+
 
         </div>
     </div>
