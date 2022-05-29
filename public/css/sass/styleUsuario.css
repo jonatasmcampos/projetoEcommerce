@@ -11843,6 +11843,9 @@ header {
   margin: 0 auto;
   max-width: 1300px;
   width: 100%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: orangered;
 }
 
 .nav-container .nav-row {
@@ -11873,6 +11876,7 @@ header {
 }
 
 .nav-container .nav-row .nav-row-list .nav-row-list-link {
+  color: #FFF !important;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -12023,7 +12027,7 @@ header {
 }
 
 .nav-container .all-category-list-item:hover a {
-  color: #fff !important;
+  color: #FFF !important;
 }
 
 .nav-container .all-category-list-item:hover .category-second-list {
@@ -12141,6 +12145,18 @@ header {
   width: 90%;
 }
 
+.filtrar-por {
+  width: 100%;
+  margin-bottom: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #eee;
+}
+
 .conteudoPrincipal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12181,7 +12197,6 @@ header {
 }
 
 .filtros {
-  border: 1px solid #ccc;
   width: 220px;
   min-height: 100vh;
   margin-top: 10px;
@@ -12191,8 +12206,8 @@ header {
   list-style: none;
 }
 
-.filtros ul a:hover {
-  background-color: #ccc;
+.filtros ul li:hover {
+  color: #ccc;
   font-weight: bold;
 }
 

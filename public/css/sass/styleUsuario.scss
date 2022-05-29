@@ -189,17 +189,21 @@ strong {
     // nav mobile
     .nav-content{
 
+      
+
       ul {
         list-style: none;
         padding: 0;
       }
       // list nav
       .nav-content-list{
+        
         align-items: center;
         display: flex;
         justify-content: space-between;
         padding: 0 15px;
         .nav-content-item {
+          
           align-items: center;
           display: flex;
           height: 40px;
@@ -308,6 +312,10 @@ strong {
     margin: 0 auto;
     max-width: 1300px;
     width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: orangered;
+    
     
      // ul list category featured
     .nav-row {
@@ -325,6 +333,7 @@ strong {
       .nav-row-list {
         flex: auto;
         .nav-row-list-link {
+          color: #FFF !important;
           align-items: center;
           display: flex;
           height: 40px;
@@ -427,6 +436,7 @@ strong {
       top: 24px;
       width: 300px;
       z-index: 90;
+      
       @media(max-width: 991px) {
         min-width: 100%;
   
@@ -434,12 +444,13 @@ strong {
     }
     // items primary categories
      .all-category-list-item {
+
         &:hover {
           display: block;
           background: $cor-primaria;
   
           a{
-            color: #fff !important;
+            color: #FFF !important;
           }
           .category-second-list {
             left: 100%;
@@ -462,6 +473,7 @@ strong {
         justify-content: space-between;
         padding: 15px;
         transition: 100ms all linear 0s;
+        
   
       }
     // container cateory all
@@ -538,6 +550,13 @@ strong {
   margin: 10px 0;
   width: 90%;
 }
+.filtrar-por{
+  width: 100%; 
+  margin-bottom: 7px; 
+  display: flex; 
+  align-items:center;
+  background-color: #eee;
+}
 .conteudoPrincipal{
   display: flex;
 }
@@ -564,7 +583,6 @@ strong {
   }
 }
 .filtros{
-  border: 1px solid #ccc;
   width: 220px;
   min-height: 100vh;
   margin-top: 10px;
@@ -572,8 +590,8 @@ strong {
   ul{
     list-style: none;
 
-    a:hover{
-      background-color: #ccc;
+    li:hover{
+      color: #ccc;
       font-weight: bold;
     }
   }

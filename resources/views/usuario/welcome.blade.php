@@ -3,76 +3,93 @@
     @include('usuario.navbar.navbar')
 
     <!-- CONTEUDO PRINCIPAL DO SITE -->
-    <main class="conteudoPrincipal">
+    <main class="conteudoPrincipal" style="padding: 0 25px">
 
         <!-- FILTROS -->
         <aside class="filtros">
-            <h5 style="margin-left: 35%; margin-top: 10px; margin-bottom: 10px">Filtros</h5>
-            <hr>
+
             <!-- CATEGORIAS -->
             <div style="width: 100%">
 
-                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse"
+                <a class="btn filtrar-por" data-bs-toggle="collapse"
                     href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Categorias
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    <p style="margin: 0 0 0 10px; padding: 0">
+                        Categorias
+                    </p>
                 </a>
 
                 <div class="collapse show" id="collapseExample">
                     <div class="card card-body">
-                        <ul class="list-group">
-                            <a href="{{ route('usuariohome', 'todoscat') }}" class="list-group-item">
-                                <li>TODOS</li>
-                            </a>
+                        <ul>
                             @foreach ($categorias as $cat)
-                                <a href="{{ route('usuariohome', $cat->id) }}" class="list-group-item">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{ $cat->nome }}
+                                    </label>
+                                </li>
+                                {{-- <a href="{{ route('usuariohome', $cat->id) }}">
                                     <li>{{ $cat->nome }}</li>
-                                </a>
+                                </a> --}}
                             @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
-
+            <hr>
             <!-- CORES -->
             <div style="width: 100%">
-                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse"
+                <a class="btn filtrar-por" data-bs-toggle="collapse"
                     href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Cores
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    <p style="margin: 0 0 0 10px; padding: 0">
+                        Cores
+                    </p>
                 </a>
 
                 <div class="collapse show" id="collapseExample1">
                     <div class="card card-body">
-                        <ul class="list-group">
-                            <a href="{{ route('usuariohome', 'todos') }}" class="list-group-item">
-                                <li>TODOS</li>
-                            </a>
+                        <ul>
                             @foreach ($cores as $cor)
-                                <a href="#" class="list-group-item">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{ $cor->nome }}
+                                    </label>
+                                </li>
+                                {{-- <a href="#">
                                     <li>{{ $cor->nome }}</li>
-                                </a>
+                                </a> --}}
                             @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
-
+            <hr>
             <!-- TAMANHOS -->
             <div style="width: 100%">
-                <a style="width: 100%; margin-bottom: 7px" class="btn btn-primary filtrar-por" data-bs-toggle="collapse"
+                <a class="btn filtrar-por" data-bs-toggle="collapse"
                     href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i> &nbsp; Tamanhos
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    <p style="margin: 0 0 0 10px; padding: 0">
+                        Tamanhos
+                    </p>
                 </a>
 
                 <div class="collapse show" id="collapseExample2">
                     <div class="card card-body">
-                        <ul class="list-group">
-                            <a href="{{ route('usuariohome', 'todos') }}" class="list-group-item">
-                                <li>TODOS</li>
-                            </a>
+                        <ul>
                             @foreach ($tamanhos as $t)
-                                <a href="#" class="list-group-item">
+                                <li class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        {{ $t->nome }}
+                                    </label>
+                                </li>
+                                {{-- <a href="#">
                                     <li>{{ $t->nome }}</li>
-                                </a>
+                                </a> --}}
                             @endforeach
                         </ul>
                     </div>
@@ -153,7 +170,8 @@
                                         <div class="card card-body">
                                             <ul class="list-group">
                                                 @foreach ($categorias as $cat)
-                                                    <a href="{{ route('usuariohome', $cat->id) }}" class="list-group-item">
+                                                    <a href="{{ route('usuariohome', $cat->id) }}"
+                                                        class="list-group-item">
                                                         <li>{{ $cat->nome }}</li>
                                                     </a>
                                                 @endforeach
@@ -174,7 +192,8 @@
                                         <div class="card card-body">
                                             <ul class="list-group">
                                                 @foreach ($cores as $cor)
-                                                    <a href="{{ route('usuariohome', $cat->id) }}" class="list-group-item">
+                                                    <a href="{{ route('usuariohome', $cat->id) }}"
+                                                        class="list-group-item">
                                                         <li>{{ $cor->nome }}</li>
                                                     </a>
                                                 @endforeach
@@ -195,7 +214,8 @@
                                         <div class="card card-body">
                                             <ul class="list-group">
                                                 @foreach ($tamanhos as $t)
-                                                    <a href="{{ route('usuariohome', $cat->id) }}" class="list-group-item">
+                                                    <a href="{{ route('usuariohome', $cat->id) }}"
+                                                        class="list-group-item">
                                                         <li>{{ $t->nome }}</li>
                                                     </a>
                                                 @endforeach
