@@ -51,6 +51,46 @@ a {
     width: 92%;
 }
 
+.section-all{
+    padding: 10px; 
+    width: 70% !important;
+}
+@media (max-width: 900px){
+    .section-all{
+        width: 95% !important;
+    }
+}
+
+.add-all{
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+.tb-all{
+
+    border-radius: 7px !important;
+
+    thead{
+        background-color: orangered;
+        th{
+            padding: 10px !important;
+            color: #FFF;
+            font-weight: 500;
+        }
+    }
+
+    td{
+        padding: 5px 10px !important;
+    }
+    
+    tr{
+        border-bottom: 1px solid black !important;
+        &:nth-child( 2n ) {
+            background-color: #dadada;
+        }
+    }
+}
+
 // -----------------------   ↑↑↑↑↑↑↑ PADRÃO ↑↑↑↑↑↑↑ -----------------------
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -765,7 +805,7 @@ svg {
     }
 
     &:nth-child( 2n ) {
-        background-color: #F2F2F2;
+        background-color: #dadada;
     }
 
 }
@@ -789,50 +829,6 @@ svg {
 }
 
 // -----------------------   ↑↑↑↑↑↑↑ ESTOQUE ↑↑↑↑↑↑↑ -----------------------
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// -----------------------   ↓↓↓↓↓↓↓↓ CATEGORIA  ↓↓↓↓↓↓↓↓ -----------------------
-
-.section-categoria{
-    padding: 10px; 
-    width: 70% !important;
-}
-@media (max-width: 900px){
-    .section-categoria{
-        width: 95% !important;
-    }
-}
-
-.add-categoria{
-    margin-left: 30px;
-    margin-bottom: 5px;
-}
-
-.tb-categoria{
-
-    border-radius: 7px !important;
-
-    thead{
-        background-color: orangered;
-        th{
-            padding: 10px;
-        }
-    }
-
-    td{
-        padding: 5px 10px;
-    }
-    
-    tr{
-        border-bottom: 1px solid black !important;
-        &:nth-child( 2n ) {
-            background-color: #F2F2F2;
-        }
-    }
-}
-
-// -----------------------   ↑↑↑↑↑↑↑ CATEGORIA ↑↑↑↑↑↑↑ -----------------------
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -923,3 +919,11 @@ svg {
 }
 
 // -----------------------   ↑↑↑↑↑↑↑ SENHA ↑↑↑↑↑↑↑ -----------------------
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// -----------------------   ↓↓↓↓↓↓↓↓ HOME  ↓↓↓↓↓↓↓↓ -----------------------
+
+
+
+// -----------------------   ↑↑↑↑↑↑↑ HOME ↑↑↑↑↑↑↑ -----------------------

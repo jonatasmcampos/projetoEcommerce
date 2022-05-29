@@ -11550,6 +11550,48 @@ a:hover {
   width: 92%;
 }
 
+.section-all {
+  padding: 10px;
+  width: 70% !important;
+}
+
+@media (max-width: 900px) {
+  .section-all {
+    width: 95% !important;
+  }
+}
+
+.add-all {
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+
+.tb-all {
+  border-radius: 7px !important;
+}
+
+.tb-all thead {
+  background-color: orangered;
+}
+
+.tb-all thead th {
+  padding: 10px !important;
+  color: #FFF;
+  font-weight: 500;
+}
+
+.tb-all td {
+  padding: 5px 10px !important;
+}
+
+.tb-all tr {
+  border-bottom: 1px solid black !important;
+}
+
+.tb-all tr:nth-child(2n) {
+  background-color: #dadada;
+}
+
 .box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12295,7 +12337,7 @@ svg {
 }
 
 .tabela-body:nth-child(2n) {
-  background-color: #F2F2F2;
+  background-color: #dadada;
 }
 
 .modal-body {
@@ -12325,46 +12367,6 @@ svg {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-
-.section-categoria {
-  padding: 10px;
-  width: 70% !important;
-}
-
-@media (max-width: 900px) {
-  .section-categoria {
-    width: 95% !important;
-  }
-}
-
-.add-categoria {
-  margin-left: 30px;
-  margin-bottom: 5px;
-}
-
-.tb-categoria {
-  border-radius: 7px !important;
-}
-
-.tb-categoria thead {
-  background-color: orangered;
-}
-
-.tb-categoria thead th {
-  padding: 10px;
-}
-
-.tb-categoria td {
-  padding: 5px 10px;
-}
-
-.tb-categoria tr {
-  border-bottom: 1px solid black !important;
-}
-
-.tb-categoria tr:nth-child(2n) {
-  background-color: #F2F2F2;
 }
 
 .box-config {

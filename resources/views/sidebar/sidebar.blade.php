@@ -13,8 +13,10 @@
             </div>
         </div>
         <ul class="list-unstyled components mb-5">
-            <li class="active">
-                <a href="{{ route('home') }}"><span class="fa fa-home mr-3"></span> Dashboard</a>
+            <li>
+                <a
+                class="@if (Request::segment(1) == 'home') active @endif"
+                href="{{ route('home') }}"><span class="fa fa-home mr-3"></span> Dashboard</a>
             </li>
             <li>
                 <a href="#" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCadastro"

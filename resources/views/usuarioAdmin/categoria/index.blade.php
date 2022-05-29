@@ -36,9 +36,9 @@
             </div>
         </div>
 
-        <div class="section-categoria mx-auto">
+        <div class="section-all mx-auto">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary add-categoria" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary add-all" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa fa-plus-square"></i>
                 Adicionar categoria
             </button>
@@ -46,7 +46,7 @@
             <section class="ftco-section bg-table mx-auto" style="padding: 10px">
                 <div class="container">
                     <div class="row">
-                        <table class="table-info tb-categoria">
+                        <table class="table-info tb-all">
                             <thead>
                                 <tr>
                                     <th scope="col">Nº</th>
