@@ -12485,7 +12485,7 @@ header {
 }
 
 .infoCompra .tamanhosProdutos span:hover {
-  border: 2px solid black;
+  border: 2px solid orangered;
 }
 
 .infoCompra .coresProdutos {
@@ -12505,7 +12505,7 @@ header {
 }
 
 .infoCompra .coresProdutos span:hover {
-  border: 2px solid black;
+  border: 2px solid orangered;
 }
 
 .infoCompra .btn-compra {

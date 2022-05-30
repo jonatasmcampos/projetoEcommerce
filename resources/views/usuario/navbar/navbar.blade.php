@@ -27,8 +27,8 @@
                             <input class="input-menu" id="open-menu-login-account" type="checkbox" name="menu" />
                             <span class="login-text">
                                 @if (Auth::user())
-                                    <a class="btn dropdown-toggle" href="#" role="button"
-                                    id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-user-circle"></i> &nbsp; {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -71,37 +71,11 @@
                     </span>
 
                     <ul class="all-category-list">
-                        <li class="all-category-list-item"><a href="https://www.cupcom.com.br/"
-                                class="all-category-list-link">Smartphones<i class="fas fa-angle-right"></i></a>
-                            <div class="category-second-list">
-                                <ul class="category-second-list-ul">
-                                    <li class="category-second-item"><a href="https://www.cupcom.com.br/">Iphone 10</a>
-                                    </li>
-                                    <li class="category-second-item"><a href="https://www.cupcom.com.br/">Galaxy Note
-                                            10</a></li>
-                                    <li class="category-second-item"><a href="https://www.cupcom.com.br/">Motorola One
-                                        </a></li>
-                                    <li class="category-second-item"><a href="https://www.cupcom.com.br/">Galaxy A80
-                                        </a></li>
-                                    <li class="category-second-item"><a href="https://www.cupcom.com.br/">Galaxy M </a>
-                                    </li>
-                                    <li class="category-second-item"><a href="https://www.cupcom.com.br/">Huaway P30
-                                        </a></li>
-                                </ul>
 
-                                <div class="img-product-menu"><img src="https://i.ibb.co/Vvndkmy/banner.jpg"></div>
-                            </div>
-                        </li>
-                        <li class="all-category-list-item"><a href="https://www.cupcom.com.br/"
-                                class="all-category-list-link">Furniture <i class="fas fa-angle-right"></i></a></li>
-                        <li class="all-category-list-item"><a href="https://www.cupcom.com.br/"
-                                class="all-category-list-link">Toys<i class="fas fa-angle-right"></i></a></li>
-                        <li class="all-category-list-item"><a href="https://www.cupcom.com.br/"
-                                class="all-category-list-link">Computing<i class="fas fa-angle-right"></i></a></li>
-                        <li class="all-category-list-item"><a href="https://www.cupcom.com.br/"
-                                class="all-category-list-link">Games<i class="fas fa-angle-right"></i></a></li>
-                        <li class="all-category-list-item"><a href="" class="all-category-list-link">Automotive<i
-                                    class="fas fa-angle-right"></i></a></li>
+                        @foreach ($categorias as $cat)
+                            <li class="nav-row-list all-category-list-item"><a href="https://www.cupcom.com.br/"
+                                    class="nav-row-list-link all-category-list-link">{{ $cat->nome }}</a></li>
+                        @endforeach
 
                     </ul>
                 </label>
@@ -109,18 +83,12 @@
             </nav>
             <nav class="featured-category">
                 <ul class="nav-row">
-                    <li class="nav-row-list"><a href="https://www.cupcom.com.br/"
-                            class="nav-row-list-link">Smartphones</a></li>
-                    <li class="nav-row-list"><a href="https://www.cupcom.com.br/"
-                            class="nav-row-list-link">furniture</a></li>
-                    <li class="nav-row-list"><a href="https://www.cupcom.com.br/" class="nav-row-list-link">Toys</a>
-                    </li>
-                    <li class="nav-row-list"><a href="https://www.cupcom.com.br/"
-                            class="nav-row-list-link">Computing</a></li>
-                    <li class="nav-row-list"><a href="https://www.cupcom.com.br/" class="nav-row-list-link">Games</a>
-                    </li>
-                    <li class="nav-row-list"><a href="https://www.cupcom.com.br/"
-                            class="nav-row-list-link">Automotive</a></li>
+                    
+                    @foreach ($categorias as $cat)
+                        <li class="nav-row-list"><a href="https://www.cupcom.com.br/"
+                                class="nav-row-list-link">{{ $cat->nome }}</a></li>
+                    @endforeach
+
                 </ul>
             </nav>
         </div>
