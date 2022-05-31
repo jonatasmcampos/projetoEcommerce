@@ -51,12 +51,14 @@
                             <span class="item-arrow"></span>
                         </label>
                     </li>
+                    <!-- CARRINHO -->
                     <li class="nav-content-item">
-                        <a class="nav-content-link carrinho" href="#carrinho">
+                        <a id="abrir-carrinho" class="nav-content-link" href="#carrinho">
                             <i class="fas fa-shopping-cart"></i>
                             <span class="quantidade">0</span>
                         </a>
                     </li>
+                    <!-- FIM CARRINHO -->
                 </ul>
             </nav>
         </div>

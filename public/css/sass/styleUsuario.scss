@@ -380,6 +380,7 @@ header {
 
         &:hover {
           background: #e1e1e1;
+          color: #000 !important; 
           width: 100%;
         }
       }
@@ -595,13 +596,13 @@ header {
   font-size: 28px;
 }
 
-.carrinho {
+
   .quantidade {
     margin-left: 1px;
     border-radius: 27px;
     padding: 5px;
   }
-}
+
 
 .dropdown-item {
   &:active {
@@ -953,6 +954,94 @@ header {
 // ------------------------------ ↑↑↑↑↑↑↑ PAGINA INDIVIDUAL DO PRODUTO ↑↑↑↑↑↑↑ ------------------------------
 
 // ********************************************************************************************
+
+// ------------------------------ ↓↓↓↓↓↓↓ ITEMS DO CARRINHO ↓↓↓↓↓↓↓ ------------------------------
+
+.top-right{
+  position: absolute;
+  top: 0;
+  right:0;
+}
+
+.fechar-carrinho{
+  display: block !important;
+}
+
+.carrinho{
+  display: none;
+  position: fixed;
+  min-height: 100vh;
+  width: 40%;
+  border: 1px solid orangered;        
+  z-index: 90000;
+  background-color: #FFF;
+
+  h6{
+    font-size:14px;
+  }
+
+  .fechar{
+    font-size:30px;
+  }
+}
+@media (max-width: 900px){
+  .carrinho{
+    width: 100% !important;
+  }
+}
+
+.item-carrinho{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #ccc;
+  margin-bottom: 7px;
+  padding: 7px 15px;
+
+  img{
+    height: 100px;
+    margin-right: 15px;
+  }
+}
+
+.item-carrinho-2{
+  width: 100%;
+  span{
+    color: #a9a9a9;
+  }
+}
+.carrinho-preco{
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+@media (max-width: 900px){
+  .carrinho-preco{
+    width: 100% !important;
+  }
+}
+.finalizar-compra{
+  border-top: 1px solid orangered;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+
+  button{
+    width: 200px;
+  }
+}
+
+a:hover{
+  color: orangered !important;
+}
+
+// ------------------------------ ↑↑↑↑↑↑↑ ITEMS DO CARRINHO ↑↑↑↑↑↑↑ ------------------------------
+
 // ********************************************************************************************
 // ********************************************************************************************
 // ********************************************************************************************

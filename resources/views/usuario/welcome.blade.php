@@ -1,6 +1,7 @@
 @extends('estrutura')
 @section('conteudo')
-    @include('usuario.navbar.navbar')
+    @include('usuario.navbar.navbar') <!-- INCLUINDO A VIEW DE NAVBAR -->
+    @include('usuario.carrinho.carrinho') <!-- INCLUINDO A VIEW DE CARRINHO -->
 
     <!-- CONTEUDO PRINCIPAL DO SITE -->
     <main class="conteudoPrincipal" style="padding: 0 25px">
