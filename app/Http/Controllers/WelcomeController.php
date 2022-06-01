@@ -19,9 +19,6 @@ class WelcomeController extends Controller
     {
         // dd($id);
         $produtos = Produto::with('imagens')->where('categoria_id', $id)->get();
-        if($id == 'todoscat'){
-            $produtos = Produto::with('imagens')->get();
-        }
         $categorias = Categoria::all();
         $cores = Cor::all();
         $tamanhos = Tamanho::all();

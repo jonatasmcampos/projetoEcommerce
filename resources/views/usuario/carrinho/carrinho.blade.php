@@ -30,6 +30,90 @@
             </div>
         </div>
     </div>
+
+    <div class="item-carrinho">
+        <img src="{{ asset('img/roupa1.png') }}" alt="produto">
+        <div class="item-carrinho-2">
+            <h5>Nome do produto</h5>
+            <h6><span>Cor:</span> &nbsp; CINZA</h6>
+            <h6><span>Tamanho:</span> &nbsp; G</h6>
+            <h6><span>Quantidade:</span> &nbsp; 2</h6>
+            <div class="carrinho-preco">
+                <h6><span>Unitário:</span> &nbsp; R$ 15,9</h6>
+                <h6><span>Total:</span> &nbsp; R$ 31,8</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-carrinho">
+        <img src="{{ asset('img/roupa1.png') }}" alt="produto">
+        <div class="item-carrinho-2">
+            <h5>Nome do produto</h5>
+            <h6><span>Cor:</span> &nbsp; CINZA</h6>
+            <h6><span>Tamanho:</span> &nbsp; G</h6>
+            <h6><span>Quantidade:</span> &nbsp; 2</h6>
+            <div class="carrinho-preco">
+                <h6><span>Unitário:</span> &nbsp; R$ 15,9</h6>
+                <h6><span>Total:</span> &nbsp; R$ 31,8</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-carrinho">
+        <img src="{{ asset('img/roupa1.png') }}" alt="produto">
+        <div class="item-carrinho-2">
+            <h5>Nome do produto</h5>
+            <h6><span>Cor:</span> &nbsp; CINZA</h6>
+            <h6><span>Tamanho:</span> &nbsp; G</h6>
+            <h6><span>Quantidade:</span> &nbsp; 2</h6>
+            <div class="carrinho-preco">
+                <h6><span>Unitário:</span> &nbsp; R$ 15,9</h6>
+                <h6><span>Total:</span> &nbsp; R$ 31,8</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-carrinho">
+        <img src="{{ asset('img/roupa1.png') }}" alt="produto">
+        <div class="item-carrinho-2">
+            <h5>Nome do produto</h5>
+            <h6><span>Cor:</span> &nbsp; CINZA</h6>
+            <h6><span>Tamanho:</span> &nbsp; G</h6>
+            <h6><span>Quantidade:</span> &nbsp; 2</h6>
+            <div class="carrinho-preco">
+                <h6><span>Unitário:</span> &nbsp; R$ 15,9</h6>
+                <h6><span>Total:</span> &nbsp; R$ 31,8</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-carrinho">
+        <img src="{{ asset('img/roupa1.png') }}" alt="produto">
+        <div class="item-carrinho-2">
+            <h5>Nome do produto</h5>
+            <h6><span>Cor:</span> &nbsp; CINZA</h6>
+            <h6><span>Tamanho:</span> &nbsp; G</h6>
+            <h6><span>Quantidade:</span> &nbsp; 2</h6>
+            <div class="carrinho-preco">
+                <h6><span>Unitário:</span> &nbsp; R$ 15,9</h6>
+                <h6><span>Total:</span> &nbsp; R$ 31,8</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-carrinho">
+        <img src="{{ asset('img/roupa1.png') }}" alt="produto">
+        <div class="item-carrinho-2">
+            <h5>Nome do produto</h5>
+            <h6><span>Cor:</span> &nbsp; CINZA</h6>
+            <h6><span>Tamanho:</span> &nbsp; G</h6>
+            <h6><span>Quantidade:</span> &nbsp; 2</h6>
+            <div class="carrinho-preco">
+                <h6><span>Unitário:</span> &nbsp; R$ 15,9</h6>
+                <h6><span>Total:</span> &nbsp; R$ 31,8</h6>
+            </div>
+        </div>
+    </div>
     <!-- endforeach -->
 
     <!-- BOTOES -->
