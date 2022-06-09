@@ -19,6 +19,9 @@ class WelcomeController extends Controller
      */
     public function index(Request $request, $id = null)
     {
+        $boxes['cat'][] = '';
+        $boxes['cor'][] = '';
+        $boxes['tam'][] = '';
 
         if ($request->cat) {
             $idsProd = [];
@@ -50,6 +53,7 @@ class WelcomeController extends Controller
             $boxes = $this->sessionCheckBoxes($request->cat, $request->cor, $request->tam, $checkboxes);
         } else {
             $produtos = Produto::with('imagens')->get();
+        
         }
 
         $categorias = Categoria::all();
