@@ -11,9 +11,10 @@
         <div class="produtoFotos">
             <!-- LISTA DAS FOTOS -->
             <div class="listaFotos">
-                <img src="{{ asset('img/roupa1.png') }}" alt="Foto do produto">
-                <img src="{{ asset('img/roupa2.png') }}" alt="Foto do produto">
-                <img src="{{ asset('img/roupa3.png') }}" alt="Foto do produto">
+       
+                @foreach ($produto->imagens as $img)
+                    <img src="{{ asset($img->nome) }}" alt="Foto do produto">
+                @endforeach
             </div>
             <!-- FOTO GRANDE -->
             <div class="fotoGrande">
@@ -30,15 +31,23 @@
                                 aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-inner">
+                            {{-- @foreach ($produto->imagens as $img)
+                                <div class="carousel-item">
+                                    <img src="{{ asset($img->nome) }}" class="d-block w-100" alt="...">
+                                </div>
+                            @endforeach --}}
                             <div class="carousel-item active">
-                                <img src="{{ asset('img/roupa1.png') }}" class="d-block w-100" alt="...">
+                                <img src="{{ asset($produto->imagens[0]->nome) }}" class="d-block w-100" alt="...">
                             </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('img/roupa2.png') }}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('img/roupa3.png') }}" class="d-block w-100" alt="...">
-                            </div>
+                            @foreach ($produto->imagens as $img)
+                                @if ($produto->imagens[0]->nome == $img->nome)
+                                @else
+                                <div class="carousel-item">
+                                    <img src="{{ asset($img->nome) }}" class="d-block w-100" alt="...">
+                                </div>
+                                @endif
+                         
+                            @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                             data-bs-slide="prev">
