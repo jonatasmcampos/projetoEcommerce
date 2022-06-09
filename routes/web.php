@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\CorController;
 use App\Http\Controllers\DescontoController;
 use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\FinalizaCompraController;
 use App\Http\Controllers\MinhaContaController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\TamanhoController;
@@ -58,3 +59,5 @@ Route::resource('/home/cores', CorController::class);
 
 //desconto
 Route::resource('/home/descontos', DescontoController::class);
+
+Route::resource('/home/finaliza-compra', FinalizaCompraController::class);
