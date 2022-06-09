@@ -12546,7 +12546,6 @@ header {
 
 .carrinho {
   display: none;
-  position: fixed;
   min-height: 100vh;
   width: 40%;
   border: 1px solid orangered;

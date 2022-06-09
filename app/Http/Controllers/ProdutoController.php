@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use App\Models\Cor;
-use App\Models\Estoque;
 use App\Models\Imagem;
 use App\Models\ProdTamCor;
 use App\Models\Produto;
@@ -13,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Session;
-use PhpParser\Node\Expr\Cast\String_;
+
 
 class ProdutoController extends Controller
 {
@@ -36,6 +35,7 @@ class ProdutoController extends Controller
 
     public function retirarItemRepetido($produtos){       
         $dadosProdutos = [];
+        $array_r = [];
         foreach ($produtos as $key => $value) {    
 
             foreach ($value->prodTamCors as $keyy => $valuee) {
@@ -113,7 +113,7 @@ class ProdutoController extends Controller
     public function show($id)
     {
         $produto = Produto::with('prodTamCors')->find($id);
-
+        $categorias = Categoria::all();
         $tamCor = [];
 
         foreach ($produto->prodTamCors as $key => $value) {
@@ -125,7 +125,7 @@ class ProdutoController extends Controller
         $tamCor['cores'] = Cor::whereIn('id', $tamCor['cores'])->get();
         
 
-        return view('usuario.produto.show', compact('produto', 'tamCor'));
+        return view('usuario.produto.show', compact('produto', 'tamCor', 'categorias'));
     }
 
     /**
@@ -263,7 +263,7 @@ class ProdutoController extends Controller
 
             //recupera imagem para redimencionar
             $img = Image::make('storage/imageProduto/' . $produto->id . '/' . $nameImage);
-            $img->resize(300, 300, function ($constraint) {
+            $img->resize(400, 500, function ($constraint) {
                 $constraint->aspectRatio();
             })->save();
         }

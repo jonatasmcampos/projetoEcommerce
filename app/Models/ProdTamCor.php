@@ -18,7 +18,7 @@ class ProdTamCor extends Model
 
     public function produto()
     {
-        return $this->hasMany('App\Models\Produto');
+        return $this->hasOne('App\Models\Produto', 'id', 'produto_id');
     }
 
     public function tamanho()

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use App\Models\Cor;
+use App\Models\ProdTamCor;
 use App\Models\Produto;
 use App\Models\Tamanho;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class WelcomeController extends Controller
 {
@@ -15,17 +17,65 @@ class WelcomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null)
+    public function index(Request $request, $id = null)
     {
-        // dd($id);
-        $produtos = Produto::with('imagens')->where('categoria_id', $id)->get();
-        if($id == 'todoscat'){
+
+        if ($request->cat) {
+            $idsProd = [];
+            $checkboxes = [];
+            $produtos = Produto::where('categoria_id', $request->cat)->get('id');
+
+            foreach ($produtos as $p) {
+                $prod[] = $p->id;
+                foreach ($p->prodTamCors as $ptc) {
+                    $tam[] = $ptc->tamanho_id;
+
+                    $cor[] = $ptc->cor_id;
+                }
+            }
+
+            $prodTamCor = ProdTamCor::with('produto')->whereIn('produto_id', $prod)->WhereIn('tamanho_id', is_array($request->tam) ? $request->tam : $tam)
+                ->WhereIn('cor_id', is_array($request->cor) ? $request->cor : $cor)->get('produto_id');
+
+            foreach ($prodTamCor as $key => $value) {
+                $idsProd[] = $value->produto_id;
+            }
+            if ($request->orderSelected == 1) {
+                $produtos =  Produto::whereIn('id', $idsProd)->orderBy('preco', 'asc')->get();
+            } elseif ($request->orderSelected == 2) {
+                $produtos =  Produto::whereIn('id', $idsProd)->orderBy('preco', 'desc')->get();
+            } else {
+                $produtos =  Produto::whereIn('id', $idsProd)->get();
+            }
+            $boxes = $this->sessionCheckBoxes($request->cat, $request->cor, $request->tam, $checkboxes);
+        } else {
             $produtos = Produto::with('imagens')->get();
         }
+
         $categorias = Categoria::all();
         $cores = Cor::all();
         $tamanhos = Tamanho::all();
-        return view('usuario.welcome', compact('produtos','categorias','cores','tamanhos'));
+
+        return view('usuario.welcome', compact('produtos', 'categorias', 'cores', 'tamanhos', 'boxes'));
+    }
+
+    public function sessionCheckBoxes($cat, $cor = null, $tam = null, $checkboxes)
+    {
+
+        $checkboxes['cat'][] = $cat;
+        if ($cor) {
+
+            foreach ($cor as $c) {
+                $checkboxes['cor'][] = $c;
+            }
+        }
+        if ($tam) {
+            foreach ($tam as $t) {
+                $checkboxes['tam'][] = $t;
+            }
+        }
+
+        return $checkboxes;
     }
 
     /**
