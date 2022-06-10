@@ -53,7 +53,6 @@ class WelcomeController extends Controller
             $boxes = $this->sessionCheckBoxes($request->cat, $request->cor, $request->tam, $checkboxes);
         } else {
             $produtos = Produto::with('imagens')->get();
-        
         }
 
         $categorias = Categoria::all();
@@ -63,20 +62,28 @@ class WelcomeController extends Controller
         return view('usuario.welcome', compact('produtos', 'categorias', 'cores', 'tamanhos', 'boxes'));
     }
 
-    public function sessionCheckBoxes($cat, $cor = null, $tam = null, $checkboxes)
+    public function sessionCheckBoxes($categoria, $cor = null, $tam = null, $checkboxes)
     {
 
-        $checkboxes['cat'][] = $cat;
+        if ($categoria) {
+            $checkboxes['cat'][] = $categoria;
+        } else {
+            $checkboxes['cat'][] = '';
+        }
         if ($cor) {
 
             foreach ($cor as $c) {
                 $checkboxes['cor'][] = $c;
             }
+        } else {
+            $checkboxes['cor'][] = '';
         }
         if ($tam) {
             foreach ($tam as $t) {
                 $checkboxes['tam'][] = $t;
             }
+        } else {
+            $checkboxes['tam'][] = '';
         }
 
         return $checkboxes;
