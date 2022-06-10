@@ -55,7 +55,7 @@
                     <li class="nav-content-item">
                         <a id="abrir-carrinho" class="nav-content-link" href="#carrinho">
                             <i class="fas fa-shopping-cart"></i>
-                            <span class="quantidade">0</span>
+                            <span class="quantidade">{{dd(carrinho_itens())}}</span>
                         </a>
                     </li>
                     <!-- FIM CARRINHO -->
